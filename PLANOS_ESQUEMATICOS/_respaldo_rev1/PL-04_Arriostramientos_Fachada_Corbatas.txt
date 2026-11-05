@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+    
+    <!-- MARCO EXTERIOR Y REJILLA CAD -->
+    <rect x="0" y="0" width="1600" height="1000" fill="#0b192c" />
+    <rect x="25" y="25" width="1550" height="950" fill="#071626" stroke="#00f0ff" stroke-width="2" />
+    <rect x="30" y="30" width="1540" height="940" fill="none" stroke="#1d436a" stroke-width="1" />
+    
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0e2a4a" stroke-width="0.5" />
+        </pattern>
+        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#48cae4" />
+        </marker>
+        <marker id="arrow-yellow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#ffd166" />
+        </marker>
+        <marker id="arrow-cyan" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#00f0ff" />
+        </marker>
+    </defs>
+    <rect x="30" y="30" width="1540" height="940" fill="url(#grid)" />
+    
+    
+    <text x="50" y="58" fill="#00f0ff" font-family="'Segoe UI', sans-serif" font-size="17" font-weight="bold">PL-04: SISTEMA DE ARRIOSTRAMIENTO A FACHADA — CORBATAS Y PUNTALES (TÓPICO 2)</text>
+    <text x="50" y="78" fill="#90e0ef" font-family="'Segoe UI', sans-serif" font-size="11.5">MARCOS EN PISOS 10 Y 18 (S-46) Y PISOS 12 Y 20 (TLS 70), CONSOLAS CON 4 PERNOS PASANTES M24 (GRADO 8.8)</text>
+    
+    <!-- DIBUJO 1: PLANTA MARCO CORBATA (x=50 a 980) -->
+    <g transform="translate(50, 100)">
+        <rect x="0" y="0" width="940" height="460" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="940" height="24" fill="#0d2b4d" />
+        <text x="15" y="16" fill="#ffd166" font-family="sans-serif" font-size="10.5" font-weight="bold">PLANTA DE CORBATA Y PUNTALES TRIANGULADOS A ESTRUCTURA</text>
+        
+        <!-- Fachada Viga Edificio en x=120 a 160 -->
+        <rect x="120" y="50" width="40" height="360" fill="#0b2545" stroke="#48cae4" stroke-width="2" />
+        <text x="90" y="240" fill="#48cae4" font-family="sans-serif" font-size="11" font-weight="bold" transform="rotate(-90 90 240)">VIGA FORJADO EDIFICIO</text>
+        
+        <!-- Mástil Grúa en x=670 a 770 -->
+        <rect x="670" y="180" width="100" height="100" fill="#0d2847" stroke="#ffd166" stroke-width="2" />
+        <line x1="670" y1="180" x2="770" y2="280" stroke="#1d436a" stroke-width="1" />
+        <line x1="770" y1="180" x2="670" y2="280" stroke="#1d436a" stroke-width="1" />
+        <text x="690" y="235" fill="#ffd166" font-family="sans-serif" font-size="10" font-weight="bold">MÁSTIL S-46</text>
+        
+        <!-- Marco Corbata -->
+        <rect x="650" y="160" width="140" height="140" fill="none" stroke="#00f0ff" stroke-width="3" />
+        <text x="670" y="150" fill="#00f0ff" font-family="sans-serif" font-size="9" font-weight="bold">MARCO CORBATA</text>
+        
+        <!-- Puntales triangulados hacia consolas A, B, C -->
+        <line x1="160" y1="100" x2="650" y2="180" stroke="#ffd166" stroke-width="4" />
+        <line x1="160" y1="230" x2="650" y2="230" stroke="#ffd166" stroke-width="4" />
+        <line x1="160" y1="360" x2="650" y2="280" stroke="#ffd166" stroke-width="4" />
+        
+        <!-- Consolas A, B, C -->
+        <rect x="150" y="80" width="20" height="40" fill="#ffd166" stroke="#ffffff" stroke-width="1.5" />
+        <circle cx="160" cy="100" r="4" fill="#00f0ff" />
+        <text x="180" y="95" fill="#ffd166" font-family="sans-serif" font-size="8.5" font-weight="bold">CONSOLA A (4xM24)</text>
+        
+        <rect x="150" y="210" width="20" height="40" fill="#ffd166" stroke="#ffffff" stroke-width="1.5" />
+        <circle cx="160" cy="230" r="4" fill="#00f0ff" />
+        <text x="180" y="225" fill="#ffd166" font-family="sans-serif" font-size="8.5" font-weight="bold">CONSOLA B (4xM24)</text>
+        
+        <rect x="150" y="340" width="20" height="40" fill="#ffd166" stroke="#ffffff" stroke-width="1.5" />
+        <circle cx="160" cy="360" r="4" fill="#00f0ff" />
+        <text x="180" y="355" fill="#ffd166" font-family="sans-serif" font-size="8.5" font-weight="bold">CONSOLA C (4xM24)</text>
+        
+        <!-- Cota Distancia Fachada -->
+        <line x1="160" y1="420" x2="650" y2="420" stroke="#48cae4" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+        <text x="360" y="413" fill="#48cae4" font-family="sans-serif" font-size="10" font-weight="bold">D_fachada = 4.50 m</text>
+        
+        <text x="380" y="145" fill="#ffd166" font-family="sans-serif" font-size="9.5" font-weight="bold">Puntal Tubular Ø159x8 mm</text>
+        <text x="380" y="160" fill="#06d6a0" font-family="sans-serif" font-size="8.5">N_puntal = 92.0 kN (Tracc / Comp)</text>
+    </g>
+    
+    <!-- DIBUJO 2: DETALLE CORTE CONSOLA A MURO (x=50 a 980, y=580 a 830) -->
+    <g transform="translate(50, 580)">
+        <rect x="0" y="0" width="940" height="240" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="940" height="24" fill="#0d2b4d" />
+        <text x="15" y="16" fill="#ffd166" font-family="sans-serif" font-size="10.5" font-weight="bold">CORTE LATERAL: CONSOLA DE ANCLAJE CON CONTRAPLACA TRASERA</text>
+        
+        <!-- Viga de hormigón: x=250 a 400 (e = 350 mm) -->
+        <rect x="250" y="40" width="150" height="150" fill="#0b2545" stroke="#48cae4" stroke-width="2" />
+        <text x="270" y="115" fill="#48cae4" font-family="sans-serif" font-size="10" font-weight="bold">VIGA HORMIGÓN HA-25</text>
+        <text x="295" y="130" fill="#a0c4e2" font-family="sans-serif" font-size="8">(Espesor = 350 mm)</text>
+        
+        <!-- Placa consola delantera: x=400 a 412 -->
+        <rect x="400" y="45" width="12" height="140" fill="#ffd166" stroke="#000000" stroke-width="1.5" />
+        <!-- Contraplaca trasera: x=238 a 250 (TEXTO DESPEJADO A LA IZQUIERDA x=60) -->
+        <rect x="238" y="45" width="12" height="140" fill="#ffd166" stroke="#000000" stroke-width="1.5" />
+        <line x1="238" y1="70" x2="200" y2="70" stroke="#ffd166" stroke-width="1" />
+        <text x="60" y="68" fill="#ffd166" font-family="sans-serif" font-size="8.5" font-weight="bold">Contraplaca Trasera</text>
+        <text x="60" y="80" fill="#a0c4e2" font-family="sans-serif" font-size="7.5">300x300x15 mm (reparte carga)</text>
+        
+        <!-- 2 Pernos pasantes M24 en corte -->
+        <rect x="230" y="65" width="190" height="8" fill="#00f0ff" />
+        <rect x="224" y="61" width="6" height="16" fill="#ffd166" />
+        <rect x="412" y="61" width="6" height="16" fill="#ffd166" />
+        
+        <rect x="230" y="155" width="190" height="8" fill="#00f0ff" />
+        <rect x="224" y="151" width="6" height="16" fill="#ffd166" />
+        <rect x="412" y="151" width="6" height="16" fill="#ffd166" />
+        
+        <!-- Orejetas de conexión y pasador -->
+        <polygon points="412,85 470,105 470,135 412,155" fill="#1b4965" stroke="#00f0ff" stroke-width="1.5" />
+        <circle cx="460" cy="120" r="7" fill="#ffd166" stroke="#000000" stroke-width="1" />
+        <text x="480" y="125" fill="#ffd166" font-family="sans-serif" font-size="8.5" font-weight="bold">Pasador Ø40 mm (42CrMo4)</text>
+        
+        <!-- Puntal tubular -->
+        <polygon points="460,115 650,90 650,150 460,125" fill="#0d2847" stroke="#ffd166" stroke-width="2" />
+        <text x="510" y="125" fill="#ffffff" font-family="sans-serif" font-size="8.5" font-weight="bold">PUNTAL Ø159x8</text>
+        
+        <line x1="250" y1="200" x2="400" y2="200" stroke="#48cae4" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+        <text x="300" y="213" fill="#48cae4" font-family="sans-serif" font-size="9" font-weight="bold">e = 350 mm</text>
+    </g>
+    
+    <!-- COLUMNA LATERAL DERECHA: MEMORIA DE CÁLCULO DE FACHADA -->
+    <g transform="translate(1040, 100)">
+        <rect x="0" y="0" width="510" height="720" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="510" height="24" fill="#0d2b4d" />
+        <text x="15" y="16" fill="#ffd166" font-family="sans-serif" font-size="10.5" font-weight="bold">CÁLCULO MECÁNICO DE ARRIOSTRAMIENTOS</text>
+        
+        <g transform="translate(15, 35)">
+            <text x="0" y="15" fill="#00f0ff" font-family="sans-serif" font-size="10" font-weight="bold">1. REACCIONES POR VIENTO DE TEMPESTAD:</text>
+            <text x="10" y="32" fill="#ffffff" font-family="sans-serif" font-size="8.5">Nivel 1 (Piso 10, z=32.0 m): <tspan fill="#ffd166">R_H1 = 45.0 kN</tspan></text>
+            <text x="10" y="47" fill="#ffffff" font-family="sans-serif" font-size="8.5">Nivel 2 (Piso 18, z=57.6 m): <tspan fill="#ffd166">R_H2 = 65.0 kN (Crítico)</tspan></text>
+            <text x="10" y="62" fill="#a0c4e2" font-family="sans-serif" font-size="8">Voladizo superior libre: L_vol = 27.4 m (&lt; 36 m admisible)</text>
+            <line x1="0" y1="72" x2="480" y2="72" stroke="#1d436a" stroke-width="1" />
+            
+            <text x="0" y="90" fill="#00f0ff" font-family="sans-serif" font-size="10" font-weight="bold">2. ESFUERZO AXIAL EN PUNTALES (theta = 45°):</text>
+            <text x="10" y="108" fill="#ffd166" font-family="monospace" font-size="9">N_puntal = R_H2 / cos(45°) = 65.0 / 0.7071 = 92.0 kN</text>
+            <text x="10" y="125" fill="#ffffff" font-family="sans-serif" font-size="8.5">Tubo estructural seleccionado: <tspan fill="#00f0ff">Ø159 x 8 mm (Acero S275)</tspan></text>
+            <text x="10" y="140" fill="#a0c4e2" font-family="sans-serif" font-size="8">Tensión a compresión/pandeo: sigma = 68.2 MPa &lt; 236 MPa [OK]</text>
+            <line x1="0" y1="150" x2="480" y2="150" stroke="#1d436a" stroke-width="1" />
+            
+            <text x="0" y="168" fill="#00f0ff" font-family="sans-serif" font-size="10" font-weight="bold">3. PERNOS PASANTES EN CONSOLA A FORJADO:</text>
+            <text x="10" y="186" fill="#ffffff" font-family="sans-serif" font-size="8.5">4 Pernos pasantes M24 Calidad 8.8 (A_s = 353 mm²)</text>
+            <text x="10" y="201" fill="#ffffff" font-family="sans-serif" font-size="8.5">Fuerza normal por perno: T_p = 65.0 / 4 = 16.25 kN</text>
+            <text x="10" y="216" fill="#ffffff" font-family="sans-serif" font-size="8.5">Fuerza cortante por perno: V_p = 65.0 / 4 = 16.25 kN</text>
+            
+            <text x="10" y="235" fill="#ffd166" font-family="monospace" font-size="9">sigma_comb = sqrt(46.03^2 + 3*46.03^2) = 92.06 MPa</text>
+            <text x="10" y="252" fill="#ffffff" font-family="sans-serif" font-size="8.5">Tensión admisible (Gr. 8.8): sigma_adm = 426.67 MPa</text>
+            
+            <rect x="10" y="270" width="460" height="48" fill="#06d6a0" rx="4" />
+            <text x="20" y="290" fill="#000000" font-family="sans-serif" font-size="10" font-weight="bold">FACTOR DE SEGURIDAD EN ANCLAJE DE FACHADA:</text>
+            <text x="20" y="307" fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold">F_d = 426.67 / 92.06 = 4.63 >> 1.50 EXIGIDO [CUMPLE]</text>
+        </g>
+    </g>
+    
+    
+    <!-- CAJETIN DE INGENIERIA NORMALIZADO (ISO / UNE) -->
+    <g id="cajetin" transform="translate(1050, 835)">
+        <rect x="0" y="0" width="520" height="135" fill="#05101d" stroke="#00f0ff" stroke-width="2" />
+        <line x1="0" y1="34" x2="520" y2="34" stroke="#00f0ff" stroke-width="1" />
+        <line x1="0" y1="68" x2="520" y2="68" stroke="#00f0ff" stroke-width="1" />
+        <line x1="0" y1="102" x2="520" y2="102" stroke="#00f0ff" stroke-width="1" />
+        <line x1="355" y1="0" x2="355" y2="135" stroke="#00f0ff" stroke-width="1" />
+        <line x1="440" y1="68" x2="440" y2="135" stroke="#00f0ff" stroke-width="1" />
+        
+        <text x="15" y="21" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold">UNIVERSIDAD TECNOLOGICA DE PANAMA</text>
+        <text x="15" y="31" fill="#90e0ef" font-family="'Segoe UI', Roboto, sans-serif" font-size="9">FACULTAD DE INGENIERIA INDUSTRIAL - GRUPO SH-231</text>
+        
+        <text x="15" y="50" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="bold">PROYECTO: GRUAS TORRE RESIDENCIAL 85 m (ZONA COSTERA)</text>
+        <text x="15" y="62" fill="#48cae4" font-family="'Segoe UI', Roboto, sans-serif" font-size="9.5">COMPARATIVA: SAEZ S-46 (CUSPIDE) vs SAEZ TLS 70 12T (FLAT-TOP)</text>
+        
+        <text x="15" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">DOCENTE: <tspan fill="#ffffff" font-weight="bold">Prof. Ing. Eric Parker M. Sc.</tspan></text>
+        <text x="15" y="96" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">NORMATIVA: <tspan fill="#ffd166">UNE 58-101 / FEM 1001 / NBE-EA-95 / EN 14439</tspan></text>
+        
+        <text x="15" y="118" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">PLANO: <tspan fill="#00f0ff" font-weight="bold">ARRIOSTRAMIENTOS Y ANCLAJE A PARED</tspan></text>
+        <text x="15" y="129" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">OCTUBRE 2026 | UNIDADES: mm / m | LAMINA DUAL</text>
+        
+        <text x="368" y="22" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold">LAMINA N*</text>
+        <text x="375" y="55" fill="#00f0ff" font-family="monospace" font-size="24" font-weight="bold">PL-04</text>
+        
+        <text x="368" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">ESCALA</text>
+        <text x="368" y="96" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">S/E (Esquematica Dual)</text>
+        
+        <text x="450" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">REVISION</text>
+        <text x="458" y="97" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold">REV. 1</text>
+        
+        <text x="368" y="116" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">ESTADO</text>
+        <text x="368" y="128" fill="#06d6a0" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">APROBADO</text>
+    </g>
+    
+    </svg>

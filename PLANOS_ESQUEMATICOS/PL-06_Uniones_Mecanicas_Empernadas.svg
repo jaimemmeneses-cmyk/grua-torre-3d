@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+    
+    <!-- MARCO EXTERIOR Y REJILLA CAD -->
+    <rect x="0" y="0" width="1600" height="1000" fill="#0b192c" />
+    <rect x="25" y="25" width="1550" height="950" fill="#071626" stroke="#00f0ff" stroke-width="2" />
+    <rect x="30" y="30" width="1540" height="940" fill="none" stroke="#1d436a" stroke-width="1" />
+    
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0e2a4a" stroke-width="0.5" />
+        </pattern>
+        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#48cae4" />
+        </marker>
+        <marker id="arrow-yellow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#ffd166" />
+        </marker>
+        <marker id="arrow-cyan" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#00f0ff" />
+        </marker>
+    </defs>
+    <rect x="30" y="30" width="1540" height="940" fill="url(#grid)" />
+    
+    
+    <text x="50" y="58" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="bold">PL-06: PROTOCOLO DE UNIONES MECÁNICAS DUAL — PERNOS M39 (S-46) Y M45 (TLS 70) (TÓPICO 5)</text>
+    <text x="50" y="78" fill="#90e0ef" font-family="'Segoe UI', Roboto, sans-serif" font-size="11.5">PERNOS GRADO 10.9, PRECARGA F<tspan baseline-shift="sub" font-size="75%">p</tspan>, PAR DE APRIETE M<tspan baseline-shift="sub" font-size="75%">t</tspan>, DIAGRAMA DE RÖTSCHER Y PROTOCOLO DE REAPRIETE A 48 HORAS</text>
+    
+    <!-- DETALLE M-01: ENSAMBLE BRIDA M39 (x=50 a 500) -->
+    <g transform="translate(50, 100)">
+        <rect x="0" y="0" width="450" height="720" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="450" height="24" fill="#0d2b4d" />
+        <text x="12" y="16" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="bold">DETALLE M-01: ENSAMBLE BRIDA M39 DE MÁSTIL S46</text>
+        
+        <rect x="175" y="55" width="100" height="150" fill="#0d2847" stroke="#00f0ff" stroke-width="2" />
+        <text x="185" y="125" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="9">Montante Sup.</text>
+        <text x="195" y="140" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Ø140 × 12.5</text>
+        
+        <rect x="125" y="205" width="200" height="35" fill="#1b4965" stroke="#ffd166" stroke-width="2" />
+        <line x1="95" y1="240" x2="355" y2="240" stroke="#00f0ff" stroke-width="2" stroke-dasharray="3 1" />
+        <rect x="125" y="240" width="200" height="35" fill="#1b4965" stroke="#ffd166" stroke-width="2" />
+        
+        <rect x="175" y="275" width="100" height="150" fill="#0d2847" stroke="#00f0ff" stroke-width="2" />
+        <text x="185" y="345" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="9">Montante Inf.</text>
+        <text x="195" y="360" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Ø140 × 12.5</text>
+        
+        <!-- Pernos M39 (Izquierda y Derecha) -->
+        <rect x="141" y="170" width="16" height="145" fill="#ffd166" stroke="#000000" stroke-width="1.5" />
+        <rect x="135" y="152" width="28" height="18" fill="#ffd166" stroke="#000000" stroke-width="1.5" />
+        <rect x="133" y="200" width="32" height="6" fill="#ffffff" stroke="#000000" stroke-width="1" />
+        <rect x="133" y="274" width="32" height="6" fill="#ffffff" stroke="#000000" stroke-width="1" />
+        <rect x="135" y="280" width="28" height="20" fill="#ffd166" stroke="#000000" stroke-width="1.5" />
+        <rect x="135" y="300" width="28" height="15" fill="#a0c4e2" stroke="#000000" stroke-width="1" />
+        
+        <rect x="293" y="170" width="16" height="145" fill="#ffd166" stroke="#000000" stroke-width="1.5" />
+        <rect x="287" y="152" width="28" height="18" fill="#ffd166" stroke="#000000" stroke-width="1.5" />
+        <rect x="285" y="200" width="32" height="6" fill="#ffffff" stroke="#000000" stroke-width="1" />
+        <rect x="285" y="274" width="32" height="6" fill="#ffffff" stroke="#000000" stroke-width="1" />
+        <rect x="287" y="280" width="28" height="20" fill="#ffd166" stroke="#000000" stroke-width="1.5" />
+        <rect x="287" y="300" width="28" height="15" fill="#a0c4e2" stroke="#000000" stroke-width="1" />
+        
+        <text x="25" y="180" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold">ISO 4014 - M39 × 4 - 10.9</text>
+        <text x="25" y="195" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="7.5">Rotura: 1 000 MPa</text>
+        <text x="25" y="305" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="7.5">Doble tuerca seguridad</text>
+        
+        <!-- RESUMEN EN BASE DE COLUMNA -->
+        <g transform="translate(15, 455)">
+            <rect x="0" y="0" width="420" height="250" fill="#051525" stroke="#00f0ff" stroke-width="1" />
+            <text x="12" y="22" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold">UNIONES MODULARES COMPARADAS:</text>
+            <text x="12" y="45" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold">SAEZ S-46 (Mástil 1.20 m):</text>
+            <text x="20" y="62" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• 8 Pernos M39 Calidad 10.9 (2 por montante de esquina)</text>
+            <text x="20" y="77" fill="#ffd166" font-family="monospace" font-size="9.5" font-weight="bold">Par Apriete: M<tspan baseline-shift="sub" font-size="75%">t</tspan> = 3 730 N·m (Rango: 3 600 – 3 800 N·m)</text>
+            <text x="20" y="92" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Fuerza de precarga nominal: F<tspan baseline-shift="sub" font-size="75%">p</tspan> = 683.2 kN / perno</text>
+            
+            <text x="12" y="125" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold">SAEZ TLS 70 12T (Mástil 1.70 m):</text>
+            <text x="20" y="142" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• 16 Pernos M45 Calidad 10.9 (4 por montante de esquina)</text>
+            <text x="20" y="157" fill="#ffd166" font-family="monospace" font-size="9.5" font-weight="bold">Par Apriete: M<tspan baseline-shift="sub" font-size="75%">t</tspan> = 5 100 N·m (Rango: 4 900 – 5 300 N·m)</text>
+            <text x="20" y="172" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Fuerza de precarga nominal: F<tspan baseline-shift="sub" font-size="75%">p</tspan> = 914.2 kN / perno</text>
+            
+            <text x="12" y="205" fill="#06d6a0" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">HERRAMIENTA REQUERIDA (UNE 58-101-92):</text>
+            <text x="12" y="222" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Llave dinamométrica hidráulica con registro de calibración oficial.</text>
+        </g>
+    </g>
+    
+    <!-- DETALLE 2: DIAGRAMA DE RÖTSCHER Y FATIGA (x=520 a 1020) -->
+    <g transform="translate(520, 100)">
+        <rect x="0" y="0" width="500" height="350" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="500" height="24" fill="#0d2b4d" />
+        <text x="15" y="16" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="bold">DIAGRAMA DE APRIETE DE RÖTSCHER Y FATIGA DINÁMICA</text>
+        
+        <line x1="50" y1="260" x2="430" y2="260" stroke="#a0c4e2" stroke-width="1" />
+        <line x1="50" y1="260" x2="50" y2="60" stroke="#a0c4e2" stroke-width="1" />
+        <text x="50" y="50" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Fuerza Axial F [kN]</text>
+        <text x="360" y="275" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Deformación Elástica δ [mm]</text>
+        
+        <!-- Perno kb -->
+        <line x1="50" y1="260" x2="230" y2="90" stroke="#ffd166" stroke-width="2" />
+        <text x="115" y="130" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">Rigidez Perno k<tspan baseline-shift="sub" font-size="75%">b</tspan></text>
+        
+        <!-- Brida km -->
+        <line x1="410" y1="260" x2="230" y2="90" stroke="#00f0ff" stroke-width="2" />
+        <text x="290" y="130" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">Rigidez Brida k<tspan baseline-shift="sub" font-size="75%">m</tspan></text>
+        
+        <!-- Punto precarga -->
+        <circle cx="230" cy="90" r="4" fill="#06d6a0" />
+        <line x1="50" y1="90" x2="230" y2="90" stroke="#06d6a0" stroke-width="1" stroke-dasharray="2 2" />
+        <text x="55" y="85" fill="#06d6a0" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold">F<tspan baseline-shift="sub" font-size="75%">p</tspan> = 0.70 · f<tspan baseline-shift="sub" font-size="75%">ub</tspan> · A<tspan baseline-shift="sub" font-size="75%">s</tspan> = 683.2 kN</text>
+        
+        <text x="15" y="300" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">COMPORTAMIENTO ANTE FATIGA POR VIENTO:</text>
+        <text x="15" y="315" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="7.5">La precarga controlada amortigua más del 90% de las oscilaciones cíclicas de tracción,</text>
+        <text x="15" y="330" fill="#06d6a0" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">garantizando vida infinita a fatiga en zona costera según FEM 1001 (Cuaderno 4).</text>
+    </g>
+    
+    <!-- DETALLE 3: PROTOCOLO DE REAPRIETE Y CONTROL (x=520 a 1020, y=470 a 820) -->
+    <g transform="translate(520, 470)">
+        <rect x="0" y="0" width="500" height="350" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="500" height="24" fill="#0d2b4d" />
+        <text x="15" y="16" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="bold">PROTOCOLO DE INSPECCIÓN Y CRITERIOS DE RECHAZO</text>
+        
+        <g transform="translate(15, 30)">
+            <text x="0" y="15" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold">1. SECUENCIA DE APRIETE EN CRUZ (3 ETAPAS):</text>
+            <text x="10" y="32" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• Etapa 1: Apriete manual de asentamiento al 20% (~750 N·m)</text>
+            <text x="10" y="47" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• Etapa 2: Apriete en cruz simétrico al 70% (~2 600 N·m)</text>
+            <text x="10" y="62" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• Etapa 3: Torque final al 100% (3 730 N·m) con registro manométrico</text>
+            
+            <text x="0" y="92" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold">2. PROTOCOLO DE REAPRIETE OBLIGATORIO EN OBRA:</text>
+            <text x="10" y="110" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">• 1.er Reapriete: A las 48 horas de la primera puesta en servicio.</text>
+            <text x="10" y="125" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• 2.º Reapriete: A las 3 semanas de funcionamiento continuo.</text>
+            <text x="10" y="140" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• Inspecciones periódicas: Semestrales o tras temporales de viento severo.</text>
+            
+            <text x="0" y="170" fill="#ff595e" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold">3. CRITERIOS ESTRICTOS DE DESCARTE Y RECHAZO:</text>
+            <text x="10" y="188" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• Alargamiento permanente plástico: ΔL<tspan baseline-shift="sub" font-size="75%">plástico</tspan> &gt; 0.2 % · L<tspan baseline-shift="sub" font-size="75%">nom</tspan> (Descarte inmediato)</text>
+            <text x="10" y="203" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">• Control de rosca: Verificación con galga Pasa / No-Pasa.</text>
+            <text x="10" y="218" fill="#ff595e" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">• Prohibición estricta de reutilización de tornillería desmontada.</text>
+        </g>
+    </g>
+    
+    <!-- COLUMNA DERECHA: TABLA COMPARATIVA PERNOS (x=1040 a 1550) -->
+    <g transform="translate(1040, 100)">
+        <rect x="0" y="0" width="510" height="720" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="510" height="24" fill="#0d2b4d" />
+        <text x="15" y="16" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="bold">TABLA NORMALIZADA DE TORNILLERÍA DE ALTA RESISTENCIA</text>
+        
+        <g transform="translate(15, 35)">
+            <rect x="0" y="0" width="480" height="22" fill="#133863" />
+            <text x="10" y="15" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">MÉTRICA</text>
+            <text x="70" y="15" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">PASO</text>
+            <text x="120" y="15" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">CLASE</text>
+            <text x="180" y="15" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">ÁREA A<tspan baseline-shift="sub" font-size="75%">s</tspan></text>
+            <text x="260" y="15" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">PRECARGA F<tspan baseline-shift="sub" font-size="75%">p</tspan></text>
+            <text x="370" y="15" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">PAR M<tspan baseline-shift="sub" font-size="75%">t</tspan></text>
+            
+            <text x="10" y="40" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">M36</text>
+            <text x="70" y="40" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">4.0 mm</text>
+            <text x="120" y="40" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">8.8 (Base)</text>
+            <text x="180" y="40" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">817 mm²</text>
+            <text x="260" y="40" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">457.5 kN</text>
+            <text x="370" y="40" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">2 300 N·m</text>
+            <line x1="5" y1="48" x2="475" y2="48" stroke="#1d436a" stroke-width="0.5" />
+            
+            <text x="10" y="68" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">M39</text>
+            <text x="70" y="68" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">4.0 mm</text>
+            <text x="120" y="68" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">10.9 (S46)</text>
+            <text x="180" y="68" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">976 mm²</text>
+            <text x="260" y="68" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">683.2 kN</text>
+            <text x="370" y="68" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">3 730 N·m</text>
+            <line x1="5" y1="76" x2="475" y2="76" stroke="#1d436a" stroke-width="0.5" />
+            
+            <text x="10" y="96" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">M45</text>
+            <text x="70" y="96" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">4.5 mm</text>
+            <text x="120" y="96" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">10.9 (TLS)</text>
+            <text x="180" y="96" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">1 306 mm²</text>
+            <text x="260" y="96" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">914.2 kN</text>
+            <text x="370" y="96" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold">5 100 N·m</text>
+            <line x1="5" y1="104" x2="475" y2="104" stroke="#1d436a" stroke-width="0.5" />
+            
+            <!-- FÓRMULAS -->
+            <text x="0" y="135" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="bold">FÓRMULAS DE CÁLCULO ANALÍTICO:</text>
+            <text x="10" y="155" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Fuerza de precarga nominal (70% f<tspan baseline-shift="sub" font-size="75%">ub</tspan>):</text>
+            <text x="20" y="170" fill="#ffd166" font-family="monospace" font-size="9">F<tspan baseline-shift="sub" font-size="75%">p</tspan> = 0.70 · f<tspan baseline-shift="sub" font-size="75%">ub</tspan> · A<tspan baseline-shift="sub" font-size="75%">s</tspan></text>
+            <text x="10" y="195" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">Momento torsor de apriete (K = 0.14 lubricado):</text>
+            <text x="20" y="210" fill="#ffd166" font-family="monospace" font-size="9">M<tspan baseline-shift="sub" font-size="75%">t</tspan> = K · d · F<tspan baseline-shift="sub" font-size="75%">p</tspan> (K = 0.14)</text>
+            
+            <rect x="0" y="240" width="480" height="70" fill="#06d6a0" rx="4" />
+            <text x="15" y="262" fill="#000000" font-family="'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="bold">CONFORMIDAD DE UNIONES MECÁNICAS (15% RÚBRICA):</text>
+            <text x="15" y="280" fill="#000000" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold">Pares de apriete y precargas calculados rigurosamente.</text>
+            <text x="15" y="295" fill="#000000" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">Pintura testigo indeleble requerida tras inspección.</text>
+        </g>
+    </g>
+    
+    
+    <!-- CAJETIN DE INGENIERIA NORMALIZADO (ISO / UNE) - CORREGIDO -->
+    <g id="cajetin" transform="translate(1050, 835)">
+        <rect x="0" y="0" width="520" height="135" fill="#05101d" stroke="#00f0ff" stroke-width="2" />
+        <line x1="0" y1="34" x2="520" y2="34" stroke="#00f0ff" stroke-width="1" />
+        <line x1="0" y1="68" x2="520" y2="68" stroke="#00f0ff" stroke-width="1" />
+        <line x1="0" y1="102" x2="520" y2="102" stroke="#00f0ff" stroke-width="1" />
+        <line x1="355" y1="0" x2="355" y2="135" stroke="#00f0ff" stroke-width="1" />
+        <line x1="440" y1="68" x2="440" y2="135" stroke="#00f0ff" stroke-width="1" />
+        
+        <text x="15" y="21" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold">UNIVERSIDAD TECNOLÓGICA DE PANAMÁ</text>
+        <text x="15" y="31" fill="#90e0ef" font-family="'Segoe UI', Roboto, sans-serif" font-size="9">FACULTAD DE INGENIERÍA INDUSTRIAL - GRUPO SH-231</text>
+        
+        <text x="15" y="50" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="bold">PROYECTO: GRÚAS TORRE RESIDENCIAL 85.00 m (ZONA COSTERA)</text>
+        <text x="15" y="62" fill="#48cae4" font-family="'Segoe UI', Roboto, sans-serif" font-size="9.5">COMPARATIVA: SAEZ S-46 (CÚSPIDE) vs SAEZ TLS 70 12T (FLAT-TOP)</text>
+        
+        <text x="15" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">DOCENTE: <tspan fill="#ffffff" font-weight="bold">Prof. Ing. Eric Parker M. Sc.</tspan></text>
+        <text x="15" y="96" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">NORMATIVA: <tspan fill="#ffd166">UNE 58-101 / FEM 1001 / NBE-EA-95 / EN 14439</tspan></text>
+        
+        <text x="15" y="118" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">PLANO: <tspan fill="#00f0ff" font-weight="bold">UNIONES MECÁNICAS EMPERNADAS</tspan></text>
+        <text x="15" y="129" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">NOVIEMBRE 2026 | UNIDADES: mm / m | LÁMINA DUAL</text>
+        
+        <text x="368" y="22" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold">LÁMINA N.º</text>
+        <text x="375" y="55" fill="#00f0ff" font-family="monospace" font-size="24" font-weight="bold">PL-06</text>
+        
+        <text x="368" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">ESCALA</text>
+        <text x="368" y="96" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="bold">S/E (Esquemática)</text>
+        
+        <text x="450" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">REVISIÓN</text>
+        <text x="456" y="97" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold">REV. 2</text>
+        
+        <text x="368" y="116" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">ESTADO</text>
+        <text x="368" y="128" fill="#06d6a0" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">APROBADO</text>
+    </g>
+    
+    </svg>

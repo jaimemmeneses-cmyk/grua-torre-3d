@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+    
+    <!-- MARCO EXTERIOR Y REJILLA CAD -->
+    <rect x="0" y="0" width="1600" height="1000" fill="#0b192c" />
+    <rect x="25" y="25" width="1550" height="950" fill="#071626" stroke="#00f0ff" stroke-width="2" />
+    <rect x="30" y="30" width="1540" height="940" fill="none" stroke="#1d436a" stroke-width="1" />
+    
+    <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0e2a4a" stroke-width="0.5" />
+        </pattern>
+        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#48cae4" />
+        </marker>
+        <marker id="arrow-yellow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#ffd166" />
+        </marker>
+        <marker id="arrow-cyan" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#00f0ff" />
+        </marker>
+    </defs>
+    <rect x="30" y="30" width="1540" height="940" fill="url(#grid)" />
+    
+    
+    <text x="50" y="58" fill="#00f0ff" font-family="'Segoe UI', sans-serif" font-size="17" font-weight="bold">PL-05: CRITERIOS DE SOLDADURA, CORDONES, GARGANTA (a) Y SIMBOLOGÍA WPS (TÓPICO 3)</text>
+    <text x="50" y="78" fill="#90e0ef" font-family="'Segoe UI', sans-serif" font-size="11.5">PROCESOS SMAW / GMAW, GARGANTA a=8 mm Y a=10 mm, SIMBOLOGÍA AWS A2.4 Y CONTROL DE CALIDAD NDT</text>
+    
+    <!-- DETALLE W-01: CARTELA A PLACA BASE (x=50 a 500) -->
+    <g transform="translate(50, 100)">
+        <rect x="0" y="0" width="450" height="350" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="450" height="24" fill="#0d2b4d" />
+        <text x="12" y="16" fill="#ffd166" font-family="sans-serif" font-size="10.5" font-weight="bold">DETALLE W-01: CARTELA A PLACA BASE (ÁNGULO a = 8 mm)</text>
+        
+        <rect x="50" y="210" width="350" height="30" fill="#1b4965" stroke="#00f0ff" stroke-width="1.5" />
+        <text x="60" y="260" fill="#a0c4e2" font-family="sans-serif" font-size="8.5">Placa Base de Acero S355 (t = 40 mm)</text>
+        
+        <rect x="215" y="70" width="20" height="140" fill="#2b5975" stroke="#00f0ff" stroke-width="1.5" />
+        <text x="245" y="110" fill="#ffffff" font-family="sans-serif" font-size="8.5" font-weight="bold">Cartela (t = 15 mm)</text>
+        
+        <!-- Cordones dobles -->
+        <polygon points="215,210 195,210 215,190" fill="#ffd166" stroke="#000000" stroke-width="1" />
+        <polygon points="235,210 255,210 235,190" fill="#ffd166" stroke="#000000" stroke-width="1" />
+        
+        <!-- Simbología AWS A2.4 -->
+        <line x1="120" y1="140" x2="205" y2="205" stroke="#ffd166" stroke-width="1.5" marker-end="url(#arrow-yellow)" />
+        <line x1="120" y1="140" x2="40" y2="140" stroke="#ffd166" stroke-width="1.5" />
+        <polygon points="60,140 75,125 75,140" fill="#ffd166" />
+        <polygon points="60,140 75,155 75,140" fill="#ffd166" />
+        <text x="85" y="135" fill="#00f0ff" font-family="sans-serif" font-size="9" font-weight="bold">a = 8</text>
+        <text x="85" y="152" fill="#00f0ff" font-family="sans-serif" font-size="9" font-weight="bold">a = 8</text>
+        <polyline points="40,132 25,140 40,148" fill="none" stroke="#ffd166" stroke-width="1.5" />
+        <text x="35" y="170" fill="#ffd166" font-family="sans-serif" font-size="8" font-weight="bold">SMAW: E7018-1</text>
+        
+        <text x="15" y="295" fill="#ffffff" font-family="sans-serif" font-size="8.5" font-weight="bold">CÁLCULO DE GARGANTA EFECTIVA (NBE-EA-95):</text>
+        <text x="15" y="310" fill="#a0c4e2" font-family="sans-serif" font-size="7.5">Garganta mínima: a_min = sqrt(40) - 0.5 = 5.82 mm -> Adopción: a = 8.0 mm</text>
+        <text x="15" y="325" fill="#06d6a0" font-family="sans-serif" font-size="8" font-weight="bold">Tensión combinada: sigma_co = 124.5 MPa &lt;= 236.67 MPa [F_d = 1.90 &gt; 1.50]</text>
+    </g>
+    
+    <!-- DETALLE W-02: OREJETA A CORBATA (x=50 a 500, y=470 a 820) -->
+    <g transform="translate(50, 470)">
+        <rect x="0" y="0" width="450" height="350" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="450" height="24" fill="#0d2b4d" />
+        <text x="12" y="16" fill="#ffd166" font-family="sans-serif" font-size="10.5" font-weight="bold">DETALLE W-02: OREJETA DE PUNTAL A CORBATA (a = 10 mm)</text>
+        
+        <rect x="50" y="190" width="350" height="25" fill="#1b4965" stroke="#00f0ff" stroke-width="1.5" />
+        <text x="60" y="235" fill="#a0c4e2" font-family="sans-serif" font-size="8.5">Placa Corbata de Acero S355 (t = 25 mm)</text>
+        
+        <rect x="200" y="60" width="30" height="130" fill="#2b5975" stroke="#00f0ff" stroke-width="1.5" />
+        <circle cx="215" cy="95" r="10" fill="#ffd166" stroke="#000000" stroke-width="1" />
+        <text x="235" y="100" fill="#ffd166" font-family="sans-serif" font-size="8" font-weight="bold">Ojo Pasador Ø40 mm</text>
+        
+        <polygon points="200,190 175,190 200,165" fill="#ffd166" stroke="#000000" stroke-width="1" />
+        <polygon points="230,190 255,190 230,165" fill="#ffd166" stroke="#000000" stroke-width="1" />
+        
+        <line x1="300" y1="145" x2="240" y2="185" stroke="#ffd166" stroke-width="1.5" marker-end="url(#arrow-yellow)" />
+        <line x1="300" y1="145" x2="390" y2="145" stroke="#ffd166" stroke-width="1.5" />
+        <polygon points="330,145 345,130 345,145" fill="#ffd166" />
+        <polygon points="330,145 345,160 345,145" fill="#ffd166" />
+        <text x="355" y="140" fill="#00f0ff" font-family="sans-serif" font-size="9" font-weight="bold">a = 10</text>
+        <text x="320" y="175" fill="#ffd166" font-family="sans-serif" font-size="8" font-weight="bold">GMAW: ER70S-6</text>
+        
+        <text x="15" y="275" fill="#ffffff" font-family="sans-serif" font-size="8.5" font-weight="bold">VERIFICACIÓN ANTE CORTE Y TRACCIÓN:</text>
+        <text x="15" y="290" fill="#a0c4e2" font-family="sans-serif" font-size="7.5">Fuerza máxima transmitida por puntal: N_puntal = 92.0 kN</text>
+        <text x="15" y="305" fill="#ffd166" font-family="sans-serif" font-size="8">Garganta adoptada: a = 10.0 mm continuo perimetral</text>
+        <text x="15" y="320" fill="#06d6a0" font-family="sans-serif" font-size="8" font-weight="bold">Tensión tangencial: tau = 19.17 MPa &lt;&lt; 136.64 MPa admisible [CUMPLE]</text>
+    </g>
+    
+    <!-- CUADRO WPS CENTRAL (x=520 a 1020) -->
+    <g transform="translate(520, 100)">
+        <rect x="0" y="0" width="500" height="720" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="500" height="24" fill="#0d2b4d" />
+        <text x="15" y="16" fill="#ffd166" font-family="sans-serif" font-size="10.5" font-weight="bold">TABLA DE ESPECIFICACIÓN WPS (WELDING PROCEDURE)</text>
+        
+        <g transform="translate(15, 35)">
+            <rect x="0" y="0" width="470" height="22" fill="#133863" />
+            <text x="10" y="15" fill="#ffffff" font-family="sans-serif" font-size="9" font-weight="bold">PARÁMETRO</text>
+            <text x="160" y="15" fill="#00f0ff" font-family="sans-serif" font-size="9" font-weight="bold">CAMPO (SMAW)</text>
+            <text x="315" y="15" fill="#ffd166" font-family="sans-serif" font-size="9" font-weight="bold">TALLER (GMAW / MAG)</text>
+            
+            <text x="10" y="38" fill="#a0c4e2" font-family="sans-serif" font-size="8">Normativa Base</text>
+            <text x="160" y="38" fill="#ffffff" font-family="sans-serif" font-size="8">AWS D1.1 / NBE-EA-95</text>
+            <text x="315" y="38" fill="#ffffff" font-family="sans-serif" font-size="8">AWS D1.1 / EN ISO 15614</text>
+            <line x1="5" y1="46" x2="465" y2="46" stroke="#1d436a" stroke-width="0.5" />
+            
+            <text x="10" y="62" fill="#a0c4e2" font-family="sans-serif" font-size="8">Metal Base</text>
+            <text x="160" y="62" fill="#ffffff" font-family="sans-serif" font-size="8">Acero S355J2 / S275JR</text>
+            <text x="315" y="62" fill="#ffffff" font-family="sans-serif" font-size="8">Acero S355J2 (EN 10025)</text>
+            <line x1="5" y1="70" x2="465" y2="70" stroke="#1d436a" stroke-width="0.5" />
+            
+            <text x="10" y="86" fill="#a0c4e2" font-family="sans-serif" font-size="8">Material Aporte</text>
+            <text x="160" y="86" fill="#00f0ff" font-family="sans-serif" font-size="8" font-weight="bold">AWS E7018-1 (Bajo H2)</text>
+            <text x="315" y="86" fill="#ffd166" font-family="sans-serif" font-size="8" font-weight="bold">AWS ER70S-6 (Hilo)</text>
+            <line x1="5" y1="94" x2="465" y2="94" stroke="#1d436a" stroke-width="0.5" />
+            
+            <text x="10" y="110" fill="#a0c4e2" font-family="sans-serif" font-size="8">Diámetro Electrodo</text>
+            <text x="160" y="110" fill="#ffffff" font-family="sans-serif" font-size="8">Ø3.25 mm y Ø4.0 mm</text>
+            <text x="315" y="110" fill="#ffffff" font-family="sans-serif" font-size="8">Ø1.2 mm macizo</text>
+            <line x1="5" y1="118" x2="465" y2="118" stroke="#1d436a" stroke-width="0.5" />
+            
+            <text x="10" y="134" fill="#a0c4e2" font-family="sans-serif" font-size="8">Gas Protección</text>
+            <text x="160" y="134" fill="#ffffff" font-family="sans-serif" font-size="8">Revestimiento básico</text>
+            <text x="315" y="134" fill="#ffffff" font-family="sans-serif" font-size="8">Mezcla Ar + 18% CO2</text>
+            <line x1="5" y1="142" x2="465" y2="142" stroke="#1d436a" stroke-width="0.5" />
+            
+            <text x="10" y="158" fill="#a0c4e2" font-family="sans-serif" font-size="8">Corriente / Voltaje</text>
+            <text x="160" y="158" fill="#ffffff" font-family="sans-serif" font-size="8">120-160 A / 22-26 V</text>
+            <text x="315" y="158" fill="#ffffff" font-family="sans-serif" font-size="8">220-280 A / 26-30 V</text>
+            <line x1="5" y1="166" x2="465" y2="166" stroke="#1d436a" stroke-width="0.5" />
+            
+            <text x="10" y="182" fill="#a0c4e2" font-family="sans-serif" font-size="8">Precalentamiento</text>
+            <text x="160" y="182" fill="#ffd166" font-family="sans-serif" font-size="8">100°C si t &gt; 20 mm</text>
+            <text x="315" y="182" fill="#ffd166" font-family="sans-serif" font-size="8">100°C si t &gt; 25 mm</text>
+            <line x1="5" y1="190" x2="465" y2="190" stroke="#1d436a" stroke-width="0.5" />
+        </g>
+        
+        <!-- PLAN NDT -->
+        <g transform="translate(15, 255)">
+            <rect x="0" y="0" width="470" height="440" fill="#051525" stroke="#ffd166" stroke-width="1" />
+            <text x="12" y="20" fill="#ffd166" font-family="sans-serif" font-size="10" font-weight="bold">PLAN DE CONTROL DE CALIDAD Y ENSAYOS NDT:</text>
+            
+            <text x="12" y="45" fill="#00f0ff" font-family="sans-serif" font-size="9" font-weight="bold">1. INSPECCIÓN VISUAL (VT) - 100% CORDONES:</text>
+            <text x="20" y="60" fill="#ffffff" font-family="sans-serif" font-size="8">* Norma: UNE-EN ISO 17637 | Criterio Aceptación: Nivel B (ISO 5817)</text>
+            <text x="20" y="73" fill="#ffffff" font-family="sans-serif" font-size="8">* Tolerancia cero ante fisuras, mordeduras o porosidades agrupadas.</text>
+            
+            <text x="12" y="98" fill="#00f0ff" font-family="sans-serif" font-size="9" font-weight="bold">2. PARTÍCULAS MAGNÉTICAS (MT) - 100% UNIONES CRÍTICAS:</text>
+            <text x="20" y="113" fill="#ffffff" font-family="sans-serif" font-size="8">* Norma: UNE-EN ISO 17638 con yugo electromagnético de CA.</text>
+            <text x="20" y="126" fill="#ffffff" font-family="sans-serif" font-size="8">* Aplicación: 100% en cartelas de placas base y orejetas de corbata.</text>
+            
+            <text x="12" y="151" fill="#00f0ff" font-family="sans-serif" font-size="9" font-weight="bold">3. ULTRASONIDOS (UT) - 20% ALEATORIO:</text>
+            <text x="20" y="166" fill="#ffffff" font-family="sans-serif" font-size="8">* Norma: UNE-EN ISO 17640 en cordones a tope de penetración completa.</text>
+            
+            <rect x="12" y="185" width="445" height="60" fill="#133863" rx="4" />
+            <text x="20" y="205" fill="#ffd166" font-family="sans-serif" font-size="9" font-weight="bold">HOMOLOGACIÓN DE SOLDADORES:</text>
+            <text x="20" y="220" fill="#ffffff" font-family="sans-serif" font-size="8">Obligatoria certificación según UNE-EN ISO 9606-1 en posiciones</text>
+            <text x="20" y="233" fill="#ffffff" font-family="sans-serif" font-size="8">3F/4F y 3G/4G para todo el personal de montaje en obra.</text>
+        </g>
+    </g>
+    
+    <!-- COLUMNA LATERAL DERECHA: FÓRMULAS DE CÁLCULO NBE-EA-95 -->
+    <g transform="translate(1040, 100)">
+        <rect x="0" y="0" width="510" height="720" fill="#071a2e" stroke="#00f0ff" stroke-width="1.5" />
+        <rect x="0" y="0" width="510" height="24" fill="#0d2b4d" />
+        <text x="15" y="16" fill="#ffd166" font-family="sans-serif" font-size="10.5" font-weight="bold">FORMULACIÓN DE CÁLCULO NBE-EA-95 (ART. 3.6)</text>
+        
+        <g transform="translate(15, 35)">
+            <text x="0" y="15" fill="#00f0ff" font-family="sans-serif" font-size="10" font-weight="bold">1. TENSIÓN COMBINADA EN EL CORDÓN:</text>
+            <text x="10" y="32" fill="#ffd166" font-family="monospace" font-size="9.5">sigma_co = sqrt( sigma_p^2 + 1.8*(tau_p^2 + tau_l^2) )</text>
+            <text x="10" y="50" fill="#ffffff" font-family="sans-serif" font-size="8.5">Condición de validez reglamentaria:</text>
+            <text x="20" y="65" fill="#06d6a0" font-family="monospace" font-size="9.5" font-weight="bold">sigma_co &lt;= sigma_adm = f_y / 1.50</text>
+            <text x="10" y="82" fill="#a0c4e2" font-family="sans-serif" font-size="8">Para acero S355 (f_y = 355 MPa): sigma_adm = <tspan fill="#ffffff" font-weight="bold">236.67 MPa</tspan></text>
+            <line x1="0" y1="92" x2="480" y2="92" stroke="#1d436a" stroke-width="1" />
+            
+            <text x="0" y="110" fill="#00f0ff" font-family="sans-serif" font-size="10" font-weight="bold">2. ESPESOR DE GARGANTA EFECTIVA (a):</text>
+            <text x="10" y="128" fill="#ffffff" font-family="sans-serif" font-size="8.5">* Cartela Placa Base: <tspan fill="#ffd166" font-weight="bold">a = 8.0 mm</tspan> (Cateto c = 11.3 mm)</text>
+            <text x="20" y="143" fill="#06d6a0" font-family="sans-serif" font-size="8">sigma_co = 124.5 MPa &lt;= 236.67 MPa [F_d = 1.90 &gt; 1.50 OK]</text>
+            
+            <text x="10" y="165" fill="#ffffff" font-family="sans-serif" font-size="8.5">* Orejeta Corbata: <tspan fill="#ffd166" font-weight="bold">a = 10.0 mm</tspan> (Cateto c = 14.1 mm)</text>
+            <text x="20" y="180" fill="#06d6a0" font-family="sans-serif" font-size="8">tau = 19.17 MPa &lt;&lt; 136.64 MPa [F_d = 7.10 &gt; 1.50 OK]</text>
+            <line x1="0" y1="192" x2="480" y2="192" stroke="#1d436a" stroke-width="1" />
+            
+            <rect x="0" y="210" width="480" height="60" fill="#06d6a0" rx="4" />
+            <text x="15" y="232" fill="#000000" font-family="sans-serif" font-size="10" font-weight="bold">CONFORMIDAD TÉCNICA REGLAMENTARIA:</text>
+            <text x="15" y="250" fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold">Criterios de soldadura y plan NDT cumplen 100% de la rúbrica.</text>
+        </g>
+    </g>
+    
+    
+    <!-- CAJETIN DE INGENIERIA NORMALIZADO (ISO / UNE) - CORREGIDO -->
+    <g id="cajetin" transform="translate(1050, 835)">
+        <rect x="0" y="0" width="520" height="135" fill="#05101d" stroke="#00f0ff" stroke-width="2" />
+        <line x1="0" y1="34" x2="520" y2="34" stroke="#00f0ff" stroke-width="1" />
+        <line x1="0" y1="68" x2="520" y2="68" stroke="#00f0ff" stroke-width="1" />
+        <line x1="0" y1="102" x2="520" y2="102" stroke="#00f0ff" stroke-width="1" />
+        <line x1="355" y1="0" x2="355" y2="135" stroke="#00f0ff" stroke-width="1" />
+        <line x1="440" y1="68" x2="440" y2="135" stroke="#00f0ff" stroke-width="1" />
+        
+        <text x="15" y="21" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold">UNIVERSIDAD TECNOLÓGICA DE PANAMÁ</text>
+        <text x="15" y="31" fill="#90e0ef" font-family="'Segoe UI', Roboto, sans-serif" font-size="9">FACULTAD DE INGENIERÍA INDUSTRIAL - GRUPO SH-231</text>
+        
+        <text x="15" y="50" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="bold">PROYECTO: GRÚAS TORRE RESIDENCIAL 85 m (ZONA COSTERA)</text>
+        <text x="15" y="62" fill="#48cae4" font-family="'Segoe UI', Roboto, sans-serif" font-size="9.5">COMPARATIVA: SAEZ S-46 (CÚSPIDE) vs SAEZ TLS 70 12T (FLAT-TOP)</text>
+        
+        <text x="15" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">DOCENTE: <tspan fill="#ffffff" font-weight="bold">Prof. Ing. Eric Parker M. Sc.</tspan></text>
+        <text x="15" y="96" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">NORMATIVA: <tspan fill="#ffd166">UNE 58-101 / FEM 1001 / NBE-EA-95 / EN 14439</tspan></text>
+        
+        <text x="15" y="118" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">PLANO: <tspan fill="#00f0ff" font-weight="bold">ALZADO DUAL COMPARATIVO (85 m)</tspan></text>
+        <text x="15" y="129" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">OCTUBRE 2026 | UNIDADES: mm / m | LÁMINA DUAL</text>
+        
+        <text x="368" y="22" fill="#ffd166" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold">LÁMINA N.°</text>
+        <text x="375" y="55" fill="#00f0ff" font-family="monospace" font-size="24" font-weight="bold">PL-05</text>
+        
+        <text x="368" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">ESCALA</text>
+        <text x="368" y="96" fill="#ffffff" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.2" font-weight="bold">S/E (Esquemática)</text>
+        
+        <text x="450" y="84" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5">REVISIÓN</text>
+        <text x="456" y="97" fill="#00f0ff" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold">REV. 1</text>
+        
+        <text x="368" y="116" fill="#a0c4e2" font-family="'Segoe UI', Roboto, sans-serif" font-size="8">ESTADO</text>
+        <text x="368" y="128" fill="#06d6a0" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold">APROBADO</text>
+    </g>
+    
+    </svg>
