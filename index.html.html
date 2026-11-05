@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor 3D Interactivo — Grúa Torre SAEZ S-46 & TLS 70 (85 m) | UTP SH-231</title>
+    <!-- Three.js y OrbitControls desde cdnjs con fallback seguro -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+        body {
+            background-color: #040a14;
+            color: #e0f2fe;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+        #webgl-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        /* HUD HEADER SUPERIOR */
+        .hud-header {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(7, 22, 38, 0.90);
+            border: 1px solid #00f0ff;
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 8px;
+            pointer-events: auto;
+        }
+        .hud-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #00f0ff;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hud-subtitle {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        .badge-utp {
+            background: #ffd166;
+            color: #071626;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PANEL DE CONTROL FLOTANTE (DERECHA) */
+        .hud-panel {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 100;
+            width: 350px;
+            background: rgba(7, 22, 38, 0.92);
+            border: 1px solid #1e3a5f;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: calc(100vh - 30px);
+            overflow-y: auto;
+        }
+        .hud-panel::-webkit-scrollbar {
+            width: 5px;
+        }
+        .hud-panel::-webkit-scrollbar-thumb {
+            background: #1e3a5f;
+            border-radius: 3px;
+        }
+        .hud-section-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #38bdf8;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #1e3a5f;
+            padding-bottom: 5px;
+        }
+        
+        /* SELECTOR DE MODELO (TABS) */
+        .model-switcher {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            background: #091a2e;
+            padding: 4px;
+            border-radius: 6px;
+            border: 1px solid #1e3a5f;
+        }
+        .btn-tab {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            padding: 8px 6px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .btn-tab:hover {
+            color: #ffffff;
+        }
+        .btn-tab.active {
+            background: #00f0ff;
+            color: #05101d;
+            box-shadow: 0 2px 10px rgba(0, 240, 255, 0.4);
+        }
+
+        /* BOTONES DE ACCIÓN */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+        .btn-action {
+            background: #0d2744;
+            color: #e0f2fe;
+            border: 1px solid #234873;
+            padding: 8px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .btn-action:hover {
+            background: #173d6b;
+            border-color: #38bdf8;
+            color: #ffffff;
+        }
+        .btn-action.active {
+            background: #0369a1;
+            border-color: #00f0ff;
+            color: #ffffff;
+        }
+        .btn-views {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        .btn-view {
+            background: #081d33;
+            border: 1px solid #1c3d63;
+            color: #cbd5e1;
+            font-size: 10px;
+            padding: 7px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+        }
+        .btn-view:hover {
+            background: #12375e;
+            border-color: #38bdf8;
+            color: #fff;
+        }
+
+        /* TARJETA DE TELEMETRÍA TÉCNICA */
+        .telemetry-card {
+            background: #061527;
+            border: 1px solid #153254;
+            border-radius: 6px;
+            padding: 10px 12px;
+            font-family: 'Consolas', monospace;
+            font-size: 11px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .telemetry-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .telemetry-label {
+            color: #94a3b8;
+        }
+        .telemetry-val {
+            font-weight: 700;
+            color: #ffd166;
+        }
+        .telemetry-val.highlight {
+            color: #00f0ff;
+        }
+        .telemetry-val.ok {
+            color: #4ade80;
+        }
+
+        /* PIE DE AYUDA DE NAVEGACIÓN */
+        .hud-footer {
+            position: absolute;
+            bottom: 22px;
+            left: 115px;
+            z-index: 100;
+            background: rgba(7, 22, 38, 0.88);
+            border: 1px solid #1e3a5f;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #94a3b8;
+            pointer-events: none;
+            display: flex;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .hud-footer span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .key {
+            background: #1e3a5f;
+            color: #00f0ff;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        /* COMPÁS DE VIENTO Y NAVEGACIÓN 3D (ESQUINA INFERIOR IZQUIERDA - LIBERA PANEL DERECHO) */
+        .wind-compass {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(7, 22, 38, 0.92);
+            border: 1.5px solid #00f0ff;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.35);
+            transition: all 0.3s ease;
+        }
+        .compass-dial {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.1s linear;
+        }
+        .compass-arrow {
+            position: absolute;
+            width: 3px;
+            height: 54px;
+            background: linear-gradient(to top, #38bdf8 50%, #ef4444 50%);
+            border-radius: 2px;
+            transition: transform 0.2s ease;
+        }
+        .compass-arrow::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -3.5px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 8px solid #ef4444;
+        }
+        .compass-wind-indicator {
+            position: absolute;
+            width: 4px;
+            height: 64px;
+            background: linear-gradient(to bottom, #00f0ff, transparent);
+            display: none;
+            border-radius: 2px;
+            transform-origin: center center;
+            box-shadow: 0 0 10px #00f0ff;
+        }
+        .compass-wind-indicator::after {
+            content: '▼';
+            position: absolute;
+            bottom: -6px;
+            left: -4px;
+            color: #00f0ff;
+            font-size: 10px;
+        }
+        .compass-label {
+            position: absolute;
+            font-size: 10px;
+            font-weight: 800;
+            color: #00f0ff;
+        }
+        .label-n { top: 3px; }
+        .label-s { bottom: 3px; }
+        .label-e { right: 5px; }
+        .label-w { left: 5px; }
+        .compass-legend {
+            position: absolute;
+            top: -18px;
+            font-size: 9px;
+            font-weight: 700;
+            color: #94a3b8;
+            white-space: nowrap;
+            font-family: monospace;
+            text-align: center;
+        }
+
+        /* BANNER DIDÁCTICO DE VELETA LIBRE Y AERODINÁMICA */
+        .weathervane-banner {
+            position: absolute;
+            top: 78px;
+            left: 20px;
+            z-index: 100;
+            width: 480px;
+            background: rgba(6, 21, 38, 0.95);
+            border: 1px solid #ffd166;
+            border-left: 5px solid #00f0ff;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 8px;
+            padding: 14px 16px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            animation: slideDown 0.4s ease;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .wv-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .wv-icon {
+            font-size: 24px;
+            animation: pulseIcon 1.5s infinite ease-in-out;
+        }
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        .wv-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: #ffd166;
+            letter-spacing: 0.5px;
+        }
+        .wv-sub {
+            font-size: 10px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+        .wv-desc {
+            font-size: 11px;
+            color: #cbd5e1;
+            line-height: 1.4;
+            background: rgba(13, 39, 68, 0.6);
+            padding: 8px 10px;
+            border-radius: 5px;
+            border-left: 2px solid #38bdf8;
+        }
+        .wv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+        }
+        .wv-stat {
+            background: #081a2f;
+            border: 1px solid #1c3d63;
+            border-radius: 5px;
+            padding: 6px 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .wv-lbl {
+            font-size: 9px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .wv-val {
+            font-size: 12px;
+            font-weight: 800;
+            color: #00f0ff;
+            font-family: monospace;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .wv-val.ok {
+            color: #4ade80;
+        }
+        .badge-red {
+            background: #ef4444;
+            color: #ffffff;
+            font-size: 8px;
+            font-weight: 800;
+            padding: 1px 4px;
+            border-radius: 3px;
+        }
+        .wv-comp {
+            font-size: 9px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        /* BADGES FLOTANTES DE PISOS ARRIOSTRAMIENTO */
+        .floor-badge {
+            background: rgba(13, 39, 68, 0.9);
+            border: 1px solid #ffd166;
+            color: #ffd166;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hud-header">
+        <div class="hud-title">
+            <span>MODELADO 3D PARAMÉTRICO DE GRÚA TORRE (85 m)</span>
+            <span class="badge-utp">UTP SH-231</span>
+        </div>
+        <div class="hud-subtitle">
+            Cátedra: Diseño Mecánico | Prof. Ing. Eric Parker M. Sc. | Normativa: UNE 58-101 / FEM 1001 / EN 14439
+        </div>
+    </div>
+
+    <!-- BANNER DIDÁCTICO DE VELETA LIBRE (EN 14439) -->
+    <div id="weathervane-banner" class="weathervane-banner">
+        <div class="wv-header">
+            <span class="wv-icon">🌪️</span>
+            <div>
+                <div class="wv-title">PROTOCOLO DE VELETA LIBRE ACTIVADO (EN 14439 / UNE 58-101)</div>
+                <div class="wv-sub">Régimen Fuera de Servicio ante Viento de Tempestad (v = 42 m/s = 151 km/h)</div>
+            </div>
+        </div>
+        <div class="wv-desc">
+            <strong>Protocolo de Seguridad Fuera de Servicio:</strong> Carro replegado a pie de torre (r = 3.80 m) y gancho izado al tope superior (cota 85.40 m) para sobrevolar el tejado del edificio (80.00 m) sin colisión. Al liberar el freno de orientación, la contrapluma actúa como timón y alinea la pluma hacia <strong>sotavento</strong> minimizando el arrastre.
+        </div>
+        <div class="wv-grid">
+            <div class="wv-stat">
+                <span class="wv-lbl">Área Neta Expuesta (Ac):</span>
+                <span class="wv-val highlight" id="wv-val-area">11.8 m² <span class="badge-red">-69%</span></span>
+                <span class="wv-comp">(Viento transversal: 38.2 m²)</span>
+            </div>
+            <div class="wv-stat">
+                <span class="wv-lbl">Empuje Eólico (Fv):</span>
+                <span class="wv-val highlight" id="wv-val-force">14.6 kN <span class="badge-red">-69%</span></span>
+                <span class="wv-comp">(Viento transversal: 47.3 kN)</span>
+            </div>
+            <div class="wv-stat">
+                <span class="wv-lbl">Seguridad a Vuelco:</span>
+                <span class="wv-val ok" id="wv-val-fs">FS = 2.56 ≥ 1.75</span>
+                <span class="wv-comp">Estado Estable Cumple</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL DERECHO DE CONTROL -->
+    <div class="hud-panel">
+        <div class="hud-section-title">Modelo Estructural Activo</div>
+        <div class="model-switcher">
+            <button class="btn-tab active" id="tab-s46" onclick="setModel('S46')">
+                SAEZ S-46<br><small style="font-weight:normal;opacity:0.8;">Cúspide / 46 m</small>
+            </button>
+            <button class="btn-tab" id="tab-tls70" onclick="setModel('TLS70')">
+                SAEZ TLS 70<br><small style="font-weight:normal;opacity:0.8;">Flat-Top / 70 m</small>
+            </button>
+        </div>
+
+        <div class="hud-section-title">Controles Operativos 3D</div>
+        <div class="btn-group">
+            <button class="btn-action" id="btn-rotate" onclick="toggleRotation()">
+                <span>Rotación Pluma (Giro 360°)</span>
+                <span id="txt-rotate-status">OFF</span>
+            </button>
+            <button class="btn-action active" id="btn-tieins" onclick="toggleTieIns()">
+                <span id="lbl-btn-tieins">Arriostramientos (Pisos 10 y 18)</span>
+                <span id="txt-tieins-status">VISIBLE</span>
+            </button>
+            <button class="btn-action" id="btn-building" onclick="cycleBuildingMode()">
+                <span>Modo Edificio (25 Pisos / 80 m)</span>
+                <span id="txt-building-mode">SÓLIDO</span>
+            </button>
+            <button class="btn-action" id="btn-wind" onclick="toggleWindSimulation()">
+                <span>Simulación Ráfaga Viento</span>
+                <span id="txt-wind-status">OFF</span>
+            </button>
+        </div>
+
+        <div class="hud-section-title">Documentación Técnica 2D</div>
+        <div class="btn-group">
+            <button class="btn-action" onclick="window.open('PLANOS_ESQUEMATICOS/PL-01_Alzado_General_y_Arriostramientos.png', '_blank')" style="background: rgba(14, 116, 144, 0.4); border-color: #00f0ff; color: #fff;">
+                <span>📐 Plano PL-01: Alzado General (85 m)</span>
+                <span style="color:#00f0ff; font-weight:bold;">VER PNG ↗</span>
+            </button>
+            <button class="btn-action" onclick="window.open('PLANOS_ESQUEMATICOS/PL-05B_Detalle_Geometrico_Garganta_Soldadura.png', '_blank')" style="background: rgba(180, 83, 9, 0.4); border-color: #ffd166; color: #fff;">
+                <span>⚡ Plano PL-05B: Garganta Soldadura (a)</span>
+                <span style="color:#ffd166; font-weight:bold;">VER PNG ↗</span>
+            </button>
+            <button class="btn-action" onclick="window.open('PLANOS_ESQUEMATICOS/PL-06B_Detalle_Geometrico_Pernos_Estructurales.png', '_blank')" style="background: rgba(2, 132, 199, 0.4); border-color: #38bdf8; color: #fff;">
+                <span>🔩 Plano PL-06B: Pernos M39 y M45 (10.9)</span>
+                <span style="color:#38bdf8; font-weight:bold;">VER PNG ↗</span>
+            </button>
+            <button class="btn-action" onclick="window.open('PRESENTACION_DEFENSA_GRUAS_TORRE_UTP.html', '_blank')" style="background: rgba(88, 28, 135, 0.4); border-color: #d8b4fe; color: #fff;">
+                <span>🖥️ Presentación de Defensa UTP</span>
+                <span style="color:#ffd166; font-weight:bold;">ABRIR ↗</span>
+            </button>
+        </div>
+
+        <div class="hud-section-title">Cámaras Predefinidas</div>
+        <div class="btn-views">
+            <button class="btn-view" onclick="setCameraView('iso')">Isométrica 3D</button>
+            <button class="btn-view" onclick="setCameraView('front')">Alzado Frontal</button>
+            <button class="btn-view" onclick="setCameraView('base')">Zapata y Placas Base</button>
+            <button class="btn-view" id="btn-cam-tiein2" onclick="setCameraView('tiein2')">Corbata Piso 18</button>
+            <button class="btn-view" onclick="setCameraView('top')">Planta Superior</button>
+            <button class="btn-view" onclick="setCameraView('hook')">Gancho (85 m)</button>
+        </div>
+
+        <div class="hud-section-title">Telemetría de Ingeniería (Rúbrica)</div>
+        <div class="telemetry-card">
+            <div class="telemetry-row">
+                <span class="telemetry-label">Altura Bajo Gancho (Hu):</span>
+                <span class="telemetry-val highlight">85.00 m</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Altura Total Estructural:</span>
+                <span class="telemetry-val" id="tel-total-h">86.60 m</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Sección Fuste Principal:</span>
+                <span class="telemetry-val" id="tel-mast-section">1.20 × 1.20 m</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Zapata de Cimentación:</span>
+                <span class="telemetry-val" id="tel-zapata-dim">5.50 × 5.50 × 1.40 m</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Placas de Base (4 patas):</span>
+                <span class="telemetry-val" id="tel-plates-dim">450 × 450 × 40 mm (4 pernos/pata)</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Pernos Junta Modular:</span>
+                <span class="telemetry-val" id="tel-bolts">8 × M39 - 10.9</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Par Apriete Nominal (Mt):</span>
+                <span class="telemetry-val" id="tel-torque">3 730 N·m</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">1.er Arriostramiento:</span>
+                <span class="telemetry-val" id="tel-tiein1">Piso 10 (z = 32.00 m)</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">2.º Arriostramiento:</span>
+                <span class="telemetry-val" id="tel-tiein2">Piso 18 (z = 57.60 m)</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Voladizo Superior Libre:</span>
+                <span class="telemetry-val ok" id="tel-cantilever">27.40 m (≤ 36.00 m [OK])</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Factor Seguridad Vuelco:</span>
+                <span class="telemetry-val ok" id="tel-fs-vuelco">FS = 2.56 ≥ 1.75</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Factor Diseño Pernos:</span>
+                <span class="telemetry-val ok" id="tel-fd-pernos">F_d = 2.99 ≥ 1.50</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN Y AYUDA -->
+    <div class="hud-footer">
+        <span><span class="key">Clic Izquierdo</span> Rotar Cámara</span>
+        <span><span class="key">Rueda Ratón</span> Zoom Acercar/Alejar</span>
+        <span><span class="key">Clic Derecho</span> Desplazar (Pan)</span>
+    </div>
+
+    <!-- COMPÁS DE VIENTO Y NAVEGACIÓN GEOESPACIAL -->
+    <div class="wind-compass" id="wind-compass" title="Brújula de Navegación 3D y Vector de Viento Costero">
+        <div class="compass-dial" id="compass-dial">
+            <span class="compass-label label-n">N</span>
+            <span class="compass-label label-s">S</span>
+            <span class="compass-label label-e">E</span>
+            <span class="compass-label label-w">W</span>
+            <div class="compass-arrow" id="compass-needle"></div>
+            <div class="compass-wind-indicator" id="wind-vector-indicator"></div>
+        </div>
+        <div class="compass-legend" id="compass-legend">NORTE 3D</div>
+    </div>
+
+    <canvas id="webgl-canvas"></canvas>
+
+    <script>
+        // =====================================================================
+        // MOTOR GRÁFICO THREE.JS E INGENIERÍA ESTRUCTURAL
+        // =====================================================================
+        let scene, camera, renderer, controls;
+        let craneGroup = null, buildingGroup = null, foundationGroup = null, tieInsGroup = null, highlightGroup = null;
+        let windParticles = null;
+        let rotatingGroup = null; // Pluma + contrapluma
+        let trolleyMesh = null, hookMesh = null, cableLine = null;
+        let currentTrolleyX = 28.0; // Radio nominal de trabajo en servicio (m)
+        let currentHookDrop = 22.0; // Descenso nominal de gancho en servicio (m)
+        let currentModel = 'S46';
+        let isRotating = false;
+        let isWindActive = false;
+        let buildingMode = 0; // 0: Sólido, 1: Transparente, 2: Wireframe
+        
+        // Parámetros dimensionales a escala real (1 unidad Three.js = 1 metro)
+        const H_BUILDING = 80.0;
+        const NUM_FLOORS = 25;
+        const H_FLOOR = 3.20;
+        const H_MAST = 86.60;
+        const H_HOOK = 85.00;
+        const BUILDING_CENTER_X = -22.0;
+        const BUILDING_WIDTH = 26.0;
+        const BUILDING_DEPTH = 22.0;
+        // La fachada del edificio que mira hacia la grúa (eje X = 0) está en:
+        const FACADE_X = BUILDING_CENTER_X + (BUILDING_WIDTH / 2.0); // -22 + 13 = -9.00 m
+        
+        // Función de saneamiento y limpieza profunda de grupos Three.js
+        function clearGroup(group) {
+            if (!group) return;
+            while (group.children.length > 0) {
+                const obj = group.children[0];
+                group.remove(obj);
+                if (obj.children && obj.children.length > 0) {
+                    clearGroup(obj);
+                }
+                if (obj.geometry) {
+                    obj.geometry.dispose();
+                }
+                if (obj.material) {
+                    if (Array.isArray(obj.material)) {
+                        obj.material.forEach(m => m.dispose());
+                    } else {
+                        obj.material.dispose();
+                    }
+                }
+            }
+            scene.remove(group);
+        }
+
+        // Inicialización del visor WebGL
+        function init() {
+            const canvas = document.getElementById('webgl-canvas');
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x040a14);
+            scene.fog = new THREE.FogExp2(0x040a14, 0.0032);
+
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.5, 800);
+            camera.position.set(90, 70, 110);
+
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: "high-performance" });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.maxPolarAngle = Math.PI / 2 - 0.01; // No bajar del suelo
+            controls.minDistance = 4;
+            controls.maxDistance = 350;
+            controls.target.set(0, 42, 0);
+
+            // Luces de escena técnica
+            setupLighting();
+
+            // Elementos del entorno
+            setupEnvironment();
+
+            // Construcción del Edificio
+            buildBuilding();
+
+            // Construcción inicial de cimentación, grúa y arriostramientos
+            rebuildSceneForActiveModel();
+
+            // Simulación de viento (partículas)
+            setupWindSimulation();
+
+            window.addEventListener('resize', onWindowResize, false);
+            animate();
+        }
+
+        // Iluminación cinemática industrial
+        function setupLighting() {
+            const ambient = new THREE.AmbientLight(0xdbeafe, 0.75);
+            scene.add(ambient);
+
+            const sunLight = new THREE.DirectionalLight(0xffffff, 1.25);
+            sunLight.position.set(80, 150, 70);
+            sunLight.castShadow = true;
+            sunLight.shadow.mapSize.width = 2048;
+            sunLight.shadow.mapSize.height = 2048;
+            sunLight.shadow.camera.near = 10;
+            sunLight.shadow.camera.far = 300;
+            sunLight.shadow.camera.left = -90;
+            sunLight.shadow.camera.right = 90;
+            sunLight.shadow.camera.top = 100;
+            sunLight.shadow.camera.bottom = -20;
+            scene.add(sunLight);
+
+            const fillLight = new THREE.DirectionalLight(0x00f0ff, 0.45);
+            fillLight.position.set(-70, 45, -50);
+            scene.add(fillLight);
+        }
+
+        // Terreno y cuadrícula técnica
+        function setupEnvironment() {
+            const groundGeo = new THREE.PlaneGeometry(350, 350);
+            const groundMat = new THREE.MeshStandardMaterial({
+                color: 0x06111f,
+                roughness: 0.85,
+                metalness: 0.2
+            });
+            const ground = new THREE.Mesh(groundGeo, groundMat);
+            ground.rotation.x = -Math.PI / 2;
+            ground.receiveShadow = true;
+            scene.add(ground);
+
+            const gridHelper = new THREE.GridHelper(300, 60, 0x00f0ff, 0x1e3a5f);
+            gridHelper.position.y = 0.02;
+            scene.add(gridHelper);
+        }
+
+        // =====================================================================
+        // MODELADO DEL EDIFICIO RESIDENCIAL (25 NIVELES, H = 80.00 m)
+        // =====================================================================
+        let floorMeshes = [];
+        let columnMeshes = [];
+
+        function buildBuilding() {
+            if (buildingGroup) clearGroup(buildingGroup);
+            buildingGroup = new THREE.Group();
+            buildingGroup.position.set(BUILDING_CENTER_X, 0, 0);
+
+            floorMeshes = [];
+            columnMeshes = [];
+
+            // Materiales compartidos para optimizar draw calls y consumo GPU
+            const sharedSlabMat = new THREE.MeshStandardMaterial({
+                color: 0x1e3a5f,
+                roughness: 0.6,
+                metalness: 0.1,
+                transparent: true,
+                opacity: 0.85
+            });
+            const sharedColMat = new THREE.MeshStandardMaterial({
+                color: 0x334155,
+                roughness: 0.7,
+                transparent: true,
+                opacity: 0.9
+            });
+
+            for (let i = 1; i <= NUM_FLOORS; i++) {
+                const y = i * H_FLOOR;
+
+                // Losa de hormigón armado (instancia única compartida)
+                const slabGeo = new THREE.BoxGeometry(BUILDING_WIDTH, 0.4, BUILDING_DEPTH);
+                const slab = new THREE.Mesh(slabGeo, sharedSlabMat);
+                slab.position.set(0, y, 0);
+                slab.receiveShadow = true;
+                slab.castShadow = true;
+                slab.userData = { floorNumber: i, heightZ: y };
+                buildingGroup.add(slab);
+                floorMeshes.push(slab);
+
+                // Columnas de entrepiso
+                const colPositions = [
+                    [-BUILDING_WIDTH/2 + 1, y - H_FLOOR/2, -BUILDING_DEPTH/2 + 1],
+                    [BUILDING_WIDTH/2 - 1, y - H_FLOOR/2, -BUILDING_DEPTH/2 + 1],
+                    [-BUILDING_WIDTH/2 + 1, y - H_FLOOR/2, BUILDING_DEPTH/2 - 1],
+                    [BUILDING_WIDTH/2 - 1, y - H_FLOOR/2, BUILDING_DEPTH/2 - 1],
+                    [0, y - H_FLOOR/2, -BUILDING_DEPTH/2 + 1],
+                    [0, y - H_FLOOR/2, BUILDING_DEPTH/2 - 1]
+                ];
+                colPositions.forEach(pos => {
+                    const colGeo = new THREE.BoxGeometry(0.7, H_FLOOR - 0.4, 0.7);
+                    const col = new THREE.Mesh(colGeo, sharedColMat);
+                    col.position.set(pos[0], pos[1], pos[2]);
+                    col.castShadow = true;
+                    buildingGroup.add(col);
+                    columnMeshes.push(col);
+                });
+            }
+
+            scene.add(buildingGroup);
+        }
+
+        // =====================================================================
+        // ILUMINACIÓN DINÁMICA DE PISOS ARRIOSTRAMIENTOS (S-46 vs TLS 70)
+        // =====================================================================
+        function updateBuildingTieInHighlights(floor1, floor2) {
+            if (highlightGroup) clearGroup(highlightGroup);
+            highlightGroup = new THREE.Group();
+            highlightGroup.position.set(BUILDING_CENTER_X, 0, 0);
+
+            const activeFloors = [
+                { floor: floor1, color: 0x00f0ff, label: `PISO ${floor1} (z = ${(floor1 * H_FLOOR).toFixed(2)} m)` },
+                { floor: floor2, color: 0xffd166, label: `PISO ${floor2} (z = ${(floor2 * H_FLOOR).toFixed(2)} m)` }
+            ];
+
+            activeFloors.forEach(item => {
+                const y = item.floor * H_FLOOR;
+                const slabGeo = new THREE.BoxGeometry(BUILDING_WIDTH + 0.1, 0.45, BUILDING_DEPTH + 0.1);
+                
+                // Línea de contorno perimetral neón
+                const edgeGeo = new THREE.EdgesGeometry(slabGeo);
+                const edgeMat = new THREE.LineBasicMaterial({
+                    color: item.color,
+                    linewidth: 3
+                });
+                const edge = new THREE.LineSegments(edgeGeo, edgeMat);
+                edge.position.set(0, y, 0);
+                highlightGroup.add(edge);
+
+                // Banda resaltada luminosa en la cara frontal de fachada
+                const bandGeo = new THREE.BoxGeometry(0.15, 0.5, BUILDING_DEPTH * 0.7);
+                const bandMat = new THREE.MeshBasicMaterial({
+                    color: item.color,
+                    transparent: true,
+                    opacity: 0.8
+                });
+                const band = new THREE.Mesh(bandGeo, bandMat);
+                band.position.set(BUILDING_WIDTH / 2.0, y, 0);
+                highlightGroup.add(band);
+            });
+
+            scene.add(highlightGroup);
+        }
+
+        // =====================================================================
+        // MODELADO DE LA CIMENTACIÓN, ZAPATA Y PLACAS BASE DE ASIENTO
+        // =====================================================================
+        function buildFoundation() {
+            if (foundationGroup) clearGroup(foundationGroup);
+            foundationGroup = new THREE.Group();
+
+            const isS46 = (currentModel === 'S46');
+            const b = isS46 ? 1.20 : 1.70; // Ancho entre ejes de patas del mástil
+            const halfB = b / 2.0;
+
+            // Dimensiones de la zapata según Tópico 2:
+            // S-46: 5.50 x 5.50 x 1.40 m | TLS 70: 6.50 x 6.50 x 1.60 m
+            const zapDim = isS46 ? { w: 5.50, h: 1.40 } : { w: 6.50, h: 1.60 };
+
+            // Bloque masivo de hormigón armado HA-25 semienterrado
+            // Su cara superior queda a nivel de rasante de calle (Y = 0.00 m) y el cuerpo se extiende hacia abajo
+            const zapataGeo = new THREE.BoxGeometry(zapDim.w, zapDim.h, zapDim.w);
+            const zapataMat = new THREE.MeshStandardMaterial({
+                color: 0x1d2d3e,
+                roughness: 0.9,
+                metalness: 0.15,
+                transparent: true,
+                opacity: 0.92
+            });
+            const zapata = new THREE.Mesh(zapataGeo, zapataMat);
+            zapata.position.set(0, -zapDim.h / 2.0, 0); // Centro en Y = -0.70 m (S-46) o -0.80 m (TLS 70)
+            zapata.receiveShadow = true;
+            zapata.castShadow = true;
+            foundationGroup.add(zapata);
+
+            // Borde perimetral resaltado en cian
+            const zapataEdges = new THREE.LineSegments(
+                new THREE.EdgesGeometry(zapataGeo),
+                new THREE.LineBasicMaterial({ color: 0x00f0ff, linewidth: 2 })
+            );
+            zapataEdges.position.copy(zapata.position);
+            foundationGroup.add(zapataEdges);
+
+            // Capa de mortero Grout de nivelación sin retracción (50 mm)
+            const groutMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.95 });
+            const plateSize = isS46 ? 0.45 : 0.55; // Placa de 450x450 mm (S-46) o 550x550 mm (TLS 70)
+            const plateThickness = isS46 ? 0.04 : 0.05; // Espesor 40 mm / 50 mm
+            const plateMat = new THREE.MeshStandardMaterial({ color: 0x00f0ff, metalness: 0.85, roughness: 0.25 });
+            const boltMat = new THREE.MeshStandardMaterial({ color: 0xffd166, metalness: 0.9, roughness: 0.2 });
+            const stiffenerMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, metalness: 0.8, roughness: 0.3 });
+
+            const cornerPositions = [
+                [-halfB, -halfB],
+                [halfB, -halfB],
+                [halfB, halfB],
+                [-halfB, halfB]
+            ];
+
+            cornerPositions.forEach(cp => {
+                const legX = cp[0];
+                const legZ = cp[1];
+
+                // 1. Cama de mortero Grout bajo placa (50 mm) a ras de suelo (de Y = 0 a 0.05 m)
+                const groutGeo = new THREE.BoxGeometry(plateSize + 0.08, 0.05, plateSize + 0.08);
+                const grout = new THREE.Mesh(groutGeo, groutMat);
+                grout.position.set(legX, 0.025, legZ);
+                foundationGroup.add(grout);
+
+                // 2. Placa base de asiento de acero S355
+                const plateGeo = new THREE.BoxGeometry(plateSize, plateThickness, plateSize);
+                const plate = new THREE.Mesh(plateGeo, plateMat);
+                const plateY = 0.05 + plateThickness / 2.0;
+                plate.position.set(legX, plateY, legZ);
+                plate.castShadow = true;
+                foundationGroup.add(plate);
+
+                // Borde de la placa base
+                const pEdge = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(plateGeo),
+                    new THREE.LineBasicMaterial({ color: 0xffd166, linewidth: 1.5 })
+                );
+                pEdge.position.copy(plate.position);
+                foundationGroup.add(pEdge);
+
+                // 3. Cuatro Pernos de Anclaje de Alta Resistencia (M36/M39/M45 Grado 8.8)
+                const boltPitch = plateSize * 0.32;
+                const boltOffsets = [
+                    [-boltPitch, -boltPitch],
+                    [boltPitch, -boltPitch],
+                    [-boltPitch, boltPitch],
+                    [boltPitch, boltPitch]
+                ];
+
+                boltOffsets.forEach(bo => {
+                    // Vástago roscado de perno
+                    const boltGeo = new THREE.CylinderGeometry(0.02, 0.02, 0.22, 10);
+                    const bolt = new THREE.Mesh(boltGeo, boltMat);
+                    bolt.position.set(legX + bo[0], plateY + 0.09, legZ + bo[1]);
+                    bolt.castShadow = true;
+                    foundationGroup.add(bolt);
+
+                    // Tuerca hexagonal doble + arandela gruesa
+                    const nutGeo = new THREE.CylinderGeometry(0.038, 0.038, 0.045, 6);
+                    const nut = new THREE.Mesh(nutGeo, boltMat);
+                    nut.position.set(legX + bo[0], plateY + plateThickness / 2.0 + 0.025, legZ + bo[1]);
+                    foundationGroup.add(nut);
+                });
+
+                // 4. Cartelas rigidizadoras triangulares soldadas (WPS a = 8 mm)
+                const gussetOffsets = [
+                    { dx: 0, dz: plateSize * 0.28, rotY: 0 },
+                    { dx: 0, dz: -plateSize * 0.28, rotY: 0 },
+                    { dx: plateSize * 0.28, dz: 0, rotY: Math.PI / 2 },
+                    { dx: -plateSize * 0.28, dz: 0, rotY: Math.PI / 2 }
+                ];
+                gussetOffsets.forEach(go => {
+                    const gussetGeo = new THREE.BoxGeometry(0.015, 0.18, plateSize * 0.25);
+                    const gusset = new THREE.Mesh(gussetGeo, stiffenerMat);
+                    gusset.position.set(legX + go.dx, plateY + 0.09, legZ + go.dz);
+                    gusset.rotation.y = go.rotY;
+                    foundationGroup.add(gusset);
+                });
+            });
+
+            scene.add(foundationGroup);
+        }
+
+        // =====================================================================
+        // MODELADO PARAMÉTRICO DE LA GRÚA TORRE (SAEZ S-46 / TLS 70)
+        // =====================================================================
+        function buildCrane() {
+            if (craneGroup) clearGroup(craneGroup);
+            craneGroup = new THREE.Group();
+
+            const isS46 = (currentModel === 'S46');
+            const mastWidth = isS46 ? 1.20 : 1.70;
+            const mastHeight = 86.60;
+            const jibLength = isS46 ? 46.0 : 70.0;
+            const counterJibLength = isS46 ? 9.28 : 16.5;
+            const halfW = mastWidth / 2.0;
+
+            const baseHeight = 0.05 + (isS46 ? 0.04 : 0.05); // Cota de placas base sobre rasante: +0.09 m / +0.10 m (zapata semienterrada a rasante 0.00 m)
+
+            // Materiales de estructura de acero
+            const mastMat = new THREE.MeshStandardMaterial({
+                color: isS46 ? 0x0284c7 : 0xe11d48, // Azul SAEZ para S-46, Rojo/Blanco para TLS 70
+                roughness: 0.35,
+                metalness: 0.65
+            });
+            const jibMat = new THREE.MeshStandardMaterial({
+                color: isS46 ? 0x0369a1 : 0xd97706,
+                roughness: 0.3,
+                metalness: 0.7
+            });
+            const cableMat = new THREE.LineBasicMaterial({ color: 0xe2e8f0, linewidth: 2 });
+            const ballastMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.9 });
+
+            // 1. MÁSTIL DE CELOSÍA (86.60 m)
+            // 4 Montantes tubulares principales de esquina
+            const legRadius = isS46 ? 0.07 : 0.09;
+            const legGeo = new THREE.CylinderGeometry(legRadius, legRadius, mastHeight, 10);
+            const legPositions = [
+                [-halfW, mastHeight / 2.0 + baseHeight, -halfW],
+                [halfW, mastHeight / 2.0 + baseHeight, -halfW],
+                [halfW, mastHeight / 2.0 + baseHeight, halfW],
+                [-halfW, mastHeight / 2.0 + baseHeight, halfW]
+            ];
+
+            legPositions.forEach(pos => {
+                const leg = new THREE.Mesh(legGeo, mastMat);
+                leg.position.set(pos[0], pos[1], pos[2]);
+                leg.castShadow = true;
+                craneGroup.add(leg);
+            });
+
+            // Celosías en X y travesaños cada 2.5 metros
+            const numBays = Math.floor(mastHeight / 2.5);
+            for (let b = 0; b < numBays; b++) {
+                const y1 = baseHeight + b * 2.5;
+                const y2 = y1 + 2.5;
+
+                // Anillo perimetral horizontal
+                const horizPoints = [
+                    new THREE.Vector3(-halfW, y2, -halfW),
+                    new THREE.Vector3(halfW, y2, -halfW),
+                    new THREE.Vector3(halfW, y2, halfW),
+                    new THREE.Vector3(-halfW, y2, halfW),
+                    new THREE.Vector3(-halfW, y2, -halfW)
+                ];
+                const horizGeo = new THREE.BufferGeometry().setFromPoints(horizPoints);
+                const horizLine = new THREE.Line(horizGeo, new THREE.LineBasicMaterial({ color: 0x38bdf8, linewidth: 1.5 }));
+                craneGroup.add(horizLine);
+
+                // Diagonales de arriostramiento en caras
+                const diagLines = [
+                    [new THREE.Vector3(-halfW, y1, -halfW), new THREE.Vector3(halfW, y2, -halfW)],
+                    [new THREE.Vector3(halfW, y1, -halfW), new THREE.Vector3(halfW, y2, halfW)],
+                    [new THREE.Vector3(halfW, y1, halfW), new THREE.Vector3(-halfW, y2, halfW)],
+                    [new THREE.Vector3(-halfW, y1, halfW), new THREE.Vector3(-halfW, y2, -halfW)]
+                ];
+                diagLines.forEach(pair => {
+                    const dgGeo = new THREE.BufferGeometry().setFromPoints(pair);
+                    const dg = new THREE.Line(dgGeo, new THREE.LineBasicMaterial({ color: isS46 ? 0x0284c7 : 0xe11d48, linewidth: 1 }));
+                    craneGroup.add(dg);
+                });
+            }
+
+            // Escalera interior de fuste con aros quitamiedos (UNE 58-101)
+            const ladderPoints = [new THREE.Vector3(0, baseHeight, 0), new THREE.Vector3(0, mastHeight + baseHeight, 0)];
+            const ladderGeo = new THREE.BufferGeometry().setFromPoints(ladderPoints);
+            craneGroup.add(new THREE.Line(ladderGeo, new THREE.LineBasicMaterial({ color: 0xffd166, linewidth: 2 })));
+
+            // 2. PARTE GIRATORIA (CORONA + PLUMA + CONTRAPLUMA + CÚSPIDE)
+            rotatingGroup = new THREE.Group();
+            rotatingGroup.position.set(0, mastHeight + baseHeight, 0);
+
+            // Corona de giro
+            const slewGeo = new THREE.CylinderGeometry(halfW * 1.35, halfW * 1.35, 0.8, 16);
+            const slew = new THREE.Mesh(slewGeo, new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.8 }));
+            rotatingGroup.add(slew);
+
+            // Cabina de control del operador
+            const cabinGeo = new THREE.BoxGeometry(1.6, 2.2, 1.4);
+            const cabinMat = new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.3 });
+            const cabin = new THREE.Mesh(cabinGeo, cabinMat);
+            cabin.position.set(halfW + 0.95, 1.2, 0);
+            rotatingGroup.add(cabin);
+
+            // Cúspide Portapluma (Solo para S-46, la TLS 70 es Flat-Top)
+            if (isS46) {
+                const apexHeight = 7.5;
+                const apexPoint = new THREE.Vector3(0, apexHeight, 0);
+                const apexLegs = [
+                    new THREE.Vector3(-halfW, 0.4, -halfW),
+                    new THREE.Vector3(halfW, 0.4, -halfW),
+                    new THREE.Vector3(halfW, 0.4, halfW),
+                    new THREE.Vector3(-halfW, 0.4, halfW)
+                ];
+                apexLegs.forEach(pt => {
+                    const legPts = [pt, apexPoint];
+                    const apGeo = new THREE.BufferGeometry().setFromPoints(legPts);
+                    rotatingGroup.add(new THREE.Line(apGeo, new THREE.LineBasicMaterial({ color: 0x00f0ff, linewidth: 2 })));
+                });
+
+                // Tirantes de cable hacia pluma y contrapluma
+                const stayJibPts = [apexPoint, new THREE.Vector3(18.0, 0.8, 0)];
+                const stayJibGeo = new THREE.BufferGeometry().setFromPoints(stayJibPts);
+                rotatingGroup.add(new THREE.Line(stayJibGeo, cableMat));
+
+                const stayCounterPts = [apexPoint, new THREE.Vector3(-counterJibLength + 1, 0.8, 0)];
+                const stayCounterGeo = new THREE.BufferGeometry().setFromPoints(stayCounterPts);
+                rotatingGroup.add(new THREE.Line(stayCounterGeo, cableMat));
+            }
+
+            // PLUMA DE ELEVACIÓN (Hacia +X)
+            const jibSegments = Math.floor(jibLength / 4);
+            for (let j = 0; j < jibSegments; j++) {
+                const x1 = j * 4;
+                const x2 = x1 + 4;
+                const h1 = 1.3 * (1 - (x1 / jibLength) * 0.4);
+                const h2 = 1.3 * (1 - (x2 / jibLength) * 0.4);
+
+                // Cordones longitudinales
+                const chordPoints = [
+                    new THREE.Vector3(x1, 0, -0.6), new THREE.Vector3(x2, 0, -0.6),
+                    new THREE.Vector3(x1, 0, 0.6), new THREE.Vector3(x2, 0, 0.6),
+                    new THREE.Vector3(x1, h1, 0), new THREE.Vector3(x2, h2, 0)
+                ];
+                const trGeo = new THREE.BufferGeometry().setFromPoints(chordPoints);
+                rotatingGroup.add(new THREE.LineSegments(trGeo, new THREE.LineBasicMaterial({ color: isS46 ? 0x38bdf8 : 0xf59e0b, linewidth: 2 })));
+
+                // Triangulaciones transversales
+                const crossPoints = [
+                    new THREE.Vector3(x1, 0, -0.6), new THREE.Vector3(x1, h1, 0),
+                    new THREE.Vector3(x1, h1, 0), new THREE.Vector3(x1, 0, 0.6),
+                    new THREE.Vector3(x1, 0, 0.6), new THREE.Vector3(x1, 0, -0.6),
+                    new THREE.Vector3(x1, 0, 0), new THREE.Vector3(x2, h2, 0)
+                ];
+                const crGeo = new THREE.BufferGeometry().setFromPoints(crossPoints);
+                rotatingGroup.add(new THREE.LineSegments(crGeo, new THREE.LineBasicMaterial({ color: isS46 ? 0x0284c7 : 0xd97706, linewidth: 1 })));
+            }
+
+            // Carro y Gancho de Elevación (Cinemática Dinámica de Seguridad Fuera de Servicio)
+            const trolleyGeo = new THREE.BoxGeometry(1.2, 0.5, 0.9);
+            trolleyMesh = new THREE.Mesh(trolleyGeo, new THREE.MeshStandardMaterial({ color: 0xffd166 }));
+            trolleyMesh.position.set(currentTrolleyX, -0.2, 0);
+            rotatingGroup.add(trolleyMesh);
+
+            // Cable de gancho suspendido
+            const cableGeo = new THREE.BufferGeometry();
+            const cablePoints = new Float32Array([
+                currentTrolleyX, -0.4, 0,
+                currentTrolleyX, -currentHookDrop, 0
+            ]);
+            cableGeo.setAttribute('position', new THREE.BufferAttribute(cablePoints, 3));
+            cableLine = new THREE.Line(cableGeo, new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 }));
+            rotatingGroup.add(cableLine);
+
+            // Gancho de carga (S.W.L.)
+            const hookGeo = new THREE.TorusGeometry(0.35, 0.08, 8, 16, Math.PI * 1.5);
+            hookMesh = new THREE.Mesh(hookGeo, new THREE.MeshStandardMaterial({ color: 0xffd166, metalness: 0.9 }));
+            hookMesh.position.set(currentTrolleyX, -currentHookDrop - 0.4, 0);
+            hookMesh.rotation.z = Math.PI / 2;
+            rotatingGroup.add(hookMesh);
+
+            // CONTRAPLUMA (Hacia -X)
+            const counterChordPoints = [
+                new THREE.Vector3(0, 0, -0.7), new THREE.Vector3(-counterJibLength, 0, -0.7),
+                new THREE.Vector3(0, 0, 0.7), new THREE.Vector3(-counterJibLength, 0, 0.7),
+                new THREE.Vector3(0, 1.2, 0), new THREE.Vector3(-counterJibLength, 1.2, 0)
+            ];
+            const cjGeo = new THREE.BufferGeometry().setFromPoints(counterChordPoints);
+            rotatingGroup.add(new THREE.LineSegments(cjGeo, new THREE.LineBasicMaterial({ color: isS46 ? 0x38bdf8 : 0xf59e0b, linewidth: 2 })));
+
+            // Bloques de Contrapeso de Hormigón
+            const numBlocks = isS46 ? 4 : 7;
+            for (let b = 0; b < numBlocks; b++) {
+                const blockGeo = new THREE.BoxGeometry(1.4, 1.8, 0.35);
+                const block = new THREE.Mesh(blockGeo, ballastMat);
+                block.position.set(-counterJibLength + 1.2 + b * 0.45, 0.9, 0);
+                block.castShadow = true;
+                rotatingGroup.add(block);
+            }
+
+            craneGroup.add(rotatingGroup);
+            scene.add(craneGroup);
+        }
+
+        // =====================================================================
+        // MARCOS DE ARRIOSTRAMIENTO REALES (CORBATAS Y PUNTALES TRIANGULADOS)
+        // =====================================================================
+        function buildTieIns() {
+            if (tieInsGroup) clearGroup(tieInsGroup);
+            tieInsGroup = new THREE.Group();
+
+            const isS46 = (currentModel === 'S46');
+            const mastWidth = isS46 ? 1.20 : 1.70;
+            const halfW = mastWidth / 2.0;
+
+            // Pisos de arriostramiento según cálculo:
+            // S-46: Piso 10 (32.0 m) y Piso 18 (57.6 m)
+            // TLS 70: Piso 12 (38.4 m) y Piso 20 (64.0 m)
+            const floor1 = isS46 ? 10 : 12;
+            const floor2 = isS46 ? 18 : 20;
+
+            const z1 = floor1 * H_FLOOR;
+            const z2 = floor2 * H_FLOOR;
+
+            // Materiales de ingeniería
+            const collarFrameMat = new THREE.MeshStandardMaterial({
+                color: 0xffd166, // Amarillo SAEZ para corbata
+                metalness: 0.8,
+                roughness: 0.3
+            });
+            const clampMat = new THREE.MeshStandardMaterial({
+                color: 0x0284c7,
+                metalness: 0.85,
+                roughness: 0.25
+            });
+            const strutMat = new THREE.MeshStandardMaterial({
+                color: 0x00f0ff, // Tubos puntales en cian técnico
+                metalness: 0.75,
+                roughness: 0.25
+            });
+            const anchorMat = new THREE.MeshStandardMaterial({
+                color: 0xffd166,
+                metalness: 0.9,
+                roughness: 0.2
+            });
+
+            [z1, z2].forEach((levelZ, idx) => {
+                const tieLevel = new THREE.Group();
+                tieLevel.position.set(0, levelZ, 0);
+
+                // 1. MARCO CUADRADO PERIMETRAL HUECO (CORBATA ESTRUCTURAL)
+                // Abraza exteriormente las 4 patas del mástil
+                const collarMargin = 0.15;
+                const outerW = mastWidth + collarMargin * 2;
+                const tubeSize = 0.14; // Perfil tubular cuadrado de 140x140 mm
+                const halfOuter = outerW / 2.0;
+
+                // 4 VIGAS DEL MARCO PERIMETRAL
+                const beamXGeo = new THREE.BoxGeometry(tubeSize, tubeSize, outerW);
+                const beamZGeo = new THREE.BoxGeometry(outerW, tubeSize, tubeSize);
+
+                // Viga cara -X (lado hacia el edificio)
+                const beamFront = new THREE.Mesh(beamXGeo, collarFrameMat);
+                beamFront.position.set(-halfOuter, 0, 0);
+                tieLevel.add(beamFront);
+
+                // Viga cara +X (lado opuesto)
+                const beamBack = new THREE.Mesh(beamXGeo, collarFrameMat);
+                beamBack.position.set(halfOuter, 0, 0);
+                tieLevel.add(beamBack);
+
+                // Viga cara +Z
+                const beamLeft = new THREE.Mesh(beamZGeo, collarFrameMat);
+                beamLeft.position.set(0, 0, halfOuter);
+                tieLevel.add(beamLeft);
+
+                // Viga cara -Z
+                const beamRight = new THREE.Mesh(beamZGeo, collarFrameMat);
+                beamRight.position.set(0, 0, -halfOuter);
+                tieLevel.add(beamRight);
+
+                // 4 Mordazas de esquina con bulones de apriete
+                const clampOffsets = [
+                    [-halfW, -halfW], [halfW, -halfW], [halfW, halfW], [-halfW, halfW]
+                ];
+                clampOffsets.forEach(co => {
+                    const clampGeo = new THREE.BoxGeometry(0.22, 0.22, 0.22);
+                    const clamp = new THREE.Mesh(clampGeo, clampMat);
+                    clamp.position.set(co[0], 0, co[1]);
+                    tieLevel.add(clamp);
+                });
+
+                // 2. TRES OREJETAS DE ENGANCHE ARTICULADO EN LA CARA QUE MIRA AL EDIFICIO (-X)
+                // Se ubican a lo largo de la cara -halfOuter en: -halfW, 0, +halfW
+                const earOffsetsZ = [-halfW, 0.0, halfW];
+                const earGeo = new THREE.BoxGeometry(0.12, 0.18, 0.04);
+
+                earOffsetsZ.forEach(ez => {
+                    const ear = new THREE.Mesh(earGeo, collarFrameMat);
+                    ear.position.set(-halfOuter - 0.06, 0, ez);
+                    tieLevel.add(ear);
+                });
+
+                // 3. PUNTALES TUBULARES TRIANGULADOS HACIA LA FACHADA
+                // Nacen exactamente en las 3 orejetas de la corbata y llegan a la fachada en FACADE_X = -9.00 m
+                const strutConfigs = [
+                    { start: new THREE.Vector3(-halfOuter - 0.08, 0, -halfW), end: new THREE.Vector3(FACADE_X, 0, -4.5) }, // Puntal A
+                    { start: new THREE.Vector3(-halfOuter - 0.08, 0, 0.0),    end: new THREE.Vector3(FACADE_X, 0, 0.0) },  // Puntal B (Central)
+                    { start: new THREE.Vector3(-halfOuter - 0.08, 0, halfW),  end: new THREE.Vector3(FACADE_X, 0, 4.5) }   // Puntal C
+                ];
+
+                strutConfigs.forEach(cfg => {
+                    const startPt = cfg.start;
+                    const endPt = cfg.end;
+                    const dist = startPt.distanceTo(endPt);
+
+                    // Tubo cilíndrico del puntal (diámetro nominal 168.3 x 8 mm)
+                    const strutGeo = new THREE.CylinderGeometry(0.084, 0.084, dist, 12);
+                    const strut = new THREE.Mesh(strutGeo, strutMat);
+
+                    // Posición central del cilindro
+                    strut.position.copy(startPt).add(endPt).multiplyScalar(0.5);
+
+                    // Orientar el eje Y del cilindro a lo largo del vector (endPt - startPt)
+                    const vDir = endPt.clone().sub(startPt).normalize();
+                    strut.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), vDir);
+                    tieLevel.add(strut);
+
+                    // Rótulas mecánicas articuladas en los extremos (bulones pasantes de orejeta)
+                    const pinGeo = new THREE.CylinderGeometry(0.035, 0.035, 0.16, 8);
+                    const pinStart = new THREE.Mesh(pinGeo, anchorMat);
+                    pinStart.position.copy(startPt);
+                    pinStart.rotation.z = Math.PI / 2;
+                    tieLevel.add(pinStart);
+
+                    const pinEnd = new THREE.Mesh(pinGeo, anchorMat);
+                    pinEnd.position.copy(endPt);
+                    pinEnd.rotation.z = Math.PI / 2;
+                    tieLevel.add(pinEnd);
+
+                    // Placa consola de acero S355 anclada al forjado del edificio (300x300x20 mm)
+                    const anchorGeo = new THREE.BoxGeometry(0.04, 0.40, 0.40);
+                    const anchor = new THREE.Mesh(anchorGeo, anchorMat);
+                    anchor.position.set(FACADE_X + 0.02, 0, endPt.z);
+                    tieLevel.add(anchor);
+
+                    // 4 Pernos pasantes M24 en cada consola de fachada
+                    const pOffsets = [[-0.12, -0.12], [0.12, -0.12], [-0.12, 0.12], [0.12, 0.12]];
+                    pOffsets.forEach(po => {
+                        const boltGeo = new THREE.CylinderGeometry(0.015, 0.015, 0.08, 6);
+                        const bMesh = new THREE.Mesh(boltGeo, clampMat);
+                        bMesh.position.set(FACADE_X - 0.02, po[0], endPt.z + po[1]);
+                        bMesh.rotation.z = Math.PI / 2;
+                        tieLevel.add(bMesh);
+                    });
+                });
+
+                tieInsGroup.add(tieLevel);
+            });
+
+            scene.add(tieInsGroup);
+
+            // Actualizar la iluminación dinámica de pisos en el edificio
+            updateBuildingTieInHighlights(floor1, floor2);
+        }
+
+        // Reconstrucción atómica y limpia de escena para el modelo activo
+        function rebuildSceneForActiveModel() {
+            buildFoundation();
+            buildCrane();
+            buildTieIns();
+            updateTelemetry();
+        }
+
+        // =====================================================================
+        // SIMULACIÓN DE VIENTO COSTERO (PARTÍCULAS VECTORIALES)
+        // =====================================================================
+        function setupWindSimulation() {
+            if (windParticles) clearGroup(windParticles);
+
+            const particleCount = 700;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const speeds = new Float32Array(particleCount);
+
+            for (let i = 0; i < particleCount; i++) {
+                positions[i * 3] = (Math.random() - 0.5) * 160 + 35;
+                positions[i * 3 + 1] = Math.random() * 95;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 120;
+                speeds[i] = 0.6 + Math.random() * 1.4;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('speed', new THREE.BufferAttribute(speeds, 1));
+
+            const mat = new THREE.PointsMaterial({
+                color: 0x00f0ff,
+                size: 0.9,
+                transparent: true,
+                opacity: 0.65
+            });
+
+            windParticles = new THREE.Points(geometry, mat);
+            windParticles.visible = false;
+            scene.add(windParticles);
+        }
+
+        function updateWindParticles() {
+            if (!isWindActive || !windParticles || !windParticles.visible) return;
+            const positions = windParticles.geometry.attributes.position.array;
+            const speeds = windParticles.geometry.attributes.speed.array;
+
+            for (let i = 0; i < positions.length / 3; i++) {
+                positions[i * 3] -= speeds[i] * 1.6; // Dirección del viento: hacia -X (sotavento)
+                if (positions[i * 3] < -75) {
+                    positions[i * 3] = 95;
+                }
+            }
+            windParticles.geometry.attributes.position.needsUpdate = true;
+        }
+
+        // =====================================================================
+        // CONTROLES DE INTERFAZ, TELEMETRÍA Y CONMUTACIÓN DE MODELOS
+        // =====================================================================
+        function setModel(model) {
+            if (currentModel === model) return; // Evitar reinicios innecesarios si ya está seleccionado
+
+            // Si la simulación de viento estaba activa, apagarla al cambiar de modelo
+            // para que la nueva grúa se presente en posición neutra limpia (sin giros no solicitados)
+            if (isWindActive) {
+                toggleWindSimulation();
+            }
+
+            // Si la rotación de 360 grados estaba encendida, desactivarla
+            if (isRotating) {
+                toggleRotation();
+            }
+
+            currentModel = model;
+            document.getElementById('tab-s46').classList.toggle('active', model === 'S46');
+            document.getElementById('tab-tls70').classList.toggle('active', model === 'TLS70');
+
+            // Reconstrucción limpia de la escena 3D
+            rebuildSceneForActiveModel();
+
+            // Asegurar que la pluma comience exactamente en ángulo 0 (orientación neutral)
+            if (rotatingGroup) {
+                rotatingGroup.rotation.y = 0;
+            }
+
+            // Actualizar etiquetas en la interfaz de usuario
+            const isS46 = (model === 'S46');
+            const tieText = isS46 ? 'Arriostramientos (Pisos 10 y 18)' : 'Arriostramientos (Pisos 12 y 20)';
+            document.getElementById('lbl-btn-tieins').innerText = tieText;
+            document.getElementById('btn-cam-tiein2').innerText = isS46 ? 'Corbata Piso 18' : 'Corbata Piso 20';
+        }
+
+        function toggleRotation() {
+            isRotating = !isRotating;
+            document.getElementById('btn-rotate').classList.toggle('active', isRotating);
+            document.getElementById('txt-rotate-status').innerText = isRotating ? 'ON' : 'OFF';
+        }
+
+        function toggleTieIns() {
+            if (!tieInsGroup) return;
+            tieInsGroup.visible = !tieInsGroup.visible;
+            if (highlightGroup) highlightGroup.visible = tieInsGroup.visible;
+            document.getElementById('btn-tieins').classList.toggle('active', tieInsGroup.visible);
+            document.getElementById('txt-tieins-status').innerText = tieInsGroup.visible ? 'VISIBLE' : 'OCULTO';
+        }
+
+        function cycleBuildingMode() {
+            buildingMode = (buildingMode + 1) % 3;
+            const modeText = ['SÓLIDO', 'TRANSPARENTE', 'LÍNEAS (WIRE)'][buildingMode];
+            document.getElementById('txt-building-mode').innerText = modeText;
+
+            floorMeshes.forEach(m => {
+                if (buildingMode === 0) {
+                    m.material.opacity = 0.85;
+                    m.material.wireframe = false;
+                } else if (buildingMode === 1) {
+                    m.material.opacity = 0.25;
+                    m.material.wireframe = false;
+                } else {
+                    m.material.opacity = 1.0;
+                    m.material.wireframe = true;
+                }
+            });
+            columnMeshes.forEach(c => {
+                c.visible = (buildingMode !== 2);
+                c.material.opacity = (buildingMode === 1) ? 0.3 : 0.9;
+            });
+        }
+
+        function toggleWindSimulation() {
+            isWindActive = !isWindActive;
+            if (windParticles) windParticles.visible = isWindActive;
+            
+            const btn = document.getElementById('btn-wind');
+            const txt = document.getElementById('txt-wind-status');
+            const banner = document.getElementById('weathervane-banner');
+            const windIndicator = document.getElementById('wind-vector-indicator');
+            const compass = document.getElementById('wind-compass');
+            const compassLegend = document.getElementById('compass-legend');
+
+            btn.classList.toggle('active', isWindActive);
+            txt.innerText = isWindActive ? 'ACTIVO (42 m/s)' : 'OFF';
+
+            if (isWindActive) {
+                banner.style.display = 'flex';
+                windIndicator.style.display = 'block';
+                compass.style.borderColor = '#ffd166';
+                compass.style.boxShadow = '0 0 25px rgba(255, 209, 102, 0.4)';
+                compassLegend.innerText = 'VIENTO 42 m/s -> W';
+                compassLegend.style.color = '#ffd166';
+
+                // Si la rotación libre estaba activa, pausarla para priorizar veleta
+                if (isRotating) {
+                    toggleRotation();
+                }
+
+                // Actualizar métricas dinámicas de aerodinámica según modelo activo
+                const isS46 = (currentModel === 'S46');
+                if (isS46) {
+                    document.getElementById('wv-val-area').innerHTML = '11.8 m² <span class="badge-red">-69%</span>';
+                    document.getElementById('wv-val-force').innerHTML = '14.6 kN <span class="badge-red">-69%</span>';
+                    document.getElementById('wv-val-fs').innerText = 'FS = 2.56 ≥ 1.75';
+                } else {
+                    document.getElementById('wv-val-area').innerHTML = '18.2 m² <span class="badge-red">-69%</span>';
+                    document.getElementById('wv-val-force').innerHTML = '22.6 kN <span class="badge-red">-69%</span>';
+                    document.getElementById('wv-val-fs').innerText = 'FS = 2.42 ≥ 1.75';
+                }
+            } else {
+                banner.style.display = 'none';
+                windIndicator.style.display = 'none';
+                compass.style.borderColor = '#00f0ff';
+                compass.style.boxShadow = '0 4px 20px rgba(0, 240, 255, 0.3)';
+                compassLegend.innerText = 'NORTE 3D';
+                compassLegend.style.color = '#94a3b8';
+            }
+        }
+
+        // Sincronización continua de la brújula con la cámara y el viento
+        function updateCompass() {
+            if (!camera || !controls) return;
+
+            // Ángulo azimutal de la cámara en el plano horizontal XZ
+            const dx = camera.position.x - controls.target.x;
+            const dz = camera.position.z - controls.target.z;
+            const camAngleRad = Math.atan2(dx, dz);
+            const camAngleDeg = camAngleRad * (180 / Math.PI);
+
+            // Girar el dial de la brújula para que el 'N' apunte al Norte virtual (+Z / plano 3D)
+            const dial = document.getElementById('compass-dial');
+            if (dial) {
+                dial.style.transform = `rotate(${-camAngleDeg}deg)`;
+            }
+
+            // Indicador del vector de viento (hacia -X = 270 grados en planta)
+            const windIndicator = document.getElementById('wind-vector-indicator');
+            if (windIndicator && isWindActive) {
+                // Vector del viento hacia sotavento (-X en coordenadas 3D)
+                windIndicator.style.transform = `rotate(270deg)`;
+            }
+        }
+
+        function setCameraView(view) {
+            const isS46 = (currentModel === 'S46');
+            let targetPos, targetLook;
+
+            switch(view) {
+                case 'iso':
+                    targetPos = { x: 90, y: 70, z: 110 };
+                    targetLook = { x: 0, y: 42, z: 0 };
+                    break;
+                case 'front':
+                    targetPos = { x: 0, y: 45, z: 130 };
+                    targetLook = { x: 0, y: 45, z: 0 };
+                    break;
+                case 'base':
+                    targetPos = { x: 7, y: 5.5, z: 8.5 };
+                    targetLook = { x: 0, y: 1.6, z: 0 };
+                    break;
+                case 'tiein2':
+                    // Enfocar con precisión el arriostramiento superior
+                    const tie2Y = isS46 ? 57.60 : 64.00;
+                    targetPos = { x: 12, y: tie2Y + 4.5, z: 15 };
+                    targetLook = { x: -4.5, y: tie2Y, z: 0 };
+                    break;
+                case 'top':
+                    targetPos = { x: 0.1, y: 135, z: 0.1 };
+                    targetLook = { x: 0, y: 0, z: 0 };
+                    break;
+                case 'hook':
+                    targetPos = { x: 38, y: 88, z: 14 };
+                    targetLook = { x: 28, y: 82, z: 0 };
+                    break;
+            }
+
+            controls.target.set(targetLook.x, targetLook.y, targetLook.z);
+            camera.position.set(targetPos.x, targetPos.y, targetPos.z);
+            controls.update();
+        }
+
+        function updateTelemetry() {
+            const isS46 = (currentModel === 'S46');
+            document.getElementById('tel-mast-section').innerText = isS46 ? '1.20 × 1.20 m' : '1.70 × 1.70 m';
+            document.getElementById('tel-zapata-dim').innerText = isS46 ? '5.50 × 5.50 × 1.40 m' : '6.50 × 6.50 × 1.60 m';
+            document.getElementById('tel-plates-dim').innerText = isS46 ? '450 × 450 × 40 mm (4 × M36/M39)' : '550 × 550 × 50 mm (4 × M45)';
+            document.getElementById('tel-bolts').innerText = isS46 ? '8 × M39 - 10.9' : '16 × M45 - 10.9';
+            document.getElementById('tel-torque').innerText = isS46 ? '3 730 N·m' : '5 100 N·m';
+            document.getElementById('tel-tiein1').innerText = isS46 ? 'Piso 10 (z = 32.00 m)' : 'Piso 12 (z = 38.40 m)';
+            document.getElementById('tel-tiein2').innerText = isS46 ? 'Piso 18 (z = 57.60 m)' : 'Piso 20 (z = 64.00 m)';
+            document.getElementById('tel-cantilever').innerText = isS46 ? '27.40 m (≤ 36.00 m [OK])' : '21.00 m (≤ 45.00 m [OK])';
+            document.getElementById('tel-fs-vuelco').innerText = isS46 ? 'FS = 2.56 ≥ 1.75' : 'FS = 2.42 ≥ 1.75';
+            document.getElementById('tel-fd-pernos').innerText = isS46 ? 'F_d = 2.99 ≥ 1.50' : 'F_d = 2.85 ≥ 1.50';
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // Bucle de renderizado continuo 60 FPS
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // 1. Cinemática de giro operativo normal (360 grados)
+            if (isRotating && rotatingGroup && !isWindActive) {
+                rotatingGroup.rotation.y += 0.005;
+            }
+
+            // 2. Dinámica física de Veleta Libre (EN 14439 / FEM 1001) y Protocolo de Puesta Fuera de Servicio
+            if (isWindActive) {
+                // A. Protocolo de seguridad: replegar carro al pie de torre (radio mínimo r = 3.8 m)
+                if (currentTrolleyX > 3.8) {
+                    currentTrolleyX -= 0.35;
+                }
+                // B. Protocolo de seguridad: izar gancho a tope superior (apenas 1.2 m de cable bajo el carro)
+                // Cota del gancho recogida: cota > 85.0 m (> 80 m del edificio), sobrevolando limpiamente el tejado
+                if (currentHookDrop > 1.2) {
+                    currentHookDrop -= 0.35;
+                }
+
+                // C. Rotación amortiguada hacia sotavento
+                if (rotatingGroup) {
+                    const targetAngle = Math.PI; // Sotavento (hacia -X / 180 grados)
+                    let angleDiff = targetAngle - rotatingGroup.rotation.y;
+                    
+                    // Normalizar la diferencia de ángulo al intervalo [-PI, PI]
+                    angleDiff = Math.atan2(Math.sin(angleDiff), Math.cos(angleDiff));
+
+                    // Aproximación amortiguada de veleta (deceleración elástica)
+                    if (Math.abs(angleDiff) > 0.002) {
+                        rotatingGroup.rotation.y += angleDiff * 0.035;
+                    } else {
+                        // Micro-oscilación turbulenta armónica natural (+- 0.5 grados)
+                        const oscTime = performance.now() * 0.002;
+                        rotatingGroup.rotation.y = targetAngle + Math.sin(oscTime) * 0.012;
+                    }
+                }
+            } else {
+                // En servicio normal: retorno gradual a radio de trabajo (28.0 m) y cota de gancho operativa (22.0 m)
+                if (currentTrolleyX < 28.0) {
+                    currentTrolleyX += 0.35;
+                }
+                if (currentHookDrop < 22.0) {
+                    currentHookDrop += 0.35;
+                }
+            }
+
+            // Actualizar posiciones dinámicas de carro, cable y gancho
+            if (trolleyMesh && hookMesh && cableLine) {
+                trolleyMesh.position.set(currentTrolleyX, -0.2, 0);
+                hookMesh.position.set(currentTrolleyX, -currentHookDrop - 0.4, 0);
+
+                const cPos = cableLine.geometry.attributes.position.array;
+                cPos[0] = currentTrolleyX; cPos[1] = -0.4; cPos[2] = 0;
+                cPos[3] = currentTrolleyX; cPos[4] = -currentHookDrop; cPos[5] = 0;
+                cableLine.geometry.attributes.position.needsUpdate = true;
+            }
+
+            // 3. Simulación de partículas de viento costero
+            updateWindParticles();
+
+            // 4. Orientación de brújula según cámara
+            updateCompass();
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
