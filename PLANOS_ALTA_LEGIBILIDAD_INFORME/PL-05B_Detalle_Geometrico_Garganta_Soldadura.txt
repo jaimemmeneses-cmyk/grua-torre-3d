@@ -1,0 +1,315 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="2800" height="1750">
+    
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#000000" />
+        </marker>
+        <marker id="arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 10 1.5 L 0 5 L 10 8.5 z" fill="#000000" />
+        </marker>
+        <pattern id="hatch-steel" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#000000" stroke-width="0.9" />
+        </pattern>
+        <pattern id="hatch-concrete" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="4" cy="4" r="0.9" fill="#000000" />
+            <circle cx="14" cy="6" r="0.9" fill="#000000" />
+            <circle cx="9" cy="15" r="0.9" fill="#000000" />
+            <path d="M 3 14 L 6 17 L 2 18 Z" fill="none" stroke="#000000" stroke-width="0.6" />
+            <path d="M 13 11 L 16 14 L 12 15 Z" fill="none" stroke="#000000" stroke-width="0.6" />
+        </pattern>
+        <pattern id="hatch-ground" width="16" height="16" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="16" y2="16" stroke="#000000" stroke-width="0.75" />
+            <line x1="0" y1="8" x2="8" y2="16" stroke="#000000" stroke-width="0.75" />
+            <line x1="8" y1="0" x2="16" y2="8" stroke="#000000" stroke-width="0.75" />
+        </pattern>
+        <pattern id="hatch-grout" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="0.7" fill="#000000" />
+            <circle cx="6" cy="6" r="0.7" fill="#000000" />
+        </pattern>
+    </defs>
+    
+    <rect x="0" y="0" width="1600" height="1000" fill="#ffffff" />
+    <rect x="15" y="15" width="1570" height="970" fill="none" stroke="#000000" stroke-width="2.5" />
+    <rect x="22" y="22" width="1556" height="956" fill="none" stroke="#000000" stroke-width="1.0" />
+
+    
+    <!-- ENCABEZADO TÉCNICO DE ALTA LEGIBILIDAD -->
+    <g id="encabezado-alta-legibilidad" transform="translate(40, 32)">
+        <rect x="0" y="0" width="1020" height="60" fill="#ffffff" stroke="#000000" stroke-width="2.2" rx="4" />
+        <line x1="0" y1="34" x2="1020" y2="34" stroke="#000000" stroke-width="1.2" />
+        <text x="16" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="bold">PL-05B: GEOMETRÍA, COTAS Y TRIEDRO TENSIONAL DE LA GARGANTA DE SOLDADURA</text>
+        <text x="16" y="50" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">DEFINICIÓN DE GARGANTA EFICAZ (a), CATETOS (c), DESCOMPOSICIÓN TENSIONAL NBE-EA-95 ART. 3.6 Y CASOS W-01 / W-02</text>
+    </g>
+    
+
+    <!-- FIGURA 1: TRIANGULACIÓN GEOMÉTRICA DE LA GARGANTA (x=40 a 510) -->
+    <g transform="translate(40, 102)">
+        <rect x="0" y="0" width="470" height="520" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="470" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="21" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">FIGURA 1: TRIANGULACIÓN GEOMÉTRICA DE LA GARGANTA (a)</text>
+
+        <g transform="translate(140, 55)">
+            <!-- Placa Base Horizontal (S355) t = 40 mm -->
+            <rect x="0" y="200" width="295" height="65" fill="url(#hatch-steel)" stroke="#000000" stroke-width="2.0" />
+            <rect x="20" y="222" width="230" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="135" y="236" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Placa Base de Asiento (t = 40 mm)</text>
+
+            <!-- Cartela Vertical (S355) t = 15 mm -->
+            <rect x="0" y="0" width="60" height="200" fill="url(#hatch-steel)" stroke="#000000" stroke-width="2.0" />
+            <rect x="10" y="40" width="40" height="120" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="30" y="105" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" transform="rotate(-90, 30, 105)" text-anchor="middle">Cartela (t = 15 mm)</text>
+
+            <!-- Triángulo isósceles teórico (catetos 140x140 px) -->
+            <polygon points="60,200 60,60 200,200" fill="#f8fafc" stroke="#000000" stroke-width="1.2" stroke-dasharray="4 2" />
+
+            <!-- Cordón real con convexidad controlada -->
+            <path d="M 60 60 Q 145 115 200 200 L 60 200 Z" fill="#ffffff" stroke="#000000" stroke-width="2.4" />
+
+            <!-- Raíz del cordón (Root) -->
+            <circle cx="60" cy="200" r="5" fill="#000000" />
+            <line x1="60" y1="200" x2="15" y2="245" stroke="#000000" stroke-width="1.2" marker-start="url(#arrow)" />
+            <rect x="10" y="248" width="90" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="55" y="262" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Raíz (Root)</text>
+
+            <!-- Garganta eficaz (a) - Segmento perpendicular -->
+            <line x1="60" y1="200" x2="130" y2="130" stroke="#000000" stroke-width="3.2" />
+            <path d="M 125 135 L 120 130 L 125 125" fill="none" stroke="#000000" stroke-width="1.5" />
+
+            <!-- Pies de soldadura (Toes) -->
+            <circle cx="60" cy="60" r="4" fill="#000000" />
+            <rect x="68" y="42" width="95" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="115" y="56" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Pie (Toe Sup.)</text>
+
+            <circle cx="200" cy="200" r="4" fill="#000000" />
+            <rect x="205" y="182" width="95" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="252" y="196" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Pie (Toe Inf.)</text>
+
+            <!-- COTA Cateto vertical c1 -->
+            <line x1="-15" y1="60" x2="-15" y2="200" stroke="#000000" stroke-width="1.5" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="-125" y="118" width="105" height="22" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="-72" y="133" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Cateto c_1 = a·√2</text>
+
+            <!-- COTA Cateto horizontal c2 -->
+            <line x1="60" y1="285" x2="200" y2="285" stroke="#000000" stroke-width="1.5" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="75" y="295" width="115" height="22" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="132" y="310" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Cateto c_2 = a·√2</text>
+
+            <!-- Cota Garganta eficaz a -->
+            <rect x="135" y="135" width="130" height="24" fill="#ffffff" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="200" y="151" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">a = c · cos 45°</text>
+
+            <!-- Arco de 45° -->
+            <path d="M 90 200 A 30 30 0 0 0 81 179" fill="none" stroke="#000000" stroke-width="1.5" />
+            <text x="100" y="190" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">45°</text>
+        </g>
+
+        <!-- Bloque inferior de relaciones trigonométricas -->
+        <g transform="translate(15, 410)">
+            <rect width="440" height="95" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">RELACIONES TRIGONOMÉTRICAS EXACTAS:</text>
+            <text x="12" y="38" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Garganta Teórica: a = c · cos 45° = c / √2 ≈ 0.7071 · c</text>
+            <text x="12" y="56" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Cateto Nominal: c = a / cos 45° = a · √2 ≈ 1.4142 · a</text>
+            <text x="12" y="76" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">• W-01: a = 8.0 mm → c = 11.3 mm | W-02: a = 12.5 mm → c = 17.7 mm</text>
+        </g>
+    </g>
+
+    <!-- FIGURA 2: TRIEDRO TENSIONAL NBE-EA-95 ART. 3.6 (x=530 a 1030) -->
+    <g transform="translate(530, 102)">
+        <rect x="0" y="0" width="500" height="520" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="500" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="21" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">FIGURA 2: TRIEDRO TENSIONAL SEGÚN NORMA NBE-EA-95 ART. 3.6</text>
+
+        <!-- Diagrama del plano abatido 3D y vectores tensionales -->
+        <g transform="translate(250, 145)">
+            <polygon points="-120,40 40,-40 120,-40 -40,40" fill="#f8fafc" stroke="#000000" stroke-width="2.0" />
+            <line x1="-100" y1="30" x2="60" y2="-40" stroke="#94a3b8" stroke-width="0.8" />
+            <line x1="-70" y1="35" x2="85" y2="-40" stroke="#94a3b8" stroke-width="0.8" />
+            <line x1="-40" y1="40" x2="110" y2="-35" stroke="#94a3b8" stroke-width="0.8" />
+
+            <!-- Cotas plano garganta -->
+            <line x1="-120" y1="48" x2="-40" y2="48" stroke="#000000" stroke-width="1.5" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="-105" y="55" width="70" height="18" fill="#ffffff" stroke="#000000" stroke-width="0.6" rx="2" />
+            <text x="-70" y="68" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Garganta (a)</text>
+
+            <line x1="-35" y1="50" x2="125" y2="-30" stroke="#000000" stroke-width="1.5" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="25" y="16" width="90" height="18" fill="#ffffff" stroke="#000000" stroke-width="0.6" rx="2" />
+            <text x="70" y="29" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Longitud L_ef</text>
+
+            <!-- Centro del plano -->
+            <circle cx="0" cy="0" r="5" fill="#000000" />
+
+            <!-- Vector 1: σ_⊥ (Normal perpendicular) -->
+            <line x1="0" y1="0" x2="0" y2="-90" stroke="#000000" stroke-width="2.8" marker-end="url(#arrow)" />
+            <rect x="8" y="-95" width="165" height="22" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="14" y="-80" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">σ_⊥ (Normal perpendicular)</text>
+
+            <!-- Vector 2: τ_⊥ (Transversal) -->
+            <line x1="0" y1="0" x2="-80" y2="40" stroke="#000000" stroke-width="2.8" marker-end="url(#arrow)" />
+            <rect x="-185" y="32" width="105" height="22" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="-132" y="47" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">τ_⊥ (Transversal)</text>
+
+            <!-- Vector 3: τ_∥ (Longitudinal) -->
+            <line x1="0" y1="0" x2="90" y2="-45" stroke="#000000" stroke-width="2.8" marker-end="url(#arrow)" />
+            <rect x="100" y="-55" width="110" height="22" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="155" y="-40" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">τ_∥ (Longitudinal)</text>
+        </g>
+
+        <!-- Bloque analítico de comparación de tensiones -->
+        <g transform="translate(15, 275)">
+            <rect width="470" height="230" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">CRITERIO DE COMPARACIÓN NBE-EA-95 / EUROCÓDIGO 3:</text>
+            <text x="12" y="38" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">Ecuación de Von Mises modificada para uniones soldadas:</text>
+
+            <rect x="15" y="48" width="440" height="34" fill="#ffffff" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="235" y="70" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold" text-anchor="middle">σ_co = √( σ_⊥² + 1.8 · (τ_⊥² + τ_∥²) ) ≤ σ_adm</text>
+
+            <text x="12" y="100" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Tensión admisible acero S355: σ_adm = 355 / 1.50 = 236.67 MPa</text>
+            <text x="12" y="116" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Cortante puro admisible: τ_adm = 236.67 / 1.732 = 136.64 MPa</text>
+
+            <rect x="10" y="128" width="450" height="42" fill="#ffffff" stroke="#000000" stroke-width="1.0" rx="2" />
+            <text x="18" y="146" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">DETALLE W-01 (CARTELAS PLACA BASE):</text>
+            <text x="18" y="161" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">σ_co = 124.50 MPa ≤ 236.67 MPa [CUMPLE, Fd = 1.90 ≥ 1.50 ✓]</text>
+
+            <rect x="10" y="176" width="450" height="42" fill="#ffffff" stroke="#000000" stroke-width="1.0" rx="2" />
+            <text x="18" y="194" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">DETALLE W-02 (OREJETAS CORBATA CON TORSOR Y BISEL K):</text>
+            <text x="18" y="209" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">σ_co = 151.70 MPa ≤ 236.67 MPa [CUMPLE, Fd = 1.56 ≥ 1.50 ✓]</text>
+        </g>
+    </g>
+
+    <!-- FIGURA 3: CORTES DE DETALLE WPS Y PREVENCIÓN DE FALLA (x=1050 a 1560) -->
+    <g transform="translate(1050, 102)">
+        <rect x="0" y="0" width="510" height="520" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="510" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="21" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">FIGURA 3: CORTES DE DETALLE WPS Y PREVENCIÓN DE FALLA</text>
+
+        <!-- W-01: Cartela a Placa Base -->
+        <g transform="translate(15, 38)">
+            <rect width="480" height="145" fill="#ffffff" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="19" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">DETALLE W-01: CARTELA A PLACA BASE (ÁNGULO DOBLE a = 8.0 mm)</text>
+
+            <g transform="translate(180, 22)">
+                <rect x="-110" y="55" width="220" height="22" fill="url(#hatch-steel)" stroke="#000000" stroke-width="1.5" />
+                <rect x="-8" y="0" width="16" height="55" fill="url(#hatch-steel)" stroke="#000000" stroke-width="1.5" />
+                <polygon points="-8,55 -8,33 -30,55" fill="#000000" />
+                <polygon points="8,55 8,33 30,55" fill="#000000" />
+                <text x="-42" y="45" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">a = 8</text>
+                <text x="36" y="45" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">a = 8</text>
+            </g>
+
+            <text x="12" y="108" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">• Prevención de Desgarre Laminar (Placa 40 mm):</text>
+            <text x="12" y="124" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">  a_mín ≥ √40 − 0.5 = 5.82 mm → a = 8.0 mm cumple con holgura del 37%.</text>
+            <text x="12" y="139" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">  SMAW con electrodo AWS E7018-1-H4R estufado a 350°C (Bajo H₂ difusible).</text>
+        </g>
+
+        <!-- W-02: Orejeta a Corbata -->
+        <g transform="translate(15, 192)">
+            <rect width="480" height="150" fill="#ffffff" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="19" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">DETALLE W-02: OREJETA A CORBATA (GMAW a = 12.5 mm + BISEL K)</text>
+
+            <g transform="translate(180, 22)">
+                <rect x="-110" y="55" width="220" height="22" fill="url(#hatch-steel)" stroke="#000000" stroke-width="1.5" />
+                <rect x="-14" y="0" width="28" height="55" fill="url(#hatch-steel)" stroke="#000000" stroke-width="1.5" />
+                <polygon points="-14,55 -14,28 -41,55" fill="#000000" />
+                <polygon points="14,55 14,28 41,55" fill="#000000" />
+                <text x="-52" y="45" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">a = 12.5</text>
+                <text x="46" y="45" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">a = 12.5</text>
+            </g>
+
+            <text x="12" y="108" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">• Resistencia a Fatiga Cíclica Reversible y Torsor:</text>
+            <text x="12" y="124" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">  GMAW robotizado con hilo AWS ER70S-6 y mezcla Ar + 18% CO₂.</text>
+            <text x="12" y="139" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">  Preparación en K garantiza penetración total: Fd = 1.56 ≥ 1.50 ✓.</text>
+        </g>
+
+        <!-- Simbología AWS A2.4 normalizada -->
+        <g transform="translate(15, 352)">
+            <rect width="480" height="152" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">SIMBOLOGÍA NORMALIZADA DE SOLDADURA (AWS A2.4 / ISO 22553):</text>
+
+            <g transform="translate(130, 48)">
+                <line x1="0" y1="20" x2="160" y2="20" stroke="#000000" stroke-width="1.8" />
+                <line x1="160" y1="20" x2="220" y2="50" stroke="#000000" stroke-width="1.8" marker-end="url(#arrow)" />
+                <polygon points="60,20 80,0 80,20" fill="#000000" />
+                <polygon points="60,20 80,40 80,20" fill="#000000" />
+                <text x="40" y="15" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">8</text>
+                <text x="40" y="34" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">8</text>
+                <polyline points="0,10 -15,20 0,30" fill="none" stroke="#000000" stroke-width="1.5" />
+                <text x="-20" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="end">W-01: SMAW</text>
+            </g>
+
+            <text x="12" y="120" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">• Triángulo en ambas caras indica cordón simétrico en ambos lados de la junta.</text>
+            <text x="12" y="136" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">• Cota a la izquierda designa dimensión de garganta (a = 8.0 mm / 12.5 mm).</text>
+        </g>
+    </g>
+
+    <!-- PANEL INFERIOR: TABLA COMPARATIVA DE VERIFICACIÓN (x=40 a 990, y=635 a 815) -->
+    <g transform="translate(40, 635)">
+        <rect width="950" height="180" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect width="950" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="21" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">SÍNTESIS DE VERIFICACIÓN TENSIONAL DE SOLDADURAS (NBE-EA-95 / ISO 5817 NIVEL B)</text>
+
+        <!-- Filas de tabla resumen -->
+        <g transform="translate(15, 42)">
+            <rect width="920" height="26" fill="#e2e8f0" stroke="#000000" stroke-width="1.0" />
+            <text x="10" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">DETALLE</text>
+            <text x="100" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">ELEMENTO</text>
+            <text x="250" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">GARGANTA a</text>
+            <text x="370" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">TENSIÓN COMBINADA</text>
+            <text x="540" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">TENSIÓN ADMISIBLE</text>
+            <text x="700" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">FACTOR DE DISEÑO Fd</text>
+            <text x="835" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">ESTADO</text>
+
+            <rect y="26" width="920" height="30" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.0" />
+            <text x="10" y="46" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">W-01</text>
+            <text x="100" y="46" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">Cartela a Placa Base</text>
+            <text x="250" y="46" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">a = 8.0 mm</text>
+            <text x="370" y="46" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">σ_co = 124.50 MPa</text>
+            <text x="540" y="46" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">σ_adm = 236.67 MPa</text>
+            <text x="700" y="46" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">Fd = 1.90 ≥ 1.50</text>
+            <text x="835" y="46" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">CONFORME ✓</text>
+
+            <rect y="56" width="920" height="30" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.0" />
+            <text x="10" y="76" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">W-02</text>
+            <text x="100" y="76" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">Orejeta a Corbata</text>
+            <text x="250" y="76" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">a = 12.5 mm (Bisel K)</text>
+            <text x="370" y="76" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">σ_co = 151.70 MPa</text>
+            <text x="540" y="76" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">σ_adm = 236.67 MPa</text>
+            <text x="700" y="76" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">Fd = 1.56 ≥ 1.50</text>
+            <text x="835" y="76" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">CONFORME ✓</text>
+        </g>
+    </g>
+
+    
+    <!-- CAJETÍN OFICIAL NORMALIZADO (ISO 7200 / UTP) - ALTA LEGIBILIDAD -->
+    <g id="cajetin-alta-legibilidad" transform="translate(1015, 835)">
+        <rect x="0" y="0" width="545" height="135" fill="#ffffff" stroke="#000000" stroke-width="2.5" />
+        <line x1="0" y1="36" x2="545" y2="36" stroke="#000000" stroke-width="1.2" />
+        <line x1="0" y1="72" x2="545" y2="72" stroke="#000000" stroke-width="1.2" />
+        <line x1="0" y1="104" x2="375" y2="104" stroke="#000000" stroke-width="1.2" />
+        <line x1="375" y1="0" x2="375" y2="135" stroke="#000000" stroke-width="1.2" />
+        <line x1="460" y1="72" x2="460" y2="135" stroke="#000000" stroke-width="1.2" />
+        
+        <text x="14" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold">UNIVERSIDAD TECNOLÓGICA DE PANAMÁ</text>
+        <text x="14" y="31" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">FACULTAD DE INGENIERÍA INDUSTRIAL — GRUPO ISH-231</text>
+        
+        <text x="14" y="52" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">PROYECTO: GRÚAS TORRE Hu = 85.00 m (EDIF. 80.00 m)</text>
+        <text x="14" y="66" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">MODELOS: SAEZ S-46 (CÚSPIDE) vs. SAEZ TLS 70 12T (FLAT-TOP)</text>
+        
+        <text x="14" y="88" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">DOCENTE: <tspan fill="#000000" font-weight="bold">Prof. Ing. Eric Parker M. Sc.</tspan></text>
+        <text x="14" y="100" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">ESTUDIANTE: <tspan fill="#000000" font-weight="bold">Jaime M. Meneses (MBA / Ing. Ind.)</tspan></text>
+        
+        <text x="14" y="121" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">PLANO: <tspan fill="#000000" font-weight="bold">DETALLE GEOMÉTRICO GARGANTA</tspan></text>
+        <text x="14" y="131" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5">OCTUBRE 2026 | UNIDADES: mm / m | NORMAS: ISO 128 / ISO 129</text>
+        
+        <text x="460" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">PL-05B</text>
+        <text x="460" y="34" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" text-anchor="middle">LÁMINA OFICIAL</text>
+        
+        <text x="417" y="90" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">ESCALA</text>
+        <text x="417" y="104" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">S/E</text>
+        <text x="417" y="118" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" text-anchor="middle">(Esquemática)</text>
+        
+        <text x="502" y="90" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">REVISIÓN</text>
+        <text x="502" y="105" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">REV 3</text>
+        <text x="502" y="120" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" font-weight="bold" text-anchor="middle">ALTA LEGIBILIDAD</text>
+    </g>
+    
+</svg>

@@ -1,0 +1,309 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="2800" height="1750">
+    
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#000000" />
+        </marker>
+        <marker id="arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 10 1.5 L 0 5 L 10 8.5 z" fill="#000000" />
+        </marker>
+        <pattern id="hatch-steel" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#000000" stroke-width="0.9" />
+        </pattern>
+        <pattern id="hatch-concrete" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="4" cy="4" r="0.9" fill="#000000" />
+            <circle cx="14" cy="6" r="0.9" fill="#000000" />
+            <circle cx="9" cy="15" r="0.9" fill="#000000" />
+            <path d="M 3 14 L 6 17 L 2 18 Z" fill="none" stroke="#000000" stroke-width="0.6" />
+            <path d="M 13 11 L 16 14 L 12 15 Z" fill="none" stroke="#000000" stroke-width="0.6" />
+        </pattern>
+        <pattern id="hatch-ground" width="16" height="16" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="16" y2="16" stroke="#000000" stroke-width="0.75" />
+            <line x1="0" y1="8" x2="8" y2="16" stroke="#000000" stroke-width="0.75" />
+            <line x1="8" y1="0" x2="16" y2="8" stroke="#000000" stroke-width="0.75" />
+        </pattern>
+        <pattern id="hatch-grout" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="0.7" fill="#000000" />
+            <circle cx="6" cy="6" r="0.7" fill="#000000" />
+        </pattern>
+    </defs>
+    
+    <rect x="0" y="0" width="1600" height="1000" fill="#ffffff" />
+    <rect x="15" y="15" width="1570" height="970" fill="none" stroke="#000000" stroke-width="2.5" />
+    <rect x="22" y="22" width="1556" height="956" fill="none" stroke="#000000" stroke-width="1.0" />
+
+    
+    <!-- ENCABEZADO TÉCNICO DE ALTA LEGIBILIDAD -->
+    <g id="encabezado-alta-legibilidad" transform="translate(40, 32)">
+        <rect x="0" y="0" width="1020" height="60" fill="#ffffff" stroke="#000000" stroke-width="2.2" rx="4" />
+        <line x1="0" y1="34" x2="1020" y2="34" stroke="#000000" stroke-width="1.2" />
+        <text x="16" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="bold">PL-02: DESPIECE Y MODULACIÓN DUAL DEL MÁSTIL DE TORRE (86.60 m)</text>
+        <text x="16" y="50" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">COMPOSICIÓN DE FUSTE SAEZ S-46 (1.20 m) vs. SAEZ TLS 70 12T (1.70 m / CAMPANA J 10 m) Y RIGIDECES</text>
+    </g>
+    
+
+    <!-- COLUMNA 1: APILAMIENTO S-46 (x=40 a 490) -->
+    <g transform="translate(40, 102)">
+        <rect x="0" y="0" width="450" height="715" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="450" height="32" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold">1. FUSTE HOMOGÉNEO: SAEZ S-46 (1.20 × 1.20 m)</text>
+
+        <!-- Tramo ajuste 4m -->
+        <rect x="35" y="45" width="55" height="26" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <text x="100" y="62" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">1× TRAMO AJUSTE 4.00 m (1.20 m)</text>
+        <text x="100" y="75" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Pernos: 8× M39 10.9 | Peso: 1 100 kg</text>
+
+        <!-- Tramos C-S46 N°6 a N°1 (11.80 m c/u) -->
+        <!-- Y start = 75, height = 80 c/u -->
+
+        <rect x="35" y="75" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="75" x2="90" y2="155" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="75" x2="35" y2="155" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="111" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°6 (11.80 m)</text>
+        <text x="100" y="127" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Sección: 1.20×1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <rect x="35" y="155" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="155" x2="90" y2="235" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="155" x2="35" y2="235" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="191" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°5 (11.80 m)</text>
+        <text x="100" y="207" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Sección: 1.20×1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <rect x="35" y="235" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="235" x2="90" y2="315" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="235" x2="35" y2="315" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="271" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°4 (11.80 m)</text>
+        <text x="100" y="287" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Sección: 1.20×1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <rect x="35" y="315" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="315" x2="90" y2="395" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="315" x2="35" y2="395" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="351" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°3 (11.80 m)</text>
+        <text x="100" y="367" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Sección: 1.20×1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <rect x="35" y="395" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="395" x2="90" y2="475" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="395" x2="35" y2="475" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="431" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°2 (11.80 m)</text>
+        <text x="100" y="447" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Sección: 1.20×1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <rect x="35" y="475" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="475" x2="90" y2="555" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="475" x2="35" y2="555" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="511" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°1 (11.80 m)</text>
+        <text x="100" y="527" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Sección: 1.20×1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <!-- Tramo Base D-S52 (11.80 m) -->
+        <rect x="35" y="555" width="55" height="80" fill="#e2e8f0" stroke="#000000" stroke-width="2.2" />
+        <line x1="35" y1="555" x2="90" y2="635" stroke="#000000" stroke-width="1.4" />
+        <line x1="90" y1="555" x2="35" y2="635" stroke="#000000" stroke-width="1.4" />
+        <text x="100" y="591" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">1× TRAMO BASE D - S52 (11.80 m)</text>
+        <text x="100" y="607" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">Empotramiento zapata | 16× M45 8.8 | Peso: 3 800 kg</text>
+
+        <!-- Cota total S-46 -->
+        <line x1="18" y1="45" x2="18" y2="635" stroke="#000000" stroke-width="1.5" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+        <rect x="5" y="285" width="26" height="150" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="3" />
+        <text x="23" y="425" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold" transform="rotate(-90 23 425)">H_TOTAL = 86.60 m</text>
+
+        <!-- Resumen inferior Columna 1 -->
+        <rect x="15" y="650" width="420" height="50" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+        <text x="24" y="670" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TOTAL FUSTE S-46: 1 S52 + 6 S46 + 1 Ajuste = 86.60 m</text>
+        <text x="24" y="688" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">Peso total fuste: 22 900 kg | Altura bajo gancho: 85.00 m</text>
+    </g>
+
+    <!-- COLUMNA 2: APILAMIENTO MIXTO TLS 70 12T (x=510 a 960) -->
+    <g transform="translate(510, 102)">
+        <rect x="0" y="0" width="450" height="715" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="450" height="32" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold">2. FUSTE MIXTO: SAEZ TLS 70 12T (1.70 / J / 1.20 m)</text>
+
+        <!-- Tramo ajuste 5.90 m -->
+        <rect x="35" y="45" width="55" height="38" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <text x="100" y="64" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">1× TRAMO AJUSTE 5.90 m (1.20 m)</text>
+        <text x="100" y="77" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Pernos: 8× M39 10.9 | Peso: 1 500 kg</text>
+
+        <!-- 4 Tramos superiores C-S46 (11.80 m c/u) -->
+
+        <rect x="35" y="83" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="83" x2="90" y2="163" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="83" x2="35" y2="163" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="119" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°4 (11.80 m)</text>
+        <text x="100" y="135" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Fuste superior 1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <rect x="35" y="163" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="163" x2="90" y2="243" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="163" x2="35" y2="243" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="199" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°3 (11.80 m)</text>
+        <text x="100" y="215" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Fuste superior 1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <rect x="35" y="243" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="243" x2="90" y2="323" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="243" x2="35" y2="323" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="279" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°2 (11.80 m)</text>
+        <text x="100" y="295" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Fuste superior 1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <rect x="35" y="323" width="55" height="80" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <line x1="35" y1="323" x2="90" y2="403" stroke="#000000" stroke-width="1.0" />
+        <line x1="90" y1="323" x2="35" y2="403" stroke="#000000" stroke-width="1.0" />
+        <text x="100" y="359" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO C - S46 N°1 (11.80 m)</text>
+        <text x="100" y="375" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Fuste superior 1.20 m | 8× M39 10.9 | Peso: 3 000 kg</text>
+
+        <!-- CAMPANA DE TRANSICIÓN J (10.00 m) -->
+        <polygon points="35,403 90,403 105,473 20,473" fill="#ffffff" stroke="#000000" stroke-width="2.2" />
+        <line x1="35" y1="403" x2="105" y2="473" stroke="#000000" stroke-width="1.2" />
+        <line x1="90" y1="403" x2="20" y2="473" stroke="#000000" stroke-width="1.2" />
+        <text x="120" y="435" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">CAMPANA J DE TRANSICIÓN (10.00 m)</text>
+        <text x="120" y="451" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">Cima: 1.20 m (8×M39) | Base: 1.70 m (16×M45)</text>
+        <text x="120" y="466" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5">Peso: 3 800 kg | Acero estructural S355J2</text>
+
+        <rect x="20" y="473" width="85" height="80" fill="#e2e8f0" stroke="#000000" stroke-width="2.2" />
+        <line x1="20" y1="473" x2="105" y2="553" stroke="#000000" stroke-width="1.2" />
+        <line x1="105" y1="473" x2="20" y2="553" stroke="#000000" stroke-width="1.2" />
+        <text x="120" y="509" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO BASE S17 N°2 (11.80 m — 1.70 m)</text>
+        <text x="120" y="525" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">Tramo reforzado | 16× M45 10.9 | Peso: 4 500 kg</text>
+
+        <rect x="20" y="553" width="85" height="80" fill="#e2e8f0" stroke="#000000" stroke-width="2.2" />
+        <line x1="20" y1="553" x2="105" y2="633" stroke="#000000" stroke-width="1.2" />
+        <line x1="105" y1="553" x2="20" y2="633" stroke="#000000" stroke-width="1.2" />
+        <text x="120" y="589" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TRAMO BASE S17 N°1 (11.80 m — 1.70 m)</text>
+        <text x="120" y="605" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">Pie empotrado en zapata | 16× M45 10.9 | Peso: 4 500 kg</text>
+
+        <!-- Resumen inferior Columna 2 -->
+        <rect x="15" y="650" width="420" height="50" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+        <text x="24" y="670" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TOTAL MIXTO TLS 70: 2 S17 + Campana J + 4 S46 + 1 Aj. = 86.70 m</text>
+        <text x="24" y="688" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">Rigidez basal I = 2.85×10⁻² m⁴ (2.71× mayor inercia que S-46)</text>
+    </g>
+
+    <!-- COLUMNA 3: SECCIONES Y PARÁMETROS MECÁNICOS (x=980 a 1560) -->
+    <g transform="translate(980, 102)">
+        <rect x="0" y="0" width="580" height="715" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="580" height="32" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold">3. SECCIONES TRANSVERSALES COMPARATIVAS Y MECÁNICA</text>
+
+        <!-- SECCIÓN S-46 (1.20 x 1.20 m) -->
+        <g transform="translate(20, 45)">
+            <rect x="0" y="0" width="260" height="235" fill="#ffffff" stroke="#000000" stroke-width="1.5" rx="3" />
+            <text x="12" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">SECCIÓN S46: 1.20 × 1.20 m</text>
+
+            <rect x="50" y="45" width="145" height="145" fill="none" stroke="#000000" stroke-width="1.2" stroke-dasharray="4 2" />
+            
+            <!-- 4 montantes tubulares con 2 pernos c/u -->
+            <circle cx="50" cy="45" r="11" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+            <circle cx="195" cy="45" r="11" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+            <circle cx="195" cy="190" r="11" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+            <circle cx="50" cy="190" r="11" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+
+            <circle cx="46" cy="45" r="2.8" fill="#000000" /><circle cx="54" cy="45" r="2.8" fill="#000000" />
+            <circle cx="191" cy="45" r="2.8" fill="#000000" /><circle cx="199" cy="45" r="2.8" fill="#000000" />
+            <circle cx="191" cy="190" r="2.8" fill="#000000" /><circle cx="199" cy="190" r="2.8" fill="#000000" />
+            <circle cx="46" cy="190" r="2.8" fill="#000000" /><circle cx="54" cy="190" r="2.8" fill="#000000" />
+
+            <line x1="50" y1="45" x2="195" y2="190" stroke="#000000" stroke-width="0.9" />
+            <line x1="195" y1="45" x2="50" y2="190" stroke="#000000" stroke-width="0.9" />
+
+            <text x="12" y="210" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">UNIÓN: 8 × M39 Clase 10.9</text>
+            <text x="12" y="225" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">2 pernos por cada montante de esquina</text>
+        </g>
+
+        <!-- SECCIÓN TLS 70 (1.70 x 1.70 m) -->
+        <g transform="translate(300, 45)">
+            <rect x="0" y="0" width="260" height="235" fill="#ffffff" stroke="#000000" stroke-width="1.5" rx="3" />
+            <text x="12" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">SECCIÓN S17: 1.70 × 1.70 m</text>
+
+            <rect x="45" y="45" width="140" height="140" fill="none" stroke="#000000" stroke-width="1.2" stroke-dasharray="4 2" />
+
+            <!-- 4 montantes con 4 pernos c/u -->
+            <circle cx="45" cy="45" r="13" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+            <circle cx="185" cy="45" r="13" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+            <circle cx="185" cy="185" r="13" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+            <circle cx="45" cy="185" r="13" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+
+            <circle cx="41" cy="41" r="2.4" fill="#000000" /><circle cx="49" cy="41" r="2.4" fill="#000000" />
+            <circle cx="41" cy="49" r="2.4" fill="#000000" /><circle cx="49" cy="49" r="2.4" fill="#000000" />
+
+            <circle cx="181" cy="41" r="2.4" fill="#000000" /><circle cx="189" cy="41" r="2.4" fill="#000000" />
+            <circle cx="181" cy="49" r="2.4" fill="#000000" /><circle cx="189" cy="49" r="2.4" fill="#000000" />
+
+            <circle cx="181" cy="181" r="2.4" fill="#000000" /><circle cx="189" cy="181" r="2.4" fill="#000000" />
+            <circle cx="181" cy="189" r="2.4" fill="#000000" /><circle cx="189" cy="189" r="2.4" fill="#000000" />
+
+            <circle cx="41" cy="181" r="2.4" fill="#000000" /><circle cx="49" cy="181" r="2.4" fill="#000000" />
+            <circle cx="41" cy="189" r="2.4" fill="#000000" /><circle cx="49" cy="189" r="2.4" fill="#000000" />
+
+            <line x1="45" y1="45" x2="185" y2="185" stroke="#000000" stroke-width="0.9" />
+            <line x1="185" y1="45" x2="45" y2="185" stroke="#000000" stroke-width="0.9" />
+
+            <text x="12" y="213" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">UNIÓN: 16 × M45 Clase 10.9</text>
+            <text x="12" y="227" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">4 pernos por cada montante de esquina</text>
+        </g>
+
+        <!-- PANEL DE MEMORIA TÉCNICA Y RIGIDECES -->
+        <g transform="translate(20, 295)">
+            <rect x="0" y="0" width="540" height="405" fill="#ffffff" stroke="#000000" stroke-width="1.5" rx="3" />
+            <rect x="0" y="0" width="540" height="28" fill="#f8fafc" stroke="#000000" stroke-width="1.0" />
+            <text x="14" y="19" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">PARÁMETROS MECÁNICOS Y RIGIDECES DE FUSTE</text>
+
+            <text x="14" y="48" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">A. SAEZ S-46 (FUSTE 1.20 × 1.20 m):</text>
+            <text x="24" y="66" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Inercia de sección: I_x = I_y = 1.05 × 10⁻² m⁴</text>
+            <text x="24" y="82" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Cordones: Tubos estructurales Ø140×12.5 mm (Acero S355J2)</text>
+            <text x="24" y="98" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Pernos de empalme: 8× M39 10.9 (Precarga F_p = 683.2 kN, M_t = 3 730 N·m)</text>
+
+            <line x1="14" y1="108" x2="526" y2="108" stroke="#cbd5e1" stroke-width="1.0" />
+
+            <text x="14" y="128" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">B. SAEZ TLS 70 12T (MÁSTIL MIXTO 1.70 m / CAMPANA J / 1.20 m):</text>
+            <text x="24" y="146" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Inercia basal (1.70 m): I_x = I_y = 2.85 × 10⁻² m⁴ (2.71× mayor inercia)</text>
+            <text x="24" y="162" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Cordones basales: Perfiles reforzados S355J2 con bridas maquinadas t = 55 mm</text>
+            <text x="24" y="178" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Pernos base: 16× M45 10.9 (Precarga F_p = 914.2 kN, M_t = 5 100 N·m)</text>
+
+            <line x1="14" y1="188" x2="526" y2="188" stroke="#cbd5e1" stroke-width="1.0" />
+
+            <text x="14" y="208" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">C. COMPROBACIÓN DE FLECHA EN PUNTA (UNE 58-101 / FEM 1001):</text>
+            <text x="24" y="226" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Cota alcanzada: S-46 = 86.60 m (+1.60 m) | TLS 70 = 86.70 m (+1.70 m)</text>
+            
+            <rect x="20" y="236" width="500" height="28" fill="#f1f5f9" stroke="#000000" stroke-width="1.0" rx="3" />
+            <text x="28" y="255" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">δ_máx ≤ H / 500 = 85.00 / 500 = 0.170 m = 170 mm [CUMPLE AMBOS]</text>
+
+            <!-- Recuadro de Justificación -->
+            <rect x="14" y="275" width="512" height="118" fill="#ffffff" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="24" y="296" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">JUSTIFICACIÓN TÉCNICA DE LA SELECCIÓN:</text>
+            <text x="24" y="315" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">1. La base de 1.70 m cuadruplica la rigidez a flexión en los primeros 23.6 m.</text>
+            <text x="24" y="333" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">2. La transición con Campana J aligera un 22% la masa en pisos superiores.</text>
+            <text x="24" y="351" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">3. Cobertura en punta: TLS 70 entrega 2 500 kg a 70 m (vs 1 000 kg a 46 m).</text>
+            <text x="24" y="371" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">✓ Modelo Recomendado para Edificación Costera: SAEZ TLS 70 12T</text>
+        </g>
+    </g>
+
+    
+    <!-- CAJETÍN OFICIAL NORMALIZADO (ISO 7200 / UTP) - ALTA LEGIBILIDAD -->
+    <g id="cajetin-alta-legibilidad" transform="translate(1015, 835)">
+        <rect x="0" y="0" width="545" height="135" fill="#ffffff" stroke="#000000" stroke-width="2.5" />
+        <line x1="0" y1="36" x2="545" y2="36" stroke="#000000" stroke-width="1.2" />
+        <line x1="0" y1="72" x2="545" y2="72" stroke="#000000" stroke-width="1.2" />
+        <line x1="0" y1="104" x2="375" y2="104" stroke="#000000" stroke-width="1.2" />
+        <line x1="375" y1="0" x2="375" y2="135" stroke="#000000" stroke-width="1.2" />
+        <line x1="460" y1="72" x2="460" y2="135" stroke="#000000" stroke-width="1.2" />
+        
+        <text x="14" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold">UNIVERSIDAD TECNOLÓGICA DE PANAMÁ</text>
+        <text x="14" y="31" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">FACULTAD DE INGENIERÍA INDUSTRIAL — GRUPO ISH-231</text>
+        
+        <text x="14" y="52" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">PROYECTO: GRÚAS TORRE Hu = 85.00 m (EDIF. 80.00 m)</text>
+        <text x="14" y="66" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">MODELOS: SAEZ S-46 (CÚSPIDE) vs. SAEZ TLS 70 12T (FLAT-TOP)</text>
+        
+        <text x="14" y="88" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">DOCENTE: <tspan fill="#000000" font-weight="bold">Prof. Ing. Eric Parker M. Sc.</tspan></text>
+        <text x="14" y="100" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">ESTUDIANTE: <tspan fill="#000000" font-weight="bold">Jaime M. Meneses (MBA / Ing. Ind.)</tspan></text>
+        
+        <text x="14" y="121" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">PLANO: <tspan fill="#000000" font-weight="bold">DESPIECE Y MODULACIÓN DUAL DEL MÁSTIL</tspan></text>
+        <text x="14" y="131" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5">OCTUBRE 2026 | UNIDADES: mm / m | NORMAS: ISO 128 / ISO 129</text>
+        
+        <text x="460" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">PL-02</text>
+        <text x="460" y="34" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" text-anchor="middle">LÁMINA OFICIAL</text>
+        
+        <text x="417" y="90" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">ESCALA</text>
+        <text x="417" y="104" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">S/E</text>
+        <text x="417" y="118" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" text-anchor="middle">(Esquemática)</text>
+        
+        <text x="502" y="90" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">REVISIÓN</text>
+        <text x="502" y="105" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">REV 3</text>
+        <text x="502" y="120" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" font-weight="bold" text-anchor="middle">ALTA LEGIBILIDAD</text>
+    </g>
+    
+</svg>

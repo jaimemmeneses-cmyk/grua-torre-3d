@@ -1,0 +1,305 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="2800" height="1750">
+    
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#000000" />
+        </marker>
+        <marker id="arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 10 1.5 L 0 5 L 10 8.5 z" fill="#000000" />
+        </marker>
+        <pattern id="hatch-steel" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#000000" stroke-width="0.9" />
+        </pattern>
+        <pattern id="hatch-concrete" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="4" cy="4" r="0.9" fill="#000000" />
+            <circle cx="14" cy="6" r="0.9" fill="#000000" />
+            <circle cx="9" cy="15" r="0.9" fill="#000000" />
+            <path d="M 3 14 L 6 17 L 2 18 Z" fill="none" stroke="#000000" stroke-width="0.6" />
+            <path d="M 13 11 L 16 14 L 12 15 Z" fill="none" stroke="#000000" stroke-width="0.6" />
+        </pattern>
+        <pattern id="hatch-ground" width="16" height="16" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="16" y2="16" stroke="#000000" stroke-width="0.75" />
+            <line x1="0" y1="8" x2="8" y2="16" stroke="#000000" stroke-width="0.75" />
+            <line x1="8" y1="0" x2="16" y2="8" stroke="#000000" stroke-width="0.75" />
+        </pattern>
+        <pattern id="hatch-grout" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="0.7" fill="#000000" />
+            <circle cx="6" cy="6" r="0.7" fill="#000000" />
+        </pattern>
+    </defs>
+    
+    <rect x="0" y="0" width="1600" height="1000" fill="#ffffff" />
+    <rect x="15" y="15" width="1570" height="970" fill="none" stroke="#000000" stroke-width="2.5" />
+    <rect x="22" y="22" width="1556" height="956" fill="none" stroke="#000000" stroke-width="1.0" />
+
+    
+    <!-- ENCABEZADO TÉCNICO DE ALTA LEGIBILIDAD -->
+    <g id="encabezado-alta-legibilidad" transform="translate(40, 32)">
+        <rect x="0" y="0" width="1020" height="60" fill="#ffffff" stroke="#000000" stroke-width="2.2" rx="4" />
+        <line x1="0" y1="34" x2="1020" y2="34" stroke="#000000" stroke-width="1.2" />
+        <text x="16" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="bold">PL-03: CIMENTACIÓN PRIMARIA, ZAPATA Y PERNOS DE ANCLAJE A BASE</text>
+        <text x="16" y="50" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">DIMENSIONAMIENTO DE ZAPATAS (5.50 m S-46 vs 7.00 m TLS 70), 16 PERNOS M45 Y CONTROL NBE-EA-95 / FEM 1001</text>
+    </g>
+    
+
+    <!-- DIBUJO 1: PLANTA DE ZAPATA AISLADA (x=40 a 500, y=102 a 490) -->
+    <g transform="translate(40, 102)">
+        <rect x="0" y="0" width="460" height="390" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="460" height="32" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold">1. PLANTA DE ZAPATA AISLADA (B = 5.50 m / 7.00 m)</text>
+
+        <!-- Bloque zapata con achurado hormigón -->
+        <rect x="85" y="55" width="270" height="270" fill="url(#hatch-concrete)" stroke="#000000" stroke-width="2.2" />
+        <rect x="95" y="65" width="250" height="250" fill="none" stroke="#000000" stroke-width="1.0" stroke-dasharray="5 3" />
+
+        <!-- Mástil central -->
+        <rect x="190" y="160" width="60" height="60" fill="none" stroke="#000000" stroke-width="1.8" stroke-dasharray="4 2" />
+        <line x1="220" y1="45" x2="220" y2="335" stroke="#000000" stroke-width="0.8" stroke-dasharray="8 2 2 2" />
+        <line x1="75" y1="190" x2="365" y2="190" stroke="#000000" stroke-width="0.8" stroke-dasharray="8 2 2 2" />
+
+        <!-- 4 Patas con 4 pernos M45 c/u (Total 16 pernos) -->
+        <!-- P4 (Sup-Izq) -->
+        <rect x="178" y="148" width="26" height="26" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <circle cx="184" cy="154" r="2.5" fill="#000000" /><circle cx="198" cy="154" r="2.5" fill="#000000" />
+        <circle cx="184" cy="168" r="2.5" fill="#000000" /><circle cx="198" cy="168" r="2.5" fill="#000000" />
+        <text x="191" y="164" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">P4</text>
+
+        <!-- P1 (Sup-Der) -->
+        <rect x="236" y="148" width="26" height="26" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <circle cx="242" cy="154" r="2.5" fill="#000000" /><circle cx="256" cy="154" r="2.5" fill="#000000" />
+        <circle cx="242" cy="168" r="2.5" fill="#000000" /><circle cx="256" cy="168" r="2.5" fill="#000000" />
+        <text x="249" y="164" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">P1</text>
+
+        <!-- P2 (Inf-Der) -->
+        <rect x="236" y="206" width="26" height="26" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <circle cx="242" cy="212" r="2.5" fill="#000000" /><circle cx="256" cy="212" r="2.5" fill="#000000" />
+        <circle cx="242" cy="226" r="2.5" fill="#000000" /><circle cx="256" cy="226" r="2.5" fill="#000000" />
+        <text x="249" y="222" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">P2</text>
+
+        <!-- P3 (Inf-Izq) -->
+        <rect x="178" y="206" width="26" height="26" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <circle cx="184" cy="212" r="2.5" fill="#000000" /><circle cx="198" cy="212" r="2.5" fill="#000000" />
+        <circle cx="184" cy="226" r="2.5" fill="#000000" /><circle cx="198" cy="226" r="2.5" fill="#000000" />
+        <text x="191" y="222" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle">P3</text>
+
+        <!-- Cota Ancho Zapata -->
+        <line x1="85" y1="45" x2="355" y2="45" stroke="#000000" stroke-width="1.5" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+        <rect x="90" y="34" width="260" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="3" />
+        <text x="220" y="49" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle">B = 5.50 m (S-46) / 7.00 m (TLS 70)</text>
+
+        <rect x="15" y="335" width="430" height="45" fill="#f8fafc" stroke="#000000" stroke-width="1.0" rx="3" />
+        <text x="24" y="352" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">ARMADURA: Parrilla bidireccional Ø20 c/15 cm B500S</text>
+        <text x="24" y="369" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Hormigón HA-25 (f_ck = 25 MPa) | Recubrimiento r = 50 mm</text>
+    </g>
+
+    <!-- DIBUJO 2: CORTE VERTICAL B-B ZAPATA (x=40 a 500, y=505 a 815) -->
+    <g transform="translate(40, 505)">
+        <rect x="0" y="0" width="460" height="310" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="460" height="32" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold">2. CORTE B-B: EMPOTRAMIENTO EN HORMIGÓN HA-25</text>
+
+        <!-- Nivel de Terreno Natural -->
+        <line x1="20" y1="70" x2="440" y2="70" stroke="#000000" stroke-width="2.2" />
+        <rect x="25" y="50" width="115" height="18" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="3" />
+        <text x="32" y="64" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">N.T.N. ±0.00 m</text>
+
+        <!-- Bloque zapata corte -->
+        <rect x="40" y="70" width="380" height="135" fill="url(#hatch-concrete)" stroke="#000000" stroke-width="2.2" />
+        <rect x="40" y="205" width="380" height="16" fill="#f1f5f9" stroke="#000000" stroke-width="1.0" stroke-dasharray="4 2" />
+        <text x="170" y="217" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5">Hormigón de limpieza espesor 10 cm</text>
+
+        <!-- Montantes arrancando -->
+        <rect x="170" y="30" width="16" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+        <rect x="274" y="30" width="16" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+
+        <!-- Pernos M45 embebidos con placas de fondo -->
+        <line x1="178" y1="70" x2="178" y2="175" stroke="#000000" stroke-width="3.0" />
+        <rect x="163" y="175" width="30" height="8" fill="#000000" />
+
+        <line x1="282" y1="70" x2="282" y2="175" stroke="#000000" stroke-width="3.0" />
+        <rect x="267" y="175" width="30" height="8" fill="#000000" />
+
+        <!-- Cota canto h -->
+        <line x1="428" y1="70" x2="428" y2="205" stroke="#000000" stroke-width="1.5" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+        <rect x="415" y="88" width="26" height="105" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="3" />
+        <text x="432" y="185" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="bold" transform="rotate(-90 432 185)">h = 1.40 / 1.70 m</text>
+
+        <!-- Cuadro de comprobación geotécnica -->
+        <rect x="15" y="230" width="430" height="70" fill="#f8fafc" stroke="#000000" stroke-width="1.0" rx="3" />
+        <text x="24" y="249" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">COMPROBACIÓN GEOTÉCNICA DEL TERRENO:</text>
+        <text x="24" y="267" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• S-46 (5.50 m): σ_suelo = 0.095 MPa ≤ σ_adm = 0.25 MPa [OK]</text>
+        <text x="24" y="285" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="bold">• TLS 70 (7.00 m): σ_suelo = 0.118 MPa ≤ σ_adm = 0.25 MPa [CUMPLE ✓]</text>
+    </g>
+
+    <!-- DIBUJO 3: DETALLE DEL PERNO DE ANCLAJE M45 (x=520 a 1010, y=102 a 815) -->
+    <g transform="translate(520, 102)">
+        <rect x="0" y="0" width="490" height="715" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="490" height="32" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold">3. DETALLE CONSTRUCTIVO: PERNOS DE ANCLAJE M45</text>
+
+        <!-- Bloque hormigón y grout -->
+        <rect x="55" y="215" width="270" height="375" fill="url(#hatch-concrete)" stroke="#000000" stroke-width="1.8" />
+        <rect x="75" y="185" width="230" height="30" fill="url(#hatch-grout)" stroke="#000000" stroke-width="1.2" />
+        
+        <!-- Placa Base S355 espesor 40/50 mm -->
+        <rect x="85" y="150" width="210" height="35" fill="url(#hatch-steel)" stroke="#000000" stroke-width="2.0" />
+
+        <!-- Montante tubular y cartelas -->
+        <rect x="140" y="45" width="100" height="105" fill="#ffffff" stroke="#000000" stroke-width="2.2" />
+        <text x="190" y="84" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">MONTANTE BASE</text>
+        <text x="190" y="103" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">S-46 (Ø140)</text>
+        <text x="190" y="117" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">S17 (1.70 m)</text>
+
+        <!-- Cartelas triangulares -->
+        <polygon points="115,150 140,55 140,150" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <polygon points="265,150 240,55 240,150" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+
+        <!-- Vástago perno M45 -->
+        <rect x="105" y="90" width="20" height="435" fill="#ffffff" stroke="#000000" stroke-width="2.0" />
+        <line x1="115" y1="80" x2="115" y2="540" stroke="#000000" stroke-width="0.8" stroke-dasharray="8 2 2 2" />
+
+        <!-- Tuercas y arandelas superiores -->
+        <rect x="98" y="105" width="34" height="16" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <rect x="98" y="123" width="34" height="18" fill="#ffffff" stroke="#000000" stroke-width="1.5" />
+        <rect x="95" y="142" width="40" height="8" fill="#ffffff" stroke="#000000" stroke-width="1.2" />
+
+        <!-- Placa de fondo 150x150x25 mm y tuerca inferior soldada -->
+        <rect x="70" y="520" width="90" height="22" fill="url(#hatch-steel)" stroke="#000000" stroke-width="1.8" />
+        <rect x="98" y="542" width="34" height="18" fill="#000000" />
+
+        <!-- Cota longitud de anclaje Lanc -->
+        <line x1="45" y1="215" x2="45" y2="520" stroke="#000000" stroke-width="1.5" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+        <rect x="30" y="270" width="28" height="180" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="3" />
+        <text x="49" y="440" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold" transform="rotate(-90 49 440)">L_anc = 1 100 / 1 200 mm</text>
+
+        <!-- Llamadas de componentes con recuadros blancos -->
+        <line x1="295" y1="168" x2="335" y2="168" stroke="#000000" stroke-width="1.2" />
+        <rect x="336" y="153" width="148" height="30" fill="#ffffff" stroke="#000000" stroke-width="1.0" rx="3" />
+        <text x="342" y="167" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">Placa Base S355</text>
+        <text x="342" y="179" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5">Espesor t = 40 / 50 mm</text>
+
+        <line x1="305" y1="200" x2="335" y2="200" stroke="#000000" stroke-width="1.2" />
+        <rect x="336" y="186" width="148" height="30" fill="#ffffff" stroke="#000000" stroke-width="1.0" rx="3" />
+        <text x="342" y="200" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">Grout sin retracción</text>
+        <text x="342" y="212" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5">Espesor e = 50 mm (≥50 MPa)</text>
+
+        <line x1="160" y1="531" x2="200" y2="531" stroke="#000000" stroke-width="1.2" />
+        <rect x="205" y="516" width="195" height="30" fill="#ffffff" stroke="#000000" stroke-width="1.0" rx="3" />
+        <text x="212" y="530" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">Placa Fondo 150×150×25</text>
+        <text x="212" y="542" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5">+ Tuerca soldada anti-arrancamiento</text>
+
+        <!-- Cuadro analítico de pernos M45 -->
+        <g transform="translate(15, 600)">
+            <rect x="0" y="0" width="460" height="100" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">VERIFICACIÓN MECÁNICA DE PERNOS M45 (16 EN TOTAL):</text>
+            <text x="12" y="38" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• S-46 (16× M45 8.8): T_p = 174.7 kN → σ = 133.8 MPa → <tspan font-weight="bold" fill="#15803d">Fd = 4.78 ≥ 1.50 ✓</tspan></text>
+            <text x="12" y="56" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• TLS 70 (16× M45 10.9): T_p = 343.3 kN → σ = 262.9 MPa → <tspan font-weight="bold" fill="#15803d">Fd = 3.42 ≥ 1.50 ✓</tspan></text>
+            <text x="12" y="74" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Área resistente a tracción: A_s = 1 306 mm² (ISO 898-1)</text>
+            <text x="12" y="90" fill="#0f172a" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="bold">Longitud básica de anclaje: L_b,req = 860 mm &lt; L_anc = 1 100/1 200 mm [CUMPLE]</text>
+        </g>
+    </g>
+
+    <!-- DIBUJO 4: PANEL DE MEMORIA ANALÍTICA DE ESTABILIDAD (x=1030 a 1560, y=102 a 815) -->
+    <g transform="translate(1030, 102)">
+        <rect x="0" y="0" width="530" height="715" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="530" height="32" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="bold">4. MEMORIA ANALÍTICA DE ESTABILIDAD Y VUELCO (HIP. III)</text>
+
+        <g transform="translate(18, 45)">
+            <text x="0" y="15" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">A. MODELO SAEZ S-46 (ZAPATA 5.50 × 5.50 × 1.40 m):</text>
+            <text x="10" y="34" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Axil total vertical en zapata: N_tot = 1 363.25 kN</text>
+            <text x="10" y="51" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Momento volcador de tempestad: M_vuelco = 1 466.60 kN·m</text>
+            <text x="10" y="68" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Momento estabilizador zapata: M_estab = 1 363.25 × 2.75 = 3 748.94 kN·m</text>
+            
+            <rect x="8" y="78" width="480" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.0" rx="3" />
+            <text x="18" y="98" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">FS_vuelco = 3 748.94 / 1 466.60 = 2.56 ≥ 1.75 EXIGIDO [CUMPLE]</text>
+
+            <line x1="0" y1="120" x2="495" y2="120" stroke="#cbd5e1" stroke-width="1.0" />
+
+            <text x="0" y="142" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">B. MODELO SAEZ TLS 70 12T (ZAPATA 7.00 × 7.00 × 1.70 m):</text>
+            <text x="10" y="161" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Momento estático desestabilizador contrapeso: M_cw = 3 163.73 kN·m</text>
+            <text x="10" y="178" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Viento de tempestad con ráfaga costera G_f = 1.25: M_viento = 1 810.27 kN·m</text>
+            <text x="10" y="195" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Momento volcador en rasante: M_ras = 4 974.00 kN·m</text>
+            <text x="10" y="212" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Momento a fondo de zapata (brazo h = 1.70 m): M_fondo = 5 118.40 kN·m</text>
+            <text x="10" y="229" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Axil estabilizador total: N_tot = 2 729.00 kN (Grúa + Zapata 7.00 m)</text>
+            <text x="10" y="246" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Momento estabilizador: M_estab = 2 729.00 × 3.50 = 9 551.50 kN·m</text>
+
+            <rect x="8" y="258" width="480" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.0" rx="3" />
+            <text x="18" y="278" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">FS_vuelco = 9 551.50 / 5 118.40 = 1.866 ≥ 1.75 EXIGIDO [CUMPLE]</text>
+
+            <line x1="0" y1="300" x2="495" y2="300" stroke="#cbd5e1" stroke-width="1.0" />
+
+            <text x="0" y="322" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">C. TABLA COMPARATIVA DUAL DE CIMENTACIÓN:</text>
+
+            <!-- Tabla comparativa gráfica -->
+            <g transform="translate(0, 335)">
+                <rect x="0" y="0" width="495" height="26" fill="#e2e8f0" stroke="#000000" stroke-width="1.2" />
+                <text x="10" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">PARÁMETRO</text>
+                <text x="175" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">SAEZ S-46</text>
+                <text x="325" y="18" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">SAEZ TLS 70 12T</text>
+
+                <line x1="0" y1="52" x2="495" y2="52" stroke="#cbd5e1" stroke-width="1.0" />
+                <line x1="0" y1="78" x2="495" y2="78" stroke="#cbd5e1" stroke-width="1.0" />
+                <line x1="0" y1="104" x2="495" y2="104" stroke="#cbd5e1" stroke-width="1.0" />
+                <line x1="0" y1="130" x2="495" y2="130" stroke="#cbd5e1" stroke-width="1.0" />
+                <line x1="160" y1="26" x2="160" y2="130" stroke="#000000" stroke-width="1.0" />
+                <line x1="310" y1="26" x2="310" y2="130" stroke="#000000" stroke-width="1.0" />
+
+                <!-- Fila 1 -->
+                <text x="10" y="44" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">• Zapata (B×B×h)</text>
+                <text x="175" y="44" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">5.50×5.50×1.40 m</text>
+                <text x="325" y="44" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">7.00×7.00×1.70 m</text>
+
+                <!-- Fila 2 -->
+                <text x="10" y="70" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">• Pernos a zapata</text>
+                <text x="175" y="70" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">16× M45 Grado 8.8</text>
+                <text x="325" y="70" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">16× M45 Grado 10.9</text>
+
+                <!-- Fila 3 -->
+                <text x="10" y="96" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">• Factor pernos Fd</text>
+                <text x="175" y="96" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">Fd = 4.78 ≥ 1.50 ✓</text>
+                <text x="325" y="96" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">Fd = 3.42 ≥ 1.50 ✓</text>
+
+                <!-- Fila 4 -->
+                <text x="10" y="122" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">• Estabilidad vuelco</text>
+                <text x="175" y="122" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">FS = 2.56 ≥ 1.75 ✓</text>
+                <text x="325" y="122" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">FS = 1.866 ≥ 1.75 ✓</text>
+            </g>
+        </g>
+    </g>
+
+    
+    <!-- CAJETÍN OFICIAL NORMALIZADO (ISO 7200 / UTP) - ALTA LEGIBILIDAD -->
+    <g id="cajetin-alta-legibilidad" transform="translate(1015, 835)">
+        <rect x="0" y="0" width="545" height="135" fill="#ffffff" stroke="#000000" stroke-width="2.5" />
+        <line x1="0" y1="36" x2="545" y2="36" stroke="#000000" stroke-width="1.2" />
+        <line x1="0" y1="72" x2="545" y2="72" stroke="#000000" stroke-width="1.2" />
+        <line x1="0" y1="104" x2="375" y2="104" stroke="#000000" stroke-width="1.2" />
+        <line x1="375" y1="0" x2="375" y2="135" stroke="#000000" stroke-width="1.2" />
+        <line x1="460" y1="72" x2="460" y2="135" stroke="#000000" stroke-width="1.2" />
+        
+        <text x="14" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold">UNIVERSIDAD TECNOLÓGICA DE PANAMÁ</text>
+        <text x="14" y="31" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">FACULTAD DE INGENIERÍA INDUSTRIAL — GRUPO ISH-231</text>
+        
+        <text x="14" y="52" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">PROYECTO: GRÚAS TORRE Hu = 85.00 m (EDIF. 80.00 m)</text>
+        <text x="14" y="66" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">MODELOS: SAEZ S-46 (CÚSPIDE) vs. SAEZ TLS 70 12T (FLAT-TOP)</text>
+        
+        <text x="14" y="88" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">DOCENTE: <tspan fill="#000000" font-weight="bold">Prof. Ing. Eric Parker M. Sc.</tspan></text>
+        <text x="14" y="100" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">ESTUDIANTE: <tspan fill="#000000" font-weight="bold">Jaime M. Meneses (MBA / Ing. Ind.)</tspan></text>
+        
+        <text x="14" y="121" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">PLANO: <tspan fill="#000000" font-weight="bold">CIMENTACIÓN, ZAPATA Y PERNOS BASE</tspan></text>
+        <text x="14" y="131" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5">OCTUBRE 2026 | UNIDADES: mm / m | NORMAS: ISO 128 / ISO 129</text>
+        
+        <text x="460" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">PL-03</text>
+        <text x="460" y="34" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" text-anchor="middle">LÁMINA OFICIAL</text>
+        
+        <text x="417" y="90" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">ESCALA</text>
+        <text x="417" y="104" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">S/E</text>
+        <text x="417" y="118" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" text-anchor="middle">(Esquemática)</text>
+        
+        <text x="502" y="90" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">REVISIÓN</text>
+        <text x="502" y="105" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">REV 3</text>
+        <text x="502" y="120" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" font-weight="bold" text-anchor="middle">ALTA LEGIBILIDAD</text>
+    </g>
+    
+</svg>

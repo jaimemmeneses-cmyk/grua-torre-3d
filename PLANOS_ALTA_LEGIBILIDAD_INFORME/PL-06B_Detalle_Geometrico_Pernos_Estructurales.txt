@@ -1,0 +1,325 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="2800" height="1750">
+    
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#000000" />
+        </marker>
+        <marker id="arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 10 1.5 L 0 5 L 10 8.5 z" fill="#000000" />
+        </marker>
+        <pattern id="hatch-steel" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="#000000" stroke-width="0.9" />
+        </pattern>
+        <pattern id="hatch-concrete" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="4" cy="4" r="0.9" fill="#000000" />
+            <circle cx="14" cy="6" r="0.9" fill="#000000" />
+            <circle cx="9" cy="15" r="0.9" fill="#000000" />
+            <path d="M 3 14 L 6 17 L 2 18 Z" fill="none" stroke="#000000" stroke-width="0.6" />
+            <path d="M 13 11 L 16 14 L 12 15 Z" fill="none" stroke="#000000" stroke-width="0.6" />
+        </pattern>
+        <pattern id="hatch-ground" width="16" height="16" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="16" y2="16" stroke="#000000" stroke-width="0.75" />
+            <line x1="0" y1="8" x2="8" y2="16" stroke="#000000" stroke-width="0.75" />
+            <line x1="8" y1="0" x2="16" y2="8" stroke="#000000" stroke-width="0.75" />
+        </pattern>
+        <pattern id="hatch-grout" width="8" height="8" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="0.7" fill="#000000" />
+            <circle cx="6" cy="6" r="0.7" fill="#000000" />
+        </pattern>
+    </defs>
+    
+    <rect x="0" y="0" width="1600" height="1000" fill="#ffffff" />
+    <rect x="15" y="15" width="1570" height="970" fill="none" stroke="#000000" stroke-width="2.5" />
+    <rect x="22" y="22" width="1556" height="956" fill="none" stroke="#000000" stroke-width="1.0" />
+
+    
+    <!-- ENCABEZADO TÉCNICO DE ALTA LEGIBILIDAD -->
+    <g id="encabezado-alta-legibilidad" transform="translate(40, 32)">
+        <rect x="0" y="0" width="1020" height="60" fill="#ffffff" stroke="#000000" stroke-width="2.2" rx="4" />
+        <line x1="0" y1="34" x2="1020" y2="34" stroke="#000000" stroke-width="1.2" />
+        <text x="16" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="bold">PL-06B: DETALLE GEOMÉTRICO, COTAS Y MECÁNICA DE PERNOS CLASE 10.9</text>
+        <text x="16" y="50" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">ESPECIFICACIÓN ISO 4014 / EN 14399-4 PARA PERNOS M39 Y M45, DIAGRAMA DE RÖTSCHER Y ENSAMBLE DE BRIDAS</text>
+    </g>
+    
+
+    <!-- FIGURA 1: GEOMETRÍA NORMALIZADA DEL PERNO (x=40 a 510) -->
+    <g transform="translate(40, 102)">
+        <rect x="0" y="0" width="470" height="520" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="470" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="21" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">FIGURA 1: GEOMETRÍA NORMALIZADA DEL PERNO (ISO 4014)</text>
+
+        <!-- Alzado longitudinal del perno -->
+        <g transform="translate(195, 45)">
+            <line x1="0" y1="10" x2="0" y2="350" stroke="#000000" stroke-width="0.8" stroke-dasharray="10 2 2 2" />
+
+            <!-- Cabeza Hexagonal (k = 25/29 mm, s = 60/70 mm) -->
+            <rect x="-42" y="30" width="84" height="35" fill="#f1f5f9" stroke="#000000" stroke-width="2.0" />
+            <line x1="-21" y1="30" x2="-21" y2="65" stroke="#000000" stroke-width="1.0" />
+            <line x1="21" y1="30" x2="21" y2="65" stroke="#000000" stroke-width="1.0" />
+            <path d="M -42 35 Q -31 30 -21 35 Q 0 30 21 35 Q 31 30 42 35" fill="none" stroke="#000000" stroke-width="1.0" />
+
+            <!-- Radio de acuerdo bajo cabeza r = 3 mm -->
+            <path d="M -28 65 Q -28 71 -22 71" fill="none" stroke="#000000" stroke-width="1.5" />
+            <path d="M 28 65 Q 28 71 22 71" fill="none" stroke="#000000" stroke-width="1.5" />
+
+            <!-- Caña no roscada (d = 39/45 mm, l_s = 110 mm) -->
+            <rect x="-28" y="65" width="56" height="135" fill="#ffffff" stroke="#000000" stroke-width="2.0" />
+
+            <!-- Zona roscada métrica (b = 70 mm) -->
+            <rect x="-28" y="200" width="56" height="115" fill="#ffffff" stroke="#000000" stroke-width="2.0" />
+            <g stroke="#000000" stroke-width="1.0">
+                <line x1="-28" y1="210" x2="28" y2="215" />
+                <line x1="-28" y1="220" x2="28" y2="225" />
+                <line x1="-28" y1="230" x2="28" y2="235" />
+                <line x1="-28" y1="240" x2="28" y2="245" />
+                <line x1="-28" y1="250" x2="28" y2="255" />
+                <line x1="-28" y1="260" x2="28" y2="265" />
+                <line x1="-28" y1="270" x2="28" y2="275" />
+                <line x1="-28" y1="280" x2="28" y2="285" />
+                <line x1="-28" y1="290" x2="28" y2="295" />
+                <line x1="-28" y1="300" x2="28" y2="305" />
+            </g>
+            <line x1="-24" y1="200" x2="-24" y2="315" stroke="#000000" stroke-width="0.8" stroke-dasharray="4 2" />
+            <line x1="24" y1="200" x2="24" y2="315" stroke="#000000" stroke-width="0.8" stroke-dasharray="4 2" />
+
+            <!-- Extremo biselado a 45° -->
+            <polygon points="-28,315 28,315 22,325 -22,325" fill="#f1f5f9" stroke="#000000" stroke-width="1.5" />
+
+            <!-- Cotas de dimensiones de cabeza y caña -->
+            <line x1="-42" y1="20" x2="42" y2="20" stroke="#000000" stroke-width="1.2" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="-105" y="5" width="210" height="18" fill="#ffffff" stroke="#000000" stroke-width="0.6" rx="2" />
+            <text x="0" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">s = 60 mm (M39) / 70 mm (M45)</text>
+
+            <line x1="-58" y1="30" x2="-58" y2="65" stroke="#000000" stroke-width="1.2" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="-155" y="40" width="95" height="18" fill="#ffffff" stroke="#000000" stroke-width="0.6" rx="2" />
+            <text x="-107" y="53" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">k = 25 / 29 mm</text>
+
+            <line x1="-28" y1="120" x2="28" y2="120" stroke="#000000" stroke-width="1.2" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="-55" y="110" width="110" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="0" y="124" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Ø d = 39 / 45 mm</text>
+
+            <line x1="55" y1="65" x2="55" y2="200" stroke="#000000" stroke-width="1.2" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="62" y="125" width="78" height="18" fill="#ffffff" stroke="#000000" stroke-width="0.6" rx="2" />
+            <text x="101" y="138" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">l_s = 110 mm</text>
+
+            <line x1="55" y1="200" x2="55" y2="315" stroke="#000000" stroke-width="1.2" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="62" y="248" width="65" height="18" fill="#ffffff" stroke="#000000" stroke-width="0.6" rx="2" />
+            <text x="94" y="261" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">b = 70 mm</text>
+        </g>
+
+        <!-- Bloque inferior de tolerancias -->
+        <g transform="translate(15, 410)">
+            <rect width="440" height="95" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">TOLERANCIAS Y CALIDAD GEOMÉTRICA (ISO 4759-1):</text>
+            <text x="12" y="38" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Grado de producto A para longitudes L ≤ 150 mm y d ≤ 45 mm.</text>
+            <text x="12" y="56" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Tolerancia de rosca: Clase 6g (vástago) y 6H (tuercas según ISO 965-1).</text>
+            <text x="12" y="76" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">• Radio bajo cabeza r = 3.0 mm reduce concentración de tensiones a Kf ≤ 1.35.</text>
+        </g>
+    </g>
+
+    <!-- FIGURA 2: CONO DE COMPRESIÓN DE RÖTSCHER (x=530 a 1030) -->
+    <g transform="translate(530, 102)">
+        <rect x="0" y="0" width="500" height="520" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="500" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="21" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">FIGURA 2: CONO DE COMPRESIÓN DE RÖTSCHER Y BRIDAS 55 mm</text>
+
+        <!-- Sección de bridas y perno apretado -->
+        <g transform="translate(230, 45)">
+            <!-- Eje vertical -->
+            <line x1="0" y1="20" x2="0" y2="340" stroke="#000000" stroke-width="0.8" stroke-dasharray="10 2 2 2" />
+
+            <!-- Brida superior t = 55 mm -->
+            <rect x="-160" y="105" width="320" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+            <!-- Brida inferior t = 55 mm -->
+            <rect x="-160" y="155" width="320" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.8" />
+
+            <!-- Plano de contacto rectificado -->
+            <line x1="-180" y1="155" x2="180" y2="155" stroke="#000000" stroke-width="1.5" stroke-dasharray="8 2 2 2" />
+
+            <!-- Cono de compresión de Rötscher (ángulo alfa = 30°) -->
+            <polygon points="-40,105 40,105 85,155 -85,155" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" stroke-dasharray="4 2" />
+            <polygon points="-85,155 85,155 40,205 -40,205" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" stroke-dasharray="4 2" />
+
+            <!-- Perno en corte -->
+            <rect x="-18" y="70" width="36" height="170" fill="#ffffff" stroke="#000000" stroke-width="2.0" />
+            <!-- Cabeza y tuerca -->
+            <rect x="-35" y="45" width="70" height="25" fill="#e2e8f0" stroke="#000000" stroke-width="1.8" />
+            <rect x="-32" y="97" width="64" height="8" fill="#ffffff" stroke="#000000" stroke-width="1.2" />
+            <rect x="-32" y="205" width="64" height="8" fill="#ffffff" stroke="#000000" stroke-width="1.2" />
+            <rect x="-35" y="213" width="70" height="27" fill="#e2e8f0" stroke="#000000" stroke-width="1.8" />
+
+            <!-- Líneas de fuerza de apriete -->
+            <line x1="-90" y1="120" x2="-60" y2="145" stroke="#000000" stroke-width="1.5" marker-end="url(#arrow)" />
+            <rect x="-165" y="105" width="70" height="18" fill="#ffffff" stroke="#000000" stroke-width="0.6" rx="2" />
+            <text x="-130" y="118" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="bold">α ≈ 30°</text>
+
+            <rect x="70" y="125" width="135" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="137" y="139" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Cono de Rötscher</text>
+
+            <line x1="185" y1="105" x2="185" y2="205" stroke="#000000" stroke-width="1.2" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+            <rect x="190" y="145" width="65" height="20" fill="#ffffff" stroke="#000000" stroke-width="0.8" rx="2" />
+            <text x="222" y="159" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">2× 55 mm</text>
+        </g>
+
+        <!-- Bloque analítico de participación de carga -->
+        <g transform="translate(15, 330)">
+            <rect width="470" height="175" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">PARTICIPACIÓN DE CARGA Y RIGIDECES VDI 2230:</text>
+            <text x="12" y="38" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Rigidez del perno: k_b = (E_b · A_s) / L_k = 1.86 × 10⁶ kN/m</text>
+            <text x="12" y="55" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Rigidez bridas rigidizadas (t = 55 mm): k_m ≥ 1.21 × 10⁷ kN/m (k_m / k_b ≥ 6.50)</text>
+            <text x="12" y="73" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• Factor elástico de carga: Φ_k = k_b / (k_b + k_m) ≤ 0.133 (vs 0.263 en brida flexible)</text>
+            
+            <rect x="10" y="83" width="450" height="42" fill="#ffffff" stroke="#000000" stroke-width="1.0" rx="2" />
+            <text x="18" y="101" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">RANGO TENSIONAL CÍCLICO ABSORBIDO POR EL PERNO:</text>
+            <text x="18" y="117" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">Δσ_b = 40.00 MPa ≤ 43.48 MPa [LÍMITE RESISTENCIA FAT 50 EC3 ✓]</text>
+
+            <text x="12" y="145" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Amortiguamiento elástico por descompresión de brida: 86.7% de la carga dinámica.</text>
+            <text x="12" y="162" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">✓ Se evita la apertura de junta y la rotura por fatiga de bajo número de ciclos.</text>
+        </g>
+    </g>
+
+    <!-- FIGURA 3: DETALLE MÉTRICO ROSCA, TUERCA Y ARANDELA (x=1050 a 1560) -->
+    <g transform="translate(1050, 102)">
+        <rect x="0" y="0" width="510" height="520" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect x="0" y="0" width="510" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="21" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">FIGURA 3: DETALLE MÉTRICO ROSCA, TUERCA Y ARANDELA</text>
+
+        <!-- Detalle de rosca ISO a 60° -->
+        <g transform="translate(25, 45)">
+            <rect width="460" height="150" fill="#ffffff" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="20" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">PERFIL DE FILETE MÉTRICO TRIANGULAR ISO 68-1 (60°):</text>
+
+            <g transform="translate(100, 35)">
+                <!-- Perfil rosca -->
+                <polygon points="0,50 30,10 60,50 90,10 120,50 150,10 180,50 210,10 240,50" fill="#f1f5f9" stroke="#000000" stroke-width="1.8" />
+                <line x1="0" y1="50" x2="240" y2="50" stroke="#000000" stroke-width="1.0" stroke-dasharray="4 2" />
+                <!-- Cota de ángulo 60° -->
+                <text x="45" y="35" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">60°</text>
+                <!-- Cota de paso p -->
+                <line x1="30" y1="5" x2="90" y2="5" stroke="#000000" stroke-width="1.0" marker-start="url(#arrow-start)" marker-end="url(#arrow)" />
+                <rect x="42" y="-6" width="36" height="16" fill="#ffffff" stroke="#000000" stroke-width="0.6" rx="2" />
+                <text x="60" y="6" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="bold" text-anchor="middle">p</text>
+            </g>
+
+            <text x="12" y="115" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• M39: Paso p = 4.0 mm | Diámetro medio d_2 = 36.40 mm | A_s = 976 mm²</text>
+            <text x="12" y="135" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5">• M45: Paso p = 4.5 mm | Diámetro medio d_2 = 42.08 mm | A_s = 1 306 mm²</text>
+        </g>
+
+        <!-- Detalle Tuerca y Arandela -->
+        <g transform="translate(25, 210)">
+            <rect width="460" height="295" fill="#f8fafc" stroke="#000000" stroke-width="1.2" rx="3" />
+            <text x="12" y="22" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">CONJUNTO TUERCA CLASE 10 Y ARANDELA ESTRUCTURAL:</text>
+
+            <text x="12" y="44" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">• TUERCA HEXAGONAL ALTA ISO 4032 / EN 14399-4 (CLASE 10):</text>
+            <text x="22" y="62" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">  Altura de tuerca: m = 31.0 mm (M39) / 36.0 mm (M45) (evita fallo por cortante de rosca).</text>
+            <text x="22" y="78" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">  Carga de prueba mínima: Sp = 1 040 MPa sin barrido de filetes.</text>
+
+            <line x1="12" y1="90" x2="448" y2="90" stroke="#cbd5e1" stroke-width="1.0" />
+
+            <text x="12" y="110" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">• ARANDELA DE ALTA RESISTENCIA EN 14399-6:</text>
+            <text x="22" y="128" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="10">  Tratamiento térmico: Dureza 300 a 370 HV | Espesor h = 6.0 mm (chaflán interior a 45°).</text>
+            <text x="22" y="144" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">  Previene aplastamiento superficial del acero S355 de las bridas bajo precarga.</text>
+
+            <line x1="12" y1="156" x2="448" y2="156" stroke="#cbd5e1" stroke-width="1.0" />
+
+            <text x="12" y="176" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold">• FÓRMULA DE PAR DE APRIETE (VDI 2230 / SHIGLEY):</text>
+            <rect x="12" y="186" width="436" height="34" fill="#ffffff" stroke="#000000" stroke-width="1.0" rx="2" />
+            <text x="230" y="208" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold" text-anchor="middle">M_t = F_p · [ 0.16 · p + 0.58 · d_2 · μ + 0.5 · D_m · μ_w ]</text>
+
+            <text x="12" y="238" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Factor de fricción nominal: μ = μ_w = 0.14 (rosca lubricada con aceite mineral).</text>
+            <rect x="12" y="248" width="436" height="34" fill="#f1f5f9" stroke="#000000" stroke-width="1.0" rx="2" />
+            <text x="20" y="270" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold">M_t (M39) = 3 730 N·m (±4%) | M_t (M45) = 5 100 N·m (±4%) ✓</text>
+        </g>
+    </g>
+
+    <!-- PANEL INFERIOR: GRAN TABLA NORMALIZADA COMPARATIVA (x=40 a 990, y=635 a 815) -->
+    <g transform="translate(40, 635)">
+        <rect width="950" height="180" fill="#ffffff" stroke="#000000" stroke-width="2.0" rx="3" />
+        <rect width="950" height="30" fill="#f1f5f9" stroke="#000000" stroke-width="1.2" />
+        <text x="14" y="21" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold">CUADRO GENERAL DE ESPECIFICACIONES DE PERNOS ESTRUCTURALES DEL PROYECTO</text>
+
+        <g transform="translate(15, 40)">
+            <rect width="920" height="24" fill="#e2e8f0" stroke="#000000" stroke-width="1.0" />
+            <text x="8" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">MÉTRICA</text>
+            <text x="80" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">CLASE</text>
+            <text x="160" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">PASO p</text>
+            <text x="240" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">ÁREA A_s</text>
+            <text x="330" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">LÍMITE f_yb</text>
+            <text x="430" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">ROTURA f_ub</text>
+            <text x="540" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">PRECARGA F_p</text>
+            <text x="670" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">PAR M_t</text>
+            <text x="790" y="17" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">APLICACIÓN</text>
+
+            <!-- Fila M24 -->
+            <rect y="24" width="920" height="26" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8" />
+            <text x="8" y="42" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">M24</text>
+            <text x="80" y="42" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">8.8</text>
+            <text x="160" y="42" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">3.0 mm</text>
+            <text x="240" y="42" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">353 mm²</text>
+            <text x="330" y="42" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">640 MPa</text>
+            <text x="430" y="42" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">800 MPa</text>
+            <text x="540" y="42" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">197.68 kN</text>
+            <text x="670" y="42" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">690 N·m</text>
+            <text x="790" y="42" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">Consolas fachada</text>
+
+            <!-- Fila M39 -->
+            <rect y="50" width="920" height="26" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.8" />
+            <text x="8" y="68" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">M39</text>
+            <text x="80" y="68" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">10.9</text>
+            <text x="160" y="68" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">4.0 mm</text>
+            <text x="240" y="68" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">976 mm²</text>
+            <text x="330" y="68" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">900 MPa</text>
+            <text x="430" y="68" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">1 000 MPa</text>
+            <text x="540" y="68" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">683.20 kN</text>
+            <text x="670" y="68" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">3 730 N·m</text>
+            <text x="790" y="68" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">Tramos fuste S46</text>
+
+            <!-- Fila M45 -->
+            <rect y="76" width="920" height="26" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8" />
+            <text x="8" y="94" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">M45</text>
+            <text x="80" y="94" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">10.9</text>
+            <text x="160" y="94" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">4.5 mm</text>
+            <text x="240" y="94" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">1 306 mm²</text>
+            <text x="330" y="94" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">900 MPa</text>
+            <text x="430" y="94" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11">1 000 MPa</text>
+            <text x="540" y="94" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">914.20 kN</text>
+            <text x="670" y="94" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">5 100 N·m</text>
+            <text x="790" y="94" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">Tramos base TLS 70</text>
+        </g>
+    </g>
+
+    
+    <!-- CAJETÍN OFICIAL NORMALIZADO (ISO 7200 / UTP) - ALTA LEGIBILIDAD -->
+    <g id="cajetin-alta-legibilidad" transform="translate(1015, 835)">
+        <rect x="0" y="0" width="545" height="135" fill="#ffffff" stroke="#000000" stroke-width="2.5" />
+        <line x1="0" y1="36" x2="545" y2="36" stroke="#000000" stroke-width="1.2" />
+        <line x1="0" y1="72" x2="545" y2="72" stroke="#000000" stroke-width="1.2" />
+        <line x1="0" y1="104" x2="375" y2="104" stroke="#000000" stroke-width="1.2" />
+        <line x1="375" y1="0" x2="375" y2="135" stroke="#000000" stroke-width="1.2" />
+        <line x1="460" y1="72" x2="460" y2="135" stroke="#000000" stroke-width="1.2" />
+        
+        <text x="14" y="18" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold">UNIVERSIDAD TECNOLÓGICA DE PANAMÁ</text>
+        <text x="14" y="31" fill="#1e293b" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">FACULTAD DE INGENIERÍA INDUSTRIAL — GRUPO ISH-231</text>
+        
+        <text x="14" y="52" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="bold">PROYECTO: GRÚAS TORRE Hu = 85.00 m (EDIF. 80.00 m)</text>
+        <text x="14" y="66" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold">MODELOS: SAEZ S-46 (CÚSPIDE) vs. SAEZ TLS 70 12T (FLAT-TOP)</text>
+        
+        <text x="14" y="88" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">DOCENTE: <tspan fill="#000000" font-weight="bold">Prof. Ing. Eric Parker M. Sc.</tspan></text>
+        <text x="14" y="100" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">ESTUDIANTE: <tspan fill="#000000" font-weight="bold">Jaime M. Meneses (MBA / Ing. Ind.)</tspan></text>
+        
+        <text x="14" y="121" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="11">PLANO: <tspan fill="#000000" font-weight="bold">DETALLE GEOMÉTRICO PERNOS</tspan></text>
+        <text x="14" y="131" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5">OCTUBRE 2026 | UNIDADES: mm / m | NORMAS: ISO 128 / ISO 129</text>
+        
+        <text x="460" y="24" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">PL-06B</text>
+        <text x="460" y="34" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" text-anchor="middle">LÁMINA OFICIAL</text>
+        
+        <text x="417" y="90" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">ESCALA</text>
+        <text x="417" y="104" fill="#000000" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">S/E</text>
+        <text x="417" y="118" fill="#475569" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" text-anchor="middle">(Esquemática)</text>
+        
+        <text x="502" y="90" fill="#334155" font-family="'Segoe UI', Arial, sans-serif" font-size="9.5" text-anchor="middle">REVISIÓN</text>
+        <text x="502" y="105" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">REV 3</text>
+        <text x="502" y="120" fill="#15803d" font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" font-weight="bold" text-anchor="middle">ALTA LEGIBILIDAD</text>
+    </g>
+    
+</svg>

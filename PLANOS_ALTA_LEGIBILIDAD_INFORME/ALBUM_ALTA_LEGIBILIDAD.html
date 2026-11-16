@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbum de Planos Ejecutivos de Alta Legibilidad — UTP 2026</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --success: #15803d;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            padding: 24px;
+        }
+        header {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 28px 36px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .sub-header {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-top: 6px;
+        }
+        .header-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .meta-pill {
+            background: rgba(255,255,255,0.12);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+        .card-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+        }
+        .badge {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .sheet-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            flex: 1;
+        }
+        .img-container {
+            position: relative;
+            width: 100%;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .card:hover .overlay {
+            opacity: 1;
+        }
+        .card-body {
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+        }
+        .desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .metrics-pill {
+            background: #f1f5f9;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #0f172a;
+            font-weight: 600;
+            border-left: 3px solid var(--accent);
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+            padding-top: 8px;
+        }
+        .btn {
+            flex: 1;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            background: var(--accent);
+            color: #ffffff;
+            transition: background 0.15s;
+        }
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+        .btn-outline:hover {
+            background: #f1f5f9;
+        }
+        
+        /* MODAL FULLSCREEN ZOOM */
+        #modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 24px;
+        }
+        #modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: #ffffff;
+            border-radius: 12px;
+            max-width: 95vw;
+            max-height: 95vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+        }
+        .modal-header {
+            padding: 14px 20px;
+            background: var(--primary);
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 {
+            font-size: 16px;
+        }
+        .close-btn {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0 8px;
+        }
+        .modal-body {
+            flex: 1;
+            overflow: auto;
+            padding: 16px;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-body img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 4px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div>
+                <h1>ÁLBUM TÉCNICO DE PLANOS DE ALTA LEGIBILIDAD (REV 3)</h1>
+                <p class="sub-header">PROYECTO: GRÚAS TORRE Hu = 85.00 m (EDIF. 80.00 m) | UNIVERSIDAD TECNOLÓGICA DE PANAMÁ</p>
+            </div>
+            <div class="header-meta">
+                <span class="meta-pill">8 LÁMINAS NORMALIZADAS</span>
+                <span class="meta-pill">RESOLUCIÓN: 2800 × 1750 px</span>
+                <span class="meta-pill">TIPOGRAFÍA OPTIMIZADA</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid">
+        
+    <div class="card" onclick="openModal('PL-01_Alzado_General_y_Arriostramientos.png', 'PL-01: Alzado General, Altura Libre y Sistema de Arriostramientos')">
+        <div class="card-header">
+            <span class="badge">PL-01</span>
+            <span class="sheet-title">Alzado General, Altura Libre y Sistema de Arriostramientos</span>
+        </div>
+        <div class="img-container">
+            <img src="PL-01_Alzado_General_y_Arriostramientos.png" alt="PL-01" loading="lazy" />
+            <div class="overlay">
+                <span>🔍 Click para ampliar en Alta Resolución</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="desc">Comparativa de altura total (86.60 m), cota libre de veleta (5.40 m), niveles de arriostramiento en Pisos 10/18 (S-46) vs 12/20 (TLS 70) y voladizos superiores.</p>
+            <div class="metrics-pill">📊 Hu = 85.00 m | Radio 46 vs 70 m | FS vuelco ≥ 1.75 | V_veleta = 39.4 m/s</div>
+            <div class="actions">
+                <a href="PL-01_Alzado_General_y_Arriostramientos.png" target="_blank" class="btn" onclick="event.stopPropagation()">Abrir PNG (2800px)</a>
+                <a href="PL-01_Alzado_General_y_Arriostramientos.svg" target="_blank" class="btn btn-outline" onclick="event.stopPropagation()">Ver Vector SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card" onclick="openModal('PL-02_Despiece_Modular_Mastil.png', 'PL-02: Despiece y Modulación Dual del Mástil de Torre (86.60 m)')">
+        <div class="card-header">
+            <span class="badge">PL-02</span>
+            <span class="sheet-title">Despiece y Modulación Dual del Mástil de Torre (86.60 m)</span>
+        </div>
+        <div class="img-container">
+            <img src="PL-02_Despiece_Modular_Mastil.png" alt="PL-02" loading="lazy" />
+            <div class="overlay">
+                <span>🔍 Click para ampliar en Alta Resolución</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="desc">Modulación homogénea SAEZ S-46 (1.20 m con tramo base D-S52) vs. Modulación mixta optimizada SAEZ TLS 70 12T (1.70 m, Campana J de 10 m y tramos superiores de 1.20 m).</p>
+            <div class="metrics-pill">📊 Rigidez basal 4.03× mayor en TLS 70 | Flecha δ ≤ 170 mm | 8×M39 vs 16×M45</div>
+            <div class="actions">
+                <a href="PL-02_Despiece_Modular_Mastil.png" target="_blank" class="btn" onclick="event.stopPropagation()">Abrir PNG (2800px)</a>
+                <a href="PL-02_Despiece_Modular_Mastil.svg" target="_blank" class="btn btn-outline" onclick="event.stopPropagation()">Ver Vector SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card" onclick="openModal('PL-03_Cimentacion_Zapata_y_Pernos_Base.png', 'PL-03: Cimentación Primaria, Zapata y Pernos de Anclaje a Base')">
+        <div class="card-header">
+            <span class="badge">PL-03</span>
+            <span class="sheet-title">Cimentación Primaria, Zapata y Pernos de Anclaje a Base</span>
+        </div>
+        <div class="img-container">
+            <img src="PL-03_Cimentacion_Zapata_y_Pernos_Base.png" alt="PL-03" loading="lazy" />
+            <div class="overlay">
+                <span>🔍 Click para ampliar en Alta Resolución</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="desc">Dimensionamiento de zapatas (5.50×5.50×1.40 m en S-46 vs. 7.00×7.00×1.70 m en TLS 70), 16 pernos M45 (Grado 8.8 / 10.9), placa de fondo y comprobación al vuelco bajo Hipótesis III.</p>
+            <div class="metrics-pill">📊 S-46: Fd = 4.78 ≥ 1.50 | TLS 70: Fd = 3.42 ≥ 1.50 | FS vuelco = 2.56 / 1.866 ≥ 1.75</div>
+            <div class="actions">
+                <a href="PL-03_Cimentacion_Zapata_y_Pernos_Base.png" target="_blank" class="btn" onclick="event.stopPropagation()">Abrir PNG (2800px)</a>
+                <a href="PL-03_Cimentacion_Zapata_y_Pernos_Base.svg" target="_blank" class="btn btn-outline" onclick="event.stopPropagation()">Ver Vector SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card" onclick="openModal('PL-04_Arriostramientos_Fachada_Corbatas.png', 'PL-04: Sistema de Arriostramiento a Fachada — Corbatas y Puntales')">
+        <div class="card-header">
+            <span class="badge">PL-04</span>
+            <span class="sheet-title">Sistema de Arriostramiento a Fachada — Corbatas y Puntales</span>
+        </div>
+        <div class="img-container">
+            <img src="PL-04_Arriostramientos_Fachada_Corbatas.png" alt="PL-04" loading="lazy" />
+            <div class="overlay">
+                <span>🔍 Click para ampliar en Alta Resolución</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="desc">Niveles en Pisos 10 y 18 (S-46) vs Pisos 12 y 20 (TLS 70), análisis cinemático a 28.7° (+47.25% sobrecarga lateral), tubo CHS Ø168.3×10.0 mm y consolas con 4 pernos pasantes M24 8.8.</p>
+            <div class="metrics-pill">📊 Puntal Fd = 3.33 ≥ 1.50 | Consolas Fd = 3.15 ≥ 1.50 | Kθθ = 21 120 kN·m/rad</div>
+            <div class="actions">
+                <a href="PL-04_Arriostramientos_Fachada_Corbatas.png" target="_blank" class="btn" onclick="event.stopPropagation()">Abrir PNG (2800px)</a>
+                <a href="PL-04_Arriostramientos_Fachada_Corbatas.svg" target="_blank" class="btn btn-outline" onclick="event.stopPropagation()">Ver Vector SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card" onclick="openModal('PL-05_Criterios_Soldadura_WPS_y_NDT.png', 'PL-05: Criterios de Soldadura Estructural, Cordones y Matriz NDT')">
+        <div class="card-header">
+            <span class="badge">PL-05</span>
+            <span class="sheet-title">Criterios de Soldadura Estructural, Cordones y Matriz NDT</span>
+        </div>
+        <div class="img-container">
+            <img src="PL-05_Criterios_Soldadura_WPS_y_NDT.png" alt="PL-05" loading="lazy" />
+            <div class="overlay">
+                <span>🔍 Click para ampliar en Alta Resolución</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="desc">WPS normalizado SMAW/GMAW para cartelas base (W-01, a = 8.0 mm) y orejetas de corbata con momento torsor y flexión fuera del plano (W-02, a = 12.5 mm con bisel en K). Plan NDT ISO 5817 Nivel B.</p>
+            <div class="metrics-pill">📊 W-01: Fd = 1.90 ≥ 1.50 | W-02: Fd = 1.56 ≥ 1.50 | Prohibida soldadura en mástil</div>
+            <div class="actions">
+                <a href="PL-05_Criterios_Soldadura_WPS_y_NDT.png" target="_blank" class="btn" onclick="event.stopPropagation()">Abrir PNG (2800px)</a>
+                <a href="PL-05_Criterios_Soldadura_WPS_y_NDT.svg" target="_blank" class="btn btn-outline" onclick="event.stopPropagation()">Ver Vector SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card" onclick="openModal('PL-05B_Detalle_Geometrico_Garganta_Soldadura.png', 'PL-05B: Geometría, Cotas y Triedro Tensional de Garganta de Soldadura')">
+        <div class="card-header">
+            <span class="badge">PL-05B</span>
+            <span class="sheet-title">Geometría, Cotas y Triedro Tensional de Garganta de Soldadura</span>
+        </div>
+        <div class="img-container">
+            <img src="PL-05B_Detalle_Geometrico_Garganta_Soldadura.png" alt="PL-05B" loading="lazy" />
+            <div class="overlay">
+                <span>🔍 Click para ampliar en Alta Resolución</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="desc">Triangulación exacta a = c · cos 45°, Triedro tensional 3D (σ⊥, τ⊥, τ∥) según NBE-EA-95 Art. 3.6 y Eurocódigo 3, y prevención de desgarre laminar y fatiga.</p>
+            <div class="metrics-pill">📊 Relación a/c = 0.7071 | Von Mises modificado | Nivel de calidad ISO 5817 B</div>
+            <div class="actions">
+                <a href="PL-05B_Detalle_Geometrico_Garganta_Soldadura.png" target="_blank" class="btn" onclick="event.stopPropagation()">Abrir PNG (2800px)</a>
+                <a href="PL-05B_Detalle_Geometrico_Garganta_Soldadura.svg" target="_blank" class="btn btn-outline" onclick="event.stopPropagation()">Ver Vector SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card" onclick="openModal('PL-06_Uniones_Mecanicas_Empernadas.png', 'PL-06: Protocolos de Uniones Mecánicas, Pernos Clase 10.9 y Control')">
+        <div class="card-header">
+            <span class="badge">PL-06</span>
+            <span class="sheet-title">Protocolos de Uniones Mecánicas, Pernos Clase 10.9 y Control</span>
+        </div>
+        <div class="img-container">
+            <img src="PL-06_Uniones_Mecanicas_Empernadas.png" alt="PL-06" loading="lazy" />
+            <div class="overlay">
+                <span>🔍 Click para ampliar en Alta Resolución</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="desc">Ensamble de bridas maquinadas t = 55 mm, pernos M39 y M45 Clase 10.9, Diagrama de Rötscher VDI 2230 con rigidez km/kb ≥ 6.50 (vida infinita a fatiga) y protocolo de reapriete a 48 h.</p>
+            <div class="metrics-pill">📊 M39: Mt = 3 730 N·m (Fp = 683.2 kN) | M45: Mt = 5 100 N·m (Fp = 914.2 kN) | Δσ ≤ 40 MPa</div>
+            <div class="actions">
+                <a href="PL-06_Uniones_Mecanicas_Empernadas.png" target="_blank" class="btn" onclick="event.stopPropagation()">Abrir PNG (2800px)</a>
+                <a href="PL-06_Uniones_Mecanicas_Empernadas.svg" target="_blank" class="btn btn-outline" onclick="event.stopPropagation()">Ver Vector SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card" onclick="openModal('PL-06B_Detalle_Geometrico_Pernos_Estructurales.png', 'PL-06B: Detalle Métrico, Cotas y Mecánica de Pernos Clase 10.9')">
+        <div class="card-header">
+            <span class="badge">PL-06B</span>
+            <span class="sheet-title">Detalle Métrico, Cotas y Mecánica de Pernos Clase 10.9</span>
+        </div>
+        <div class="img-container">
+            <img src="PL-06B_Detalle_Geometrico_Pernos_Estructurales.png" alt="PL-06B" loading="lazy" />
+            <div class="overlay">
+                <span>🔍 Click para ampliar en Alta Resolución</span>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="desc">Geometría ISO 4014 / EN 14399-4 para tornillos hexagonales de alta resistencia M39x4 y M45x4.5, cono de compresión frustocónico, rosca métrica a 60° y tabla comparativa del proyecto.</p>
+            <div class="metrics-pill">📊 ISO 898-1 | Tuerca ISO 4032 Clase 10 | Arandela EN 14399-6 (300-370 HV)</div>
+            <div class="actions">
+                <a href="PL-06B_Detalle_Geometrico_Pernos_Estructurales.png" target="_blank" class="btn" onclick="event.stopPropagation()">Abrir PNG (2800px)</a>
+                <a href="PL-06B_Detalle_Geometrico_Pernos_Estructurales.svg" target="_blank" class="btn btn-outline" onclick="event.stopPropagation()">Ver Vector SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+    <div id="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="modal-title">Lámina Técnica</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modal-img" src="" alt="Zoom Lámina" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(src, title) {
+            document.getElementById('modal-img').src = src;
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+
+</body>
+</html>
