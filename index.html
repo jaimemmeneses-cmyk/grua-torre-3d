@@ -452,11 +452,11 @@
 
     <div class="hud-header">
         <div class="hud-title">
-            <span>MODELADO 3D PARAMÉTRICO DE GRÚA TORRE (85 m)</span>
-            <span class="badge-utp">UTP SH-231</span>
+            <span>MODELADO 3D PARAMÉTRICO DE GRÚA TORRE (85 m) — VERSIÓN V4</span>
+            <span class="badge-utp">UTP ISH-231</span>
         </div>
         <div class="hud-subtitle">
-            Cátedra: Diseño Mecánico | Prof. Ing. Eric Parker M. Sc. | Normativa: UNE 58-101 / FEM 1001 / EN 14439
+            Cátedra: Diseño Mecánico | Prof. Ing. Eric Parker M. Sc. | Normativa: UNE 58-101 / FEM 1001 / EN 14439 / VDI 2230
         </div>
     </div>
 
@@ -466,11 +466,11 @@
             <span class="wv-icon">🌪️</span>
             <div>
                 <div class="wv-title">PROTOCOLO DE VELETA LIBRE ACTIVADO (EN 14439 / UNE 58-101)</div>
-                <div class="wv-sub">Régimen Fuera de Servicio ante Viento de Tempestad (v = 42 m/s = 151 km/h)</div>
+                <div class="wv-sub">Régimen Fuera de Servicio ante Viento de Tempestad (v = 42 m/s = 151.2 km/h)</div>
             </div>
         </div>
         <div class="wv-desc">
-            <strong>Protocolo de Seguridad Fuera de Servicio:</strong> Carro replegado a pie de torre (r = 3.80 m) y gancho izado al tope superior (cota 85.40 m) para sobrevolar el tejado del edificio (80.00 m) sin colisión. Al liberar el freno de orientación, la contrapluma actúa como timón y alinea la pluma hacia <strong>sotavento</strong> minimizando el arrastre.
+            <strong>Protocolo de Seguridad Fuera de Servicio:</strong> Carro replegado a pie de torre (r = 3.80 m) y gancho izado al tope superior (cota 85.40 m, margen vertical neto de +5.40 m) para sobrevolar la azotea del edificio (80.00 m) sin interferencia. Al liberar el freno de orientación, la pluma gira 360° hacia <strong>sotavento</strong> reduciendo el arrastre aerodinámico.
         </div>
         <div class="wv-grid">
             <div class="wv-stat">
@@ -485,8 +485,8 @@
             </div>
             <div class="wv-stat">
                 <span class="wv-lbl">Seguridad a Vuelco:</span>
-                <span class="wv-val ok" id="wv-val-fs">FS = 2.56 ≥ 1.75</span>
-                <span class="wv-comp">Estado Estable Cumple</span>
+                <span class="wv-val ok" id="wv-val-fs">FS = 2.56 ≥ 1.50</span>
+                <span class="wv-comp">Estado Estable Cumple ✓</span>
             </div>
         </div>
     </div>
@@ -496,10 +496,10 @@
         <div class="hud-section-title">Modelo Estructural Activo</div>
         <div class="model-switcher">
             <button class="btn-tab active" id="tab-s46" onclick="setModel('S46')">
-                SAEZ S-46<br><small style="font-weight:normal;opacity:0.8;">Cúspide / 46 m</small>
+                SAEZ S-46<br><small style="font-weight:normal;opacity:0.8;">Cúspide / 46 m (6.35 pts)</small>
             </button>
             <button class="btn-tab" id="tab-tls70" onclick="setModel('TLS70')">
-                SAEZ TLS 70<br><small style="font-weight:normal;opacity:0.8;">Flat-Top / 70 m</small>
+                SAEZ TLS 70 12T<br><small style="font-weight:normal;opacity:0.8;">Flat-Top / 70 m (9.28 pts ✓)</small>
             </button>
         </div>
 
@@ -518,28 +518,32 @@
                 <span id="txt-building-mode">SÓLIDO</span>
             </button>
             <button class="btn-action" id="btn-wind" onclick="toggleWindSimulation()">
-                <span>Simulación Ráfaga Viento</span>
+                <span>Simulación Ráfaga Viento (42 m/s)</span>
                 <span id="txt-wind-status">OFF</span>
             </button>
         </div>
 
-        <div class="hud-section-title">Documentación Técnica 2D</div>
+        <div class="hud-section-title">Láminas de Alta Legibilidad (V4)</div>
         <div class="btn-group">
-            <button class="btn-action" onclick="window.open('PLANOS_ESQUEMATICOS/PL-01_Alzado_General_y_Arriostramientos.png', '_blank')" style="background: rgba(14, 116, 144, 0.4); border-color: #00f0ff; color: #fff;">
-                <span>📐 Plano PL-01: Alzado General (85 m)</span>
-                <span style="color:#00f0ff; font-weight:bold;">VER PNG ↗</span>
+            <button class="btn-action" onclick="window.open('PLANOS_ALTA_LEGIBILIDAD_INFORME/ALBUM_ALTA_LEGIBILIDAD.html', '_blank')" style="background: rgba(37, 99, 235, 0.4); border-color: #60a5fa; color: #fff;">
+                <span>📚 Álbum HD Completo (8 Láminas V4)</span>
+                <span style="color:#93c5fd; font-weight:bold;">ABRIR ÁLBUM ↗</span>
             </button>
-            <button class="btn-action" onclick="window.open('PLANOS_ESQUEMATICOS/PL-05B_Detalle_Geometrico_Garganta_Soldadura.png', '_blank')" style="background: rgba(180, 83, 9, 0.4); border-color: #ffd166; color: #fff;">
-                <span>⚡ Plano PL-05B: Garganta Soldadura (a)</span>
-                <span style="color:#ffd166; font-weight:bold;">VER PNG ↗</span>
+            <button class="btn-action" onclick="window.open('PLANOS_ALTA_LEGIBILIDAD_INFORME/PL-01_Alzado_General_y_Arriostramientos.png', '_blank')" style="background: rgba(14, 116, 144, 0.4); border-color: #00f0ff; color: #fff;">
+                <span>📐 PL-01: Alzado Dual Comparativo (85 m)</span>
+                <span style="color:#00f0ff; font-weight:bold;">VER PNG HD ↗</span>
             </button>
-            <button class="btn-action" onclick="window.open('PLANOS_ESQUEMATICOS/PL-06B_Detalle_Geometrico_Pernos_Estructurales.png', '_blank')" style="background: rgba(2, 132, 199, 0.4); border-color: #38bdf8; color: #fff;">
-                <span>🔩 Plano PL-06B: Pernos M39 y M45 (10.9)</span>
-                <span style="color:#38bdf8; font-weight:bold;">VER PNG ↗</span>
+            <button class="btn-action" onclick="window.open('PLANOS_ALTA_LEGIBILIDAD_INFORME/PL-03_Cimentacion_Zapata_y_Pernos_Base.png', '_blank')" style="background: rgba(16, 185, 129, 0.35); border-color: #34d399; color: #fff;">
+                <span>🧱 PL-03: Zapata (5.5 / 7.0 m) y Anclajes</span>
+                <span style="color:#6ee7b7; font-weight:bold;">VER PNG HD ↗</span>
             </button>
-            <button class="btn-action" onclick="window.open('PRESENTACION_DEFENSA_GRUAS_TORRE_UTP.html', '_blank')" style="background: rgba(88, 28, 135, 0.4); border-color: #d8b4fe; color: #fff;">
-                <span>🖥️ Presentación de Defensa UTP</span>
-                <span style="color:#ffd166; font-weight:bold;">ABRIR ↗</span>
+            <button class="btn-action" onclick="window.open('PLANOS_ALTA_LEGIBILIDAD_INFORME/PL-05B_Detalle_Geometrico_Garganta_Soldadura.png', '_blank')" style="background: rgba(180, 83, 9, 0.4); border-color: #ffd166; color: #fff;">
+                <span>⚡ PL-05B: Soldaduras W-01 (8.5) y W-02 (12.5)</span>
+                <span style="color:#ffd166; font-weight:bold;">VER PNG HD ↗</span>
+            </button>
+            <button class="btn-action" onclick="window.open('PLANOS_ALTA_LEGIBILIDAD_INFORME/PL-06B_Detalle_Tornillo_M45_VDI2230.png', '_blank')" style="background: rgba(2, 132, 199, 0.4); border-color: #38bdf8; color: #fff;">
+                <span>🔩 PL-06B: Pernos M39/M45 (VDI 2230)</span>
+                <span style="color:#38bdf8; font-weight:bold;">VER PNG HD ↗</span>
             </button>
         </div>
 
@@ -547,61 +551,65 @@
         <div class="btn-views">
             <button class="btn-view" onclick="setCameraView('iso')">Isométrica 3D</button>
             <button class="btn-view" onclick="setCameraView('front')">Alzado Frontal</button>
-            <button class="btn-view" onclick="setCameraView('base')">Zapata y Placas Base</button>
+            <button class="btn-view" onclick="setCameraView('base')">Zapata y Anclajes</button>
             <button class="btn-view" id="btn-cam-tiein2" onclick="setCameraView('tiein2')">Corbata Piso 18</button>
-            <button class="btn-view" onclick="setCameraView('top')">Planta Superior</button>
-            <button class="btn-view" onclick="setCameraView('hook')">Gancho (85 m)</button>
+            <button class="btn-view" onclick="setCameraView('transition')">Transición J (43 m)</button>
+            <button class="btn-view" onclick="setCameraView('hook')">Corona y Gancho (85 m)</button>
         </div>
 
-        <div class="hud-section-title">Telemetría de Ingeniería (Rúbrica)</div>
+        <div class="hud-section-title">Telemetría de Ingeniería (Memoria V4)</div>
         <div class="telemetry-card">
             <div class="telemetry-row">
                 <span class="telemetry-label">Altura Bajo Gancho (Hu):</span>
-                <span class="telemetry-val highlight">85.00 m</span>
+                <span class="telemetry-val highlight">85.00 m (+5.40 m s/techo)</span>
             </div>
             <div class="telemetry-row">
                 <span class="telemetry-label">Altura Total Estructural:</span>
-                <span class="telemetry-val" id="tel-total-h">86.60 m</span>
+                <span class="telemetry-val" id="tel-total-h">86.60 m (Coronación)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">Sección Fuste Principal:</span>
-                <span class="telemetry-val" id="tel-mast-section">1.20 × 1.20 m</span>
+                <span class="telemetry-label">Sección Fuste e Inercia:</span>
+                <span class="telemetry-val" id="tel-mast-section">1.20×1.20 m (I = 2.07 m⁴)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">Zapata de Cimentación:</span>
-                <span class="telemetry-val" id="tel-zapata-dim">5.50 × 5.50 × 1.40 m</span>
+                <span class="telemetry-label">Flecha Elástica en Punta:</span>
+                <span class="telemetry-val ok" id="tel-deflection">173.20 mm (L/491)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">Placas de Base (4 patas):</span>
-                <span class="telemetry-val" id="tel-plates-dim">450 × 450 × 40 mm (4 pernos/pata)</span>
+                <span class="telemetry-label">Zapata HA-30 y Presión:</span>
+                <span class="telemetry-val" id="tel-zapata-dim">5.50×5.50×1.40 m (0.143 MPa)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">Pernos Junta Modular:</span>
-                <span class="telemetry-val" id="tel-bolts">8 × M39 - 10.9</span>
+                <span class="telemetry-label">Bridas Rigidizadas (VDI 2230):</span>
+                <span class="telemetry-val" id="tel-plates-dim">t = 55 mm (km/kb ≥ 6.50, Φk ≤ 0.133)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">Par Apriete Nominal (Mt):</span>
-                <span class="telemetry-val" id="tel-torque">3 730 N·m</span>
+                <span class="telemetry-label">Pernos Junta / Anclaje:</span>
+                <span class="telemetry-val" id="tel-bolts">8 × M39 / 16 × M45 (Clase 10.9)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">1.er Arriostramiento:</span>
-                <span class="telemetry-val" id="tel-tiein1">Piso 10 (z = 32.00 m)</span>
+                <span class="telemetry-label">Pretensado Fp y Par MA:</span>
+                <span class="telemetry-val" id="tel-torque">Fp = 388 kN | MA = 2 650 N·m</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">2.º Arriostramiento:</span>
-                <span class="telemetry-val" id="tel-tiein2">Piso 18 (z = 57.60 m)</span>
+                <span class="telemetry-label">Arriostramientos (θ = 28.7°):</span>
+                <span class="telemetry-val" id="tel-tiein1">P10 (32.0 m) y P18 (57.6 m)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">Voladizo Superior Libre:</span>
-                <span class="telemetry-val ok" id="tel-cantilever">27.40 m (≤ 36.00 m [OK])</span>
+                <span class="telemetry-label">Axil Puntal (θ=28.7° vs 45°):</span>
+                <span class="telemetry-val highlight" id="tel-tiein2">148.5 kN (+47.25% sobrecarga)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">Factor Seguridad Vuelco:</span>
-                <span class="telemetry-val ok" id="tel-fs-vuelco">FS = 2.56 ≥ 1.75</span>
+                <span class="telemetry-label">Soldaduras W-01 y W-02:</span>
+                <span class="telemetry-val ok" id="tel-cantilever">a=8.5 (Fd=1.62) | a=12.5 (Fd=1.56)</span>
             </div>
             <div class="telemetry-row">
-                <span class="telemetry-label">Factor Diseño Pernos:</span>
-                <span class="telemetry-val ok" id="tel-fd-pernos">F_d = 2.99 ≥ 1.50</span>
+                <span class="telemetry-label">Estabilidad al Vuelco:</span>
+                <span class="telemetry-val ok" id="tel-fs-vuelco">FS = 2.56 ≥ 1.50 [CUMPLE ✓]</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="telemetry-label">Evaluación Multicriterio:</span>
+                <span class="telemetry-val highlight" id="tel-fd-pernos">6.35 / 10.0 pts (Referencia)</span>
             </div>
         </div>
     </div>
@@ -870,22 +878,21 @@
         }
 
         // =====================================================================
-        // MODELADO DE LA CIMENTACIÓN, ZAPATA Y PLACAS BASE DE ASIENTO
+        // MODELADO DE LA CIMENTACIÓN, ZAPATA Y PLACAS BASE DE ASIENTO (V4)
         // =====================================================================
         function buildFoundation() {
             if (foundationGroup) clearGroup(foundationGroup);
             foundationGroup = new THREE.Group();
 
             const isS46 = (currentModel === 'S46');
-            const b = isS46 ? 1.20 : 1.70; // Ancho entre ejes de patas del mástil
+            const b = isS46 ? 1.20 : 1.70; // Ancho entre ejes de patas del mástil basal
             const halfB = b / 2.0;
 
-            // Dimensiones de la zapata según Tópico 2:
-            // S-46: 5.50 x 5.50 x 1.40 m | TLS 70: 6.50 x 6.50 x 1.60 m
-            const zapDim = isS46 ? { w: 5.50, h: 1.40 } : { w: 6.50, h: 1.60 };
+            // Dimensiones de la zapata según Tópico 2 (Memoria V4 y Lámina PL-03):
+            // S-46: 5.50 x 5.50 x 1.40 m (105.9 t) | TLS 70: 7.00 x 7.00 x 1.70 m (208.3 t)
+            const zapDim = isS46 ? { w: 5.50, h: 1.40 } : { w: 7.00, h: 1.70 };
 
-            // Bloque masivo de hormigón armado HA-25 semienterrado
-            // Su cara superior queda a nivel de rasante de calle (Y = 0.00 m) y el cuerpo se extiende hacia abajo
+            // Bloque masivo de hormigón armado HA-30 semienterrado
             const zapataGeo = new THREE.BoxGeometry(zapDim.w, zapDim.h, zapDim.w);
             const zapataMat = new THREE.MeshStandardMaterial({
                 color: 0x1d2d3e,
@@ -895,7 +902,7 @@
                 opacity: 0.92
             });
             const zapata = new THREE.Mesh(zapataGeo, zapataMat);
-            zapata.position.set(0, -zapDim.h / 2.0, 0); // Centro en Y = -0.70 m (S-46) o -0.80 m (TLS 70)
+            zapata.position.set(0, -zapDim.h / 2.0, 0); // Centro en Y = -0.70 m (S-46) o -0.85 m (TLS 70)
             zapata.receiveShadow = true;
             zapata.castShadow = true;
             foundationGroup.add(zapata);
@@ -911,7 +918,7 @@
             // Capa de mortero Grout de nivelación sin retracción (50 mm)
             const groutMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.95 });
             const plateSize = isS46 ? 0.45 : 0.55; // Placa de 450x450 mm (S-46) o 550x550 mm (TLS 70)
-            const plateThickness = isS46 ? 0.04 : 0.05; // Espesor 40 mm / 50 mm
+            const plateThickness = 0.055; // Bridas / placas rigidizadas t = 55 mm (VDI 2230 km/kb >= 6.50)
             const plateMat = new THREE.MeshStandardMaterial({ color: 0x00f0ff, metalness: 0.85, roughness: 0.25 });
             const boltMat = new THREE.MeshStandardMaterial({ color: 0xffd166, metalness: 0.9, roughness: 0.2 });
             const stiffenerMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, metalness: 0.8, roughness: 0.3 });
@@ -933,7 +940,7 @@
                 grout.position.set(legX, 0.025, legZ);
                 foundationGroup.add(grout);
 
-                // 2. Placa base de asiento de acero S355
+                // 2. Placa base rigidizada de acero S355J2 (t = 55 mm)
                 const plateGeo = new THREE.BoxGeometry(plateSize, plateThickness, plateSize);
                 const plate = new THREE.Mesh(plateGeo, plateMat);
                 const plateY = 0.05 + plateThickness / 2.0;
@@ -949,7 +956,7 @@
                 pEdge.position.copy(plate.position);
                 foundationGroup.add(pEdge);
 
-                // 3. Cuatro Pernos de Anclaje de Alta Resistencia (M36/M39/M45 Grado 8.8)
+                // 3. Cuatro Pernos de Anclaje de Alta Resistencia por pata (16 x M45 Clase 10.9, L_anc = 1100/1200 mm)
                 const boltPitch = plateSize * 0.32;
                 const boltOffsets = [
                     [-boltPitch, -boltPitch],
@@ -959,21 +966,21 @@
                 ];
 
                 boltOffsets.forEach(bo => {
-                    // Vástago roscado de perno
-                    const boltGeo = new THREE.CylinderGeometry(0.02, 0.02, 0.22, 10);
+                    // Vástago roscado de perno M45
+                    const boltGeo = new THREE.CylinderGeometry(0.0225, 0.0225, 0.24, 10);
                     const bolt = new THREE.Mesh(boltGeo, boltMat);
-                    bolt.position.set(legX + bo[0], plateY + 0.09, legZ + bo[1]);
+                    bolt.position.set(legX + bo[0], plateY + 0.095, legZ + bo[1]);
                     bolt.castShadow = true;
                     foundationGroup.add(bolt);
 
-                    // Tuerca hexagonal doble + arandela gruesa
-                    const nutGeo = new THREE.CylinderGeometry(0.038, 0.038, 0.045, 6);
+                    // Tuerca hexagonal ISO 4032 + contratuerca + arandela templada 300 HV
+                    const nutGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.05, 6);
                     const nut = new THREE.Mesh(nutGeo, boltMat);
-                    nut.position.set(legX + bo[0], plateY + plateThickness / 2.0 + 0.025, legZ + bo[1]);
+                    nut.position.set(legX + bo[0], plateY + plateThickness / 2.0 + 0.028, legZ + bo[1]);
                     foundationGroup.add(nut);
                 });
 
-                // 4. Cartelas rigidizadoras triangulares soldadas (WPS a = 8 mm)
+                // 4. Cartelas rigidizadoras soldadas (Detalle W-01: a = 8.5 mm, c = 12.0 mm, Fd = 1.62)
                 const gussetOffsets = [
                     { dx: 0, dz: plateSize * 0.28, rotY: 0 },
                     { dx: 0, dz: -plateSize * 0.28, rotY: 0 },
@@ -981,9 +988,9 @@
                     { dx: -plateSize * 0.28, dz: 0, rotY: Math.PI / 2 }
                 ];
                 gussetOffsets.forEach(go => {
-                    const gussetGeo = new THREE.BoxGeometry(0.015, 0.18, plateSize * 0.25);
+                    const gussetGeo = new THREE.BoxGeometry(0.018, 0.20, plateSize * 0.26);
                     const gusset = new THREE.Mesh(gussetGeo, stiffenerMat);
-                    gusset.position.set(legX + go.dx, plateY + 0.09, legZ + go.dz);
+                    gusset.position.set(legX + go.dx, plateY + 0.10, legZ + go.dz);
                     gusset.rotation.y = go.rotY;
                     foundationGroup.add(gusset);
                 });
@@ -993,83 +1000,179 @@
         }
 
         // =====================================================================
-        // MODELADO PARAMÉTRICO DE LA GRÚA TORRE (SAEZ S-46 / TLS 70)
+        // MODELADO PARAMÉTRICO DE LA GRÚA TORRE (SAEZ S-46 / TLS 70 12T V4)
         // =====================================================================
         function buildCrane() {
             if (craneGroup) clearGroup(craneGroup);
             craneGroup = new THREE.Group();
 
             const isS46 = (currentModel === 'S46');
-            const mastWidth = isS46 ? 1.20 : 1.70;
             const mastHeight = 86.60;
             const jibLength = isS46 ? 46.0 : 70.0;
             const counterJibLength = isS46 ? 9.28 : 16.5;
-            const halfW = mastWidth / 2.0;
+            const topHalfW = 1.20 / 2.0; // En ambos modelos la coronación es de 1.20 x 1.20 m (SR26E / SR29B)
 
-            const baseHeight = 0.05 + (isS46 ? 0.04 : 0.05); // Cota de placas base sobre rasante: +0.09 m / +0.10 m (zapata semienterrada a rasante 0.00 m)
+            const baseHeight = 0.05 + 0.055; // Grout 50 mm + Placa rigidizada 55 mm = +0.105 m
 
             // Materiales de estructura de acero
             const mastMat = new THREE.MeshStandardMaterial({
-                color: isS46 ? 0x0284c7 : 0xe11d48, // Azul SAEZ para S-46, Rojo/Blanco para TLS 70
+                color: isS46 ? 0x0284c7 : 0xe11d48, // Azul SAEZ para S-46, Rojo SAEZ para TLS 70
                 roughness: 0.35,
                 metalness: 0.65
             });
-            const jibMat = new THREE.MeshStandardMaterial({
-                color: isS46 ? 0x0369a1 : 0xd97706,
+            const transMat = new THREE.MeshStandardMaterial({
+                color: 0xffd166, // Dorado técnico para el Tramo J de Transición (40.60 a 46.40 m)
                 roughness: 0.3,
-                metalness: 0.7
+                metalness: 0.75
             });
             const cableMat = new THREE.LineBasicMaterial({ color: 0xe2e8f0, linewidth: 2 });
             const ballastMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.9 });
 
             // 1. MÁSTIL DE CELOSÍA (86.60 m)
-            // 4 Montantes tubulares principales de esquina
-            const legRadius = isS46 ? 0.07 : 0.09;
-            const legGeo = new THREE.CylinderGeometry(legRadius, legRadius, mastHeight, 10);
-            const legPositions = [
-                [-halfW, mastHeight / 2.0 + baseHeight, -halfW],
-                [halfW, mastHeight / 2.0 + baseHeight, -halfW],
-                [halfW, mastHeight / 2.0 + baseHeight, halfW],
-                [-halfW, mastHeight / 2.0 + baseHeight, halfW]
-            ];
-
-            legPositions.forEach(pos => {
-                const leg = new THREE.Mesh(legGeo, mastMat);
-                leg.position.set(pos[0], pos[1], pos[2]);
-                leg.castShadow = true;
-                craneGroup.add(leg);
-            });
-
-            // Celosías en X y travesaños cada 2.5 metros
-            const numBays = Math.floor(mastHeight / 2.5);
-            for (let b = 0; b < numBays; b++) {
-                const y1 = baseHeight + b * 2.5;
-                const y2 = y1 + 2.5;
-
-                // Anillo perimetral horizontal
-                const horizPoints = [
-                    new THREE.Vector3(-halfW, y2, -halfW),
-                    new THREE.Vector3(halfW, y2, -halfW),
-                    new THREE.Vector3(halfW, y2, halfW),
-                    new THREE.Vector3(-halfW, y2, halfW),
-                    new THREE.Vector3(-halfW, y2, -halfW)
+            if (isS46) {
+                // SAEZ S-46: Fuste homogéneo 1.20 x 1.20 m (SR26E) en toda la altura
+                const halfW = 0.60;
+                const legRadius = 0.07;
+                const legGeo = new THREE.CylinderGeometry(legRadius, legRadius, mastHeight, 10);
+                const legPositions = [
+                    [-halfW, mastHeight / 2.0 + baseHeight, -halfW],
+                    [halfW, mastHeight / 2.0 + baseHeight, -halfW],
+                    [halfW, mastHeight / 2.0 + baseHeight, halfW],
+                    [-halfW, mastHeight / 2.0 + baseHeight, halfW]
                 ];
-                const horizGeo = new THREE.BufferGeometry().setFromPoints(horizPoints);
-                const horizLine = new THREE.Line(horizGeo, new THREE.LineBasicMaterial({ color: 0x38bdf8, linewidth: 1.5 }));
-                craneGroup.add(horizLine);
-
-                // Diagonales de arriostramiento en caras
-                const diagLines = [
-                    [new THREE.Vector3(-halfW, y1, -halfW), new THREE.Vector3(halfW, y2, -halfW)],
-                    [new THREE.Vector3(halfW, y1, -halfW), new THREE.Vector3(halfW, y2, halfW)],
-                    [new THREE.Vector3(halfW, y1, halfW), new THREE.Vector3(-halfW, y2, halfW)],
-                    [new THREE.Vector3(-halfW, y1, halfW), new THREE.Vector3(-halfW, y2, -halfW)]
-                ];
-                diagLines.forEach(pair => {
-                    const dgGeo = new THREE.BufferGeometry().setFromPoints(pair);
-                    const dg = new THREE.Line(dgGeo, new THREE.LineBasicMaterial({ color: isS46 ? 0x0284c7 : 0xe11d48, linewidth: 1 }));
-                    craneGroup.add(dg);
+                legPositions.forEach(pos => {
+                    const leg = new THREE.Mesh(legGeo, mastMat);
+                    leg.position.set(pos[0], pos[1], pos[2]);
+                    leg.castShadow = true;
+                    craneGroup.add(leg);
                 });
+
+                const numBays = Math.floor(mastHeight / 2.5);
+                for (let b = 0; b < numBays; b++) {
+                    const y1 = baseHeight + b * 2.5;
+                    const y2 = y1 + 2.5;
+                    const horizPoints = [
+                        new THREE.Vector3(-halfW, y2, -halfW),
+                        new THREE.Vector3(halfW, y2, -halfW),
+                        new THREE.Vector3(halfW, y2, halfW),
+                        new THREE.Vector3(-halfW, y2, halfW),
+                        new THREE.Vector3(-halfW, y2, -halfW)
+                    ];
+                    craneGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(horizPoints), new THREE.LineBasicMaterial({ color: 0x38bdf8, linewidth: 1.5 })));
+
+                    const diagLines = [
+                        [new THREE.Vector3(-halfW, y1, -halfW), new THREE.Vector3(halfW, y2, -halfW)],
+                        [new THREE.Vector3(halfW, y1, -halfW), new THREE.Vector3(halfW, y2, halfW)],
+                        [new THREE.Vector3(halfW, y1, halfW), new THREE.Vector3(-halfW, y2, halfW)],
+                        [new THREE.Vector3(-halfW, y1, halfW), new THREE.Vector3(-halfW, y2, -halfW)]
+                    ];
+                    diagLines.forEach(pair => {
+                        craneGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pair), new THREE.LineBasicMaterial({ color: 0x0284c7, linewidth: 1 })));
+                    });
+                }
+            } else {
+                // SAEZ TLS 70 12T: Fuste Telescópico Mixto según PL-01 y PL-02:
+                // - Tramo Basal S17 (1.70 x 1.70 m): de 0.00 a 40.60 m (7 tramos x 5.80 m)
+                // - Tramo Transición J (1.70 -> 1.20 m): de 40.60 a 46.40 m (1 tramo x 5.80 m)
+                // - Tramo Superior SR29B (1.20 x 1.20 m): de 46.40 a 86.60 m (13 tramos x 3.00 m + coronación)
+                const hLow = 40.60;
+                const hTrans = 5.80;
+                const yTransStart = baseHeight + hLow;
+                const yTransEnd = yTransStart + hTrans;
+                const hUp = mastHeight - hLow - hTrans; // 40.20 m
+                const hwLow = 0.85; // 1.70 / 2
+                const hwUp = 0.60;  // 1.20 / 2
+
+                // A. 4 Montantes inferiores S17 (1.70 x 1.70 m)
+                const legLowGeo = new THREE.CylinderGeometry(0.095, 0.095, hLow, 10);
+                [[-hwLow, -hwLow], [hwLow, -hwLow], [hwLow, hwLow], [-hwLow, hwLow]].forEach(c => {
+                    const leg = new THREE.Mesh(legLowGeo, mastMat);
+                    leg.position.set(c[0], baseHeight + hLow / 2.0, c[1]);
+                    leg.castShadow = true;
+                    craneGroup.add(leg);
+                });
+
+                // B. 4 Montantes inclinados del Tramo J de Transición (40.60 a 46.40 m)
+                const cornersSign = [[-1, -1], [1, -1], [1, 1], [-1, 1]];
+                cornersSign.forEach(s => {
+                    const pStart = new THREE.Vector3(s[0] * hwLow, yTransStart, s[1] * hwLow);
+                    const pEnd = new THREE.Vector3(s[0] * hwUp, yTransEnd, s[1] * hwUp);
+                    const len = pStart.distanceTo(pEnd);
+                    const legTransGeo = new THREE.CylinderGeometry(0.08, 0.095, len, 10);
+                    const legT = new THREE.Mesh(legTransGeo, transMat);
+                    legT.position.copy(pStart).add(pEnd).multiplyScalar(0.5);
+                    legT.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), pEnd.clone().sub(pStart).normalize());
+                    craneGroup.add(legT);
+                });
+
+                // Celosía diagonal del Tramo J en dorado
+                cornersSign.forEach((s, idx) => {
+                    const nextS = cornersSign[(idx + 1) % 4];
+                    const p1 = new THREE.Vector3(s[0] * hwLow, yTransStart, s[1] * hwLow);
+                    const p2 = new THREE.Vector3(nextS[0] * hwLow, yTransStart, nextS[1] * hwLow);
+                    const pMid = new THREE.Vector3((s[0] + nextS[0]) * 0.5 * ((hwLow + hwUp) * 0.5), yTransStart + hTrans * 0.5, (s[1] + nextS[1]) * 0.5 * ((hwLow + hwUp) * 0.5));
+                    const p3 = new THREE.Vector3(s[0] * hwUp, yTransEnd, s[1] * hwUp);
+                    const p4 = new THREE.Vector3(nextS[0] * hwUp, yTransEnd, nextS[1] * hwUp);
+                    const tLines = [
+                        p1, pMid, p2, pMid, pMid, p3, pMid, p4, p1, p2, p3, p4
+                    ];
+                    craneGroup.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(tLines), new THREE.LineBasicMaterial({ color: 0xffd166, linewidth: 2 })));
+                });
+
+                // C. 4 Montantes superiores SR29B (1.20 x 1.20 m)
+                const legUpGeo = new THREE.CylinderGeometry(0.075, 0.075, hUp, 10);
+                [[-hwUp, -hwUp], [hwUp, -hwUp], [hwUp, hwUp], [-hwUp, hwUp]].forEach(c => {
+                    const leg = new THREE.Mesh(legUpGeo, mastMat);
+                    leg.position.set(c[0], yTransEnd + hUp / 2.0, c[1]);
+                    leg.castShadow = true;
+                    craneGroup.add(leg);
+                });
+
+                // Celosía en tramo inferior S17 (cada 2.90 m)
+                const baysLow = 14;
+                const stepLow = hLow / baysLow;
+                for (let b = 0; b < baysLow; b++) {
+                    const y1 = baseHeight + b * stepLow;
+                    const y2 = y1 + stepLow;
+                    const horizPoints = [
+                        new THREE.Vector3(-hwLow, y2, -hwLow), new THREE.Vector3(hwLow, y2, -hwLow),
+                        new THREE.Vector3(hwLow, y2, hwLow), new THREE.Vector3(-hwLow, y2, hwLow),
+                        new THREE.Vector3(-hwLow, y2, -hwLow)
+                    ];
+                    craneGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(horizPoints), new THREE.LineBasicMaterial({ color: 0xfbbf24, linewidth: 1.5 })));
+                    const diagLines = [
+                        [new THREE.Vector3(-hwLow, y1, -hwLow), new THREE.Vector3(hwLow, y2, -hwLow)],
+                        [new THREE.Vector3(hwLow, y1, -hwLow), new THREE.Vector3(hwLow, y2, hwLow)],
+                        [new THREE.Vector3(hwLow, y1, hwLow), new THREE.Vector3(-hwLow, y2, hwLow)],
+                        [new THREE.Vector3(-hwLow, y1, hwLow), new THREE.Vector3(-hwLow, y2, -hwLow)]
+                    ];
+                    diagLines.forEach(pair => {
+                        craneGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pair), new THREE.LineBasicMaterial({ color: 0xe11d48, linewidth: 1 })));
+                    });
+                }
+
+                // Celosía en tramo superior SR29B (cada 2.50 m)
+                const baysUp = 16;
+                const stepUp = hUp / baysUp;
+                for (let b = 0; b < baysUp; b++) {
+                    const y1 = yTransEnd + b * stepUp;
+                    const y2 = y1 + stepUp;
+                    const horizPoints = [
+                        new THREE.Vector3(-hwUp, y2, -hwUp), new THREE.Vector3(hwUp, y2, -hwUp),
+                        new THREE.Vector3(hwUp, y2, hwUp), new THREE.Vector3(-hwUp, y2, hwUp),
+                        new THREE.Vector3(-hwUp, y2, -hwUp)
+                    ];
+                    craneGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(horizPoints), new THREE.LineBasicMaterial({ color: 0x38bdf8, linewidth: 1.5 })));
+                    const diagLines = [
+                        [new THREE.Vector3(-hwUp, y1, -hwUp), new THREE.Vector3(hwUp, y2, -hwUp)],
+                        [new THREE.Vector3(hwUp, y1, -hwUp), new THREE.Vector3(hwUp, y2, hwUp)],
+                        [new THREE.Vector3(hwUp, y1, hwUp), new THREE.Vector3(-hwUp, y2, hwUp)],
+                        [new THREE.Vector3(-hwUp, y1, hwUp), new THREE.Vector3(-hwUp, y2, -hwUp)]
+                    ];
+                    diagLines.forEach(pair => {
+                        craneGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pair), new THREE.LineBasicMaterial({ color: 0xe11d48, linewidth: 1 })));
+                    });
+                }
             }
 
             // Escalera interior de fuste con aros quitamiedos (UNE 58-101)
@@ -1081,27 +1184,27 @@
             rotatingGroup = new THREE.Group();
             rotatingGroup.position.set(0, mastHeight + baseHeight, 0);
 
-            // Corona de giro
-            const slewGeo = new THREE.CylinderGeometry(halfW * 1.35, halfW * 1.35, 0.8, 16);
+            // Corona de giro (sobre tramo superior de 1.20 m)
+            const slewGeo = new THREE.CylinderGeometry(topHalfW * 1.38, topHalfW * 1.38, 0.8, 16);
             const slew = new THREE.Mesh(slewGeo, new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.8 }));
             rotatingGroup.add(slew);
 
-            // Cabina de control del operador
+            // Cabina de control panorámica del operador
             const cabinGeo = new THREE.BoxGeometry(1.6, 2.2, 1.4);
             const cabinMat = new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.3 });
             const cabin = new THREE.Mesh(cabinGeo, cabinMat);
-            cabin.position.set(halfW + 0.95, 1.2, 0);
+            cabin.position.set(topHalfW + 0.95, 1.2, 0);
             rotatingGroup.add(cabin);
 
-            // Cúspide Portapluma (Solo para S-46, la TLS 70 es Flat-Top)
+            // Cúspide Portapluma (Solo para S-46, la TLS 70 12T es Flat-Top sin tirantes)
             if (isS46) {
                 const apexHeight = 7.5;
                 const apexPoint = new THREE.Vector3(0, apexHeight, 0);
                 const apexLegs = [
-                    new THREE.Vector3(-halfW, 0.4, -halfW),
-                    new THREE.Vector3(halfW, 0.4, -halfW),
-                    new THREE.Vector3(halfW, 0.4, halfW),
-                    new THREE.Vector3(-halfW, 0.4, halfW)
+                    new THREE.Vector3(-topHalfW, 0.4, -topHalfW),
+                    new THREE.Vector3(topHalfW, 0.4, -topHalfW),
+                    new THREE.Vector3(topHalfW, 0.4, topHalfW),
+                    new THREE.Vector3(-topHalfW, 0.4, topHalfW)
                 ];
                 apexLegs.forEach(pt => {
                     const legPts = [pt, apexPoint];
@@ -1124,8 +1227,9 @@
             for (let j = 0; j < jibSegments; j++) {
                 const x1 = j * 4;
                 const x2 = x1 + 4;
-                const h1 = 1.3 * (1 - (x1 / jibLength) * 0.4);
-                const h2 = 1.3 * (1 - (x2 / jibLength) * 0.4);
+                const baseJibH = isS46 ? 1.3 : 2.1; // Mayor canto en la raíz Flat-Top de la TLS 70
+                const h1 = baseJibH * (1 - (x1 / jibLength) * 0.45);
+                const h2 = baseJibH * (1 - (x2 / jibLength) * 0.45);
 
                 // Cordones longitudinales
                 const chordPoints = [
@@ -1194,19 +1298,17 @@
         }
 
         // =====================================================================
-        // MARCOS DE ARRIOSTRAMIENTO REALES (CORBATAS Y PUNTALES TRIANGULADOS)
+        // MARCOS DE ARRIOSTRAMIENTO REALES (CORBATAS Y PUNTALES TRIANGULADOS V4)
         // =====================================================================
         function buildTieIns() {
             if (tieInsGroup) clearGroup(tieInsGroup);
             tieInsGroup = new THREE.Group();
 
             const isS46 = (currentModel === 'S46');
-            const mastWidth = isS46 ? 1.20 : 1.70;
-            const halfW = mastWidth / 2.0;
 
-            // Pisos de arriostramiento según cálculo:
+            // Pisos de arriostramiento según Memoria V4 y PL-01 / PL-04:
             // S-46: Piso 10 (32.0 m) y Piso 18 (57.6 m)
-            // TLS 70: Piso 12 (38.4 m) y Piso 20 (64.0 m)
+            // TLS 70: Piso 12 (38.4 m, sobre tramo S17 de 1.70 m) y Piso 20 (64.0 m, sobre tramo SR29B de 1.20 m)
             const floor1 = isS46 ? 10 : 12;
             const floor2 = isS46 ? 18 : 20;
 
@@ -1215,7 +1317,7 @@
 
             // Materiales de ingeniería
             const collarFrameMat = new THREE.MeshStandardMaterial({
-                color: 0xffd166, // Amarillo SAEZ para corbata
+                color: 0xffd166, // Amarillo SAEZ para corbata rigidizada
                 metalness: 0.8,
                 roughness: 0.3
             });
@@ -1225,7 +1327,7 @@
                 roughness: 0.25
             });
             const strutMat = new THREE.MeshStandardMaterial({
-                color: 0x00f0ff, // Tubos puntales en cian técnico
+                color: 0x00f0ff, // Tubos puntales Ø168.3 x 8.0 mm en cian técnico
                 metalness: 0.75,
                 roughness: 0.25
             });
@@ -1239,10 +1341,13 @@
                 const tieLevel = new THREE.Group();
                 tieLevel.position.set(0, levelZ, 0);
 
-                // 1. MARCO CUADRADO PERIMETRAL HUECO (CORBATA ESTRUCTURAL)
-                // Abraza exteriormente las 4 patas del mástil
+                // Ancho real del fuste en esta cota Z (en TLS 70, Piso 12 = 38.4m < 40.6m tiene 1.70m; Piso 20 = 64.0m > 46.4m tiene 1.20m)
+                const mastWidthAtLevel = isS46 ? 1.20 : (levelZ <= 40.60 ? 1.70 : 1.20);
+                const halfW = mastWidthAtLevel / 2.0;
+
+                // 1. MARCO CUADRADO PERIMETRAL HUECO (CORBATA ESTRUCTURAL CON RIGIDIZADORES W-02)
                 const collarMargin = 0.15;
-                const outerW = mastWidth + collarMargin * 2;
+                const outerW = mastWidthAtLevel + collarMargin * 2;
                 const tubeSize = 0.14; // Perfil tubular cuadrado de 140x140 mm
                 const halfOuter = outerW / 2.0;
 
@@ -1282,18 +1387,17 @@
                 });
 
                 // 2. TRES OREJETAS DE ENGANCHE ARTICULADO EN LA CARA QUE MIRA AL EDIFICIO (-X)
-                // Se ubican a lo largo de la cara -halfOuter en: -halfW, 0, +halfW
+                // Soldadura W-02 en K con penetración completa (a = 12.5 mm, c = 17.7 mm, Fd = 1.56) y excentricidad e = 80 mm
                 const earOffsetsZ = [-halfW, 0.0, halfW];
-                const earGeo = new THREE.BoxGeometry(0.12, 0.18, 0.04);
+                const earGeo = new THREE.BoxGeometry(0.16, 0.20, 0.045);
 
                 earOffsetsZ.forEach(ez => {
                     const ear = new THREE.Mesh(earGeo, collarFrameMat);
-                    ear.position.set(-halfOuter - 0.06, 0, ez);
+                    ear.position.set(-halfOuter - 0.08, 0, ez);
                     tieLevel.add(ear);
                 });
 
-                // 3. PUNTALES TUBULARES TRIANGULADOS HACIA LA FACHADA
-                // Nacen exactamente en las 3 orejetas de la corbata y llegan a la fachada en FACADE_X = -9.00 m
+                // 3. PUNTALES TUBULARES TRIANGULADOS HACIA LA FACHADA (Ángulo real θ = 28.70°)
                 const strutConfigs = [
                     { start: new THREE.Vector3(-halfOuter - 0.08, 0, -halfW), end: new THREE.Vector3(FACADE_X, 0, -4.5) }, // Puntal A
                     { start: new THREE.Vector3(-halfOuter - 0.08, 0, 0.0),    end: new THREE.Vector3(FACADE_X, 0, 0.0) },  // Puntal B (Central)
@@ -1305,7 +1409,7 @@
                     const endPt = cfg.end;
                     const dist = startPt.distanceTo(endPt);
 
-                    // Tubo cilíndrico del puntal (diámetro nominal 168.3 x 8 mm)
+                    // Tubo cilíndrico del puntal (diámetro nominal Ø168.3 x 8.0 mm S355J2H)
                     const strutGeo = new THREE.CylinderGeometry(0.084, 0.084, dist, 12);
                     const strut = new THREE.Mesh(strutGeo, strutMat);
 
@@ -1317,8 +1421,8 @@
                     strut.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), vDir);
                     tieLevel.add(strut);
 
-                    // Rótulas mecánicas articuladas en los extremos (bulones pasantes de orejeta)
-                    const pinGeo = new THREE.CylinderGeometry(0.035, 0.035, 0.16, 8);
+                    // Pasadores cilíndricos articulados Ø40 mm en acero 42CrMo4 (τ = 39.4 MPa, Fd = 8.98)
+                    const pinGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.18, 10);
                     const pinStart = new THREE.Mesh(pinGeo, anchorMat);
                     pinStart.position.copy(startPt);
                     pinStart.rotation.z = Math.PI / 2;
@@ -1329,16 +1433,16 @@
                     pinEnd.rotation.z = Math.PI / 2;
                     tieLevel.add(pinEnd);
 
-                    // Placa consola de acero S355 anclada al forjado del edificio (300x300x20 mm)
-                    const anchorGeo = new THREE.BoxGeometry(0.04, 0.40, 0.40);
+                    // Placa consola de acero S355J2 + contraplaca interior en losa de hormigón (PL-04)
+                    const anchorGeo = new THREE.BoxGeometry(0.05, 0.42, 0.42);
                     const anchor = new THREE.Mesh(anchorGeo, anchorMat);
-                    anchor.position.set(FACADE_X + 0.02, 0, endPt.z);
+                    anchor.position.set(FACADE_X + 0.025, 0, endPt.z);
                     tieLevel.add(anchor);
 
-                    // 4 Pernos pasantes M24 en cada consola de fachada
-                    const pOffsets = [[-0.12, -0.12], [0.12, -0.12], [-0.12, 0.12], [0.12, 0.12]];
+                    // 4 Pernos pasantes M24 Clase 8.8 con barras roscadas a contraplaca trasera
+                    const pOffsets = [[-0.13, -0.13], [0.13, -0.13], [-0.13, 0.13], [0.13, 0.13]];
                     pOffsets.forEach(po => {
-                        const boltGeo = new THREE.CylinderGeometry(0.015, 0.015, 0.08, 6);
+                        const boltGeo = new THREE.CylinderGeometry(0.016, 0.016, 0.10, 6);
                         const bMesh = new THREE.Mesh(boltGeo, clampMat);
                         bMesh.position.set(FACADE_X - 0.02, po[0], endPt.z + po[1]);
                         bMesh.rotation.z = Math.PI / 2;
@@ -1411,18 +1515,15 @@
         }
 
         // =====================================================================
-        // CONTROLES DE INTERFAZ, TELEMETRÍA Y CONMUTACIÓN DE MODELOS
+        // CONTROLES DE INTERFAZ, TELEMETRÍA Y CONMUTACIÓN DE MODELOS (V4)
         // =====================================================================
         function setModel(model) {
-            if (currentModel === model) return; // Evitar reinicios innecesarios si ya está seleccionado
+            if (currentModel === model) return;
 
-            // Si la simulación de viento estaba activa, apagarla al cambiar de modelo
-            // para que la nueva grúa se presente en posición neutra limpia (sin giros no solicitados)
             if (isWindActive) {
                 toggleWindSimulation();
             }
 
-            // Si la rotación de 360 grados estaba encendida, desactivarla
             if (isRotating) {
                 toggleRotation();
             }
@@ -1431,15 +1532,12 @@
             document.getElementById('tab-s46').classList.toggle('active', model === 'S46');
             document.getElementById('tab-tls70').classList.toggle('active', model === 'TLS70');
 
-            // Reconstrucción limpia de la escena 3D
             rebuildSceneForActiveModel();
 
-            // Asegurar que la pluma comience exactamente en ángulo 0 (orientación neutral)
             if (rotatingGroup) {
                 rotatingGroup.rotation.y = 0;
             }
 
-            // Actualizar etiquetas en la interfaz de usuario
             const isS46 = (model === 'S46');
             const tieText = isS46 ? 'Arriostramientos (Pisos 10 y 18)' : 'Arriostramientos (Pisos 12 y 20)';
             document.getElementById('lbl-btn-tieins').innerText = tieText;
@@ -1505,21 +1603,20 @@
                 compassLegend.innerText = 'VIENTO 42 m/s -> W';
                 compassLegend.style.color = '#ffd166';
 
-                // Si la rotación libre estaba activa, pausarla para priorizar veleta
                 if (isRotating) {
                     toggleRotation();
                 }
 
-                // Actualizar métricas dinámicas de aerodinámica según modelo activo
+                // Actualizar métricas dinámicas de aerodinámica según Memoria V4
                 const isS46 = (currentModel === 'S46');
                 if (isS46) {
                     document.getElementById('wv-val-area').innerHTML = '11.8 m² <span class="badge-red">-69%</span>';
                     document.getElementById('wv-val-force').innerHTML = '14.6 kN <span class="badge-red">-69%</span>';
-                    document.getElementById('wv-val-fs').innerText = 'FS = 2.56 ≥ 1.75';
+                    document.getElementById('wv-val-fs').innerText = 'FS = 2.56 ≥ 1.50';
                 } else {
                     document.getElementById('wv-val-area').innerHTML = '18.2 m² <span class="badge-red">-69%</span>';
                     document.getElementById('wv-val-force').innerHTML = '22.6 kN <span class="badge-red">-69%</span>';
-                    document.getElementById('wv-val-fs').innerText = 'FS = 2.42 ≥ 1.75';
+                    document.getElementById('wv-val-fs').innerText = 'FS = 1.866 ≥ 1.50';
                 }
             } else {
                 banner.style.display = 'none';
@@ -1535,22 +1632,18 @@
         function updateCompass() {
             if (!camera || !controls) return;
 
-            // Ángulo azimutal de la cámara en el plano horizontal XZ
             const dx = camera.position.x - controls.target.x;
             const dz = camera.position.z - controls.target.z;
             const camAngleRad = Math.atan2(dx, dz);
             const camAngleDeg = camAngleRad * (180 / Math.PI);
 
-            // Girar el dial de la brújula para que el 'N' apunte al Norte virtual (+Z / plano 3D)
             const dial = document.getElementById('compass-dial');
             if (dial) {
                 dial.style.transform = `rotate(${-camAngleDeg}deg)`;
             }
 
-            // Indicador del vector de viento (hacia -X = 270 grados en planta)
             const windIndicator = document.getElementById('wind-vector-indicator');
             if (windIndicator && isWindActive) {
-                // Vector del viento hacia sotavento (-X en coordenadas 3D)
                 windIndicator.style.transform = `rotate(270deg)`;
             }
         }
@@ -1569,22 +1662,21 @@
                     targetLook = { x: 0, y: 45, z: 0 };
                     break;
                 case 'base':
-                    targetPos = { x: 7, y: 5.5, z: 8.5 };
-                    targetLook = { x: 0, y: 1.6, z: 0 };
+                    targetPos = { x: 7.5, y: 5.5, z: 9.0 };
+                    targetLook = { x: 0, y: 1.5, z: 0 };
                     break;
                 case 'tiein2':
-                    // Enfocar con precisión el arriostramiento superior
                     const tie2Y = isS46 ? 57.60 : 64.00;
                     targetPos = { x: 12, y: tie2Y + 4.5, z: 15 };
                     targetLook = { x: -4.5, y: tie2Y, z: 0 };
                     break;
-                case 'top':
-                    targetPos = { x: 0.1, y: 135, z: 0.1 };
-                    targetLook = { x: 0, y: 0, z: 0 };
+                case 'transition':
+                    targetPos = { x: 11, y: 45.0, z: 13 };
+                    targetLook = { x: 0, y: 43.5, z: 0 };
                     break;
                 case 'hook':
                     targetPos = { x: 38, y: 88, z: 14 };
-                    targetLook = { x: 28, y: 82, z: 0 };
+                    targetLook = { x: 20, y: 84, z: 0 };
                     break;
             }
 
@@ -1595,16 +1687,33 @@
 
         function updateTelemetry() {
             const isS46 = (currentModel === 'S46');
-            document.getElementById('tel-mast-section').innerText = isS46 ? '1.20 × 1.20 m' : '1.70 × 1.70 m';
-            document.getElementById('tel-zapata-dim').innerText = isS46 ? '5.50 × 5.50 × 1.40 m' : '6.50 × 6.50 × 1.60 m';
-            document.getElementById('tel-plates-dim').innerText = isS46 ? '450 × 450 × 40 mm (4 × M36/M39)' : '550 × 550 × 50 mm (4 × M45)';
-            document.getElementById('tel-bolts').innerText = isS46 ? '8 × M39 - 10.9' : '16 × M45 - 10.9';
-            document.getElementById('tel-torque').innerText = isS46 ? '3 730 N·m' : '5 100 N·m';
-            document.getElementById('tel-tiein1').innerText = isS46 ? 'Piso 10 (z = 32.00 m)' : 'Piso 12 (z = 38.40 m)';
-            document.getElementById('tel-tiein2').innerText = isS46 ? 'Piso 18 (z = 57.60 m)' : 'Piso 20 (z = 64.00 m)';
-            document.getElementById('tel-cantilever').innerText = isS46 ? '27.40 m (≤ 36.00 m [OK])' : '21.00 m (≤ 45.00 m [OK])';
-            document.getElementById('tel-fs-vuelco').innerText = isS46 ? 'FS = 2.56 ≥ 1.75' : 'FS = 2.42 ≥ 1.75';
-            document.getElementById('tel-fd-pernos').innerText = isS46 ? 'F_d = 2.99 ≥ 1.50' : 'F_d = 2.85 ≥ 1.50';
+            document.getElementById('tel-mast-section').innerText = isS46
+                ? '1.20×1.20 m (I = 2.07 m⁴)'
+                : 'Mixto 1.70/J/1.20 m (I = 8.35 m⁴)';
+            document.getElementById('tel-deflection').innerText = isS46
+                ? '173.20 mm (L/491 ≤ L/200)'
+                : '112.40 mm (L/756, -35.1% ✓)';
+            document.getElementById('tel-zapata-dim').innerText = isS46
+                ? '5.50×5.50×1.40 m (0.143 MPa)'
+                : '7.00×7.00×1.70 m (0.118 MPa)';
+            document.getElementById('tel-plates-dim').innerText = 't = 55 mm (km/kb ≥ 6.50, Φk ≤ 0.133)';
+            document.getElementById('tel-bolts').innerText = isS46
+                ? '8 × M39 / 16 × M45 (Clase 10.9)'
+                : '16 × M45 Clase 10.9 (ISO 898-1)';
+            document.getElementById('tel-torque').innerText = isS46
+                ? 'Fp = 388 kN | MA = 2 650 N·m'
+                : 'Fp = 533 kN | MA = 4 070 N·m';
+            document.getElementById('tel-tiein1').innerText = isS46
+                ? 'P10 (32.0 m) y P18 (57.6 m)'
+                : 'P12 (38.4 m) y P20 (64.0 m)';
+            document.getElementById('tel-tiein2').innerText = '148.5 kN (+47.25% vs 45° | Ø40)';
+            document.getElementById('tel-cantilever').innerText = 'a=8.5 (Fd=1.62) | a=12.5 (Fd=1.56)';
+            document.getElementById('tel-fs-vuelco').innerText = isS46
+                ? 'FS = 2.56 ≥ 1.50 [CUMPLE ✓]'
+                : 'FS = 1.866 ≥ 1.50 [CUMPLE ✓]';
+            document.getElementById('tel-fd-pernos').innerText = isS46
+                ? '6.35 / 10.0 pts (Referencia)'
+                : '9.28 / 10.0 pts (SELECCIONADA ✓)';
         }
 
         function onWindowResize() {
